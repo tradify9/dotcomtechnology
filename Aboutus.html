@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Dotcomtechnologies</title>
+    <link rel="icon" type="image/png" href="https://i.ibb.co/YBN3svcb/LOGO-logo-dot.png">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Verdana', sans-serif;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: all .3s ease;
+        }
+         :root {
+    --primary-color: #ec9c09; /* Green */
+    --secondary-color: #be185d; /* Pink */
+    --accent-color: #ec9c09; /* Darker green */
+    --light-color: #f7f7f7;
+    --dark-color: #333;
+    --gray-color: #666;
+}
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f3e8f1, #d4f4e2);
+        }
+
+        section {
+            padding: 3rem 9%;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 4.5rem;
+            color: #333;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            background: rgba(233, 30, 99, .05);
+            border-radius: .5rem;
+        }
+
+        .heading span {
+            color: #e91e63;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            border-radius: .5rem;
+            border: .2rem solid #4caf50;
+            font-weight: 600;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #4caf50;
+            background: #fff;
+            padding: 1rem 3.5rem;
+            box-shadow: 0 .3rem .5rem rgba(0, 0, 0, .1);
+        }
+
+        .btn:hover {
+            background: #e91e63;
+            color: #fff;
+            border-color: #e91e63;
+            transform: translateY(-2px);
+        }
+
+        .header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: #fff;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-1 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem 9%;
+        }
+
+        .header .icons div {
+            font-size: 2.5rem;
+            margin-left: 2rem;
+            color: #4caf50;
+            cursor: pointer;
+        }
+
+        .header .icons div:hover {
+            color: #e91e63;
+        }
+
+        .header-2 {
+            background: linear-gradient(135deg, #ec9c09, #ec9c09);
+            padding: 1rem 5%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
+            position: relative;
+        }
+
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .navbar a,
+        .dropbtn {
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.6rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .navbar a:hover,
+        .dropbtn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 110%;
+            left: 0;
+            background-color: #fff;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, .15);
+            border-radius: 8px;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 0.8rem 1rem;
+            display: block;
+            font-size: 1.5rem;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f3e8f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Mobile Menu Styles */
+        #menu-btn {
+            display: none;
+            font-size: 2.5rem;
+            color: #f5f1f1;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 250px;
+            height: 100%;
+            background: #27e761;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, .2);
+            z-index: 1001;
+            transition: right .3s ease;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu a,
+        .mobile-menu .dropbtn {
+            display: block;
+            color: #fff;
+            font-size: 1.8rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu .dropbtn:hover {
+            color: #e91e63;
+        }
+
+        .mobile-menu .dropdown-content {
+            display: none;
+            position: static;
+            background: #1a1a1a;
+            box-shadow: none;
+            padding-left: 1rem;
+        }
+
+        .mobile-menu .dropdown-content a {
+            font-size: 1.6rem;
+            padding: 0.8rem 0;
+            color: #ccc;
+        }
+
+        .mobile-menu .dropdown-content a:hover {
+            color: #e91e63;
+        }
+
+        .mobile-menu .dropdown.active .dropdown-content {
+            display: block;
+        }
+
+        .about {
+            background: #fff;
+            padding: 4rem;
+            border-radius: 1rem;
+            box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+            margin: 3rem 0;
+        }
+
+        .about h3 {
+            font-size: 2.8rem;
+            color: #4caf50;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+        }
+
+        .about p {
+            font-size: 1.6rem;
+            color: #555;
+            line-height: 2.8rem;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .about .image {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .about .image img {
+            width: 400px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 1rem;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+        }
+
+        .about .quote {
+            font-size: 2.2rem;
+            font-style: italic;
+            color: #e91e63;
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(233, 30, 99, .05);
+            border-left: .5rem solid #4caf50;
+            border-radius: .5rem;
+        }
+
+        .about .quote span {
+            display: block;
+            font-size: 1.6rem;
+            color: #333;
+            margin-top: 1.5rem;
+        }
+
+        .about .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .about .features .feature {
+            background: #f9fafb;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 .3rem .8rem rgba(0, 0, 0, .1);
+        }
+
+        .about .features .feature img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border-radius: .5rem;
+        }
+
+        .about .features .feature h4 {
+            font-size: 2rem;
+            color: #4caf50;
+            margin-bottom: 1rem;
+        }
+
+        .about .features .feature p {
+            font-size: 1.4rem;
+            color: #666;
+            line-height: 2rem;
+        }
+
+        .about .bulk-order img {
+            width: 200px;
+            height: 150px;
+            object-fit: contain;
+            border-radius: .5rem;
+        }
+
+        /* Centered Content Below Quote */
+        .about .centered-content {
+            text-align: center;
+        }
+
+        .about .centered-content p,
+        .about .centered-content h3 {
+            text-align: center;
+        }
+
+        .about .centered-content .image {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about .centered-content .btn {
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+       
+
+        .footer .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 2rem;
+        }
+
+        .footer .box-container .box h3 {
+            font-size: 2.4rem;
+            color: #4caf50;
+            padding: 1rem 0;
+        }
+
+        .footer .box-container .box a {
+            display: block;
+            font-size: 1.5rem;
+            color: #666;
+            padding: 1rem 0;
+        }
+
+        .footer .box-container .box a i {
+            color: #e91e63;
+            padding-right: .5rem;
+        }
+
+        .footer .box-container .box a:hover {
+            color: #e91e63;
+            transform: translateX(5px);
+        }
+
+        .footer .box-container .box .map {
+            width: 100%;
+            border-radius: .5rem;
+        }
+
+        .footer .share {
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer .share a {
+            height: 5rem;
+            width: 5rem;
+            line-height: 5rem;
+            font-size: 2rem;
+            color: #fff;
+            background: #4caf50;
+            margin: 0 .3rem;
+            border-radius: 50%;
+        }
+
+        .footer .share a:hover {
+            background: #e91e63;
+            transform: scale(1.1);
+        }
+
+        .footer .credit {
+            padding: 2rem;
+            text-align: center;
+            font-size: 2rem;
+            color: #666;
+            border-top: .1rem solid rgba(0, 0, 0, .1);
+        }
+
+        .footer .credit span {
+            color: #e91e63;
+        }
+
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10000;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+        }
+
+        .loader-container.fade-out {
+            top: -120%;
+        }
+
+        @media (max-width: 991px) {
+            html {
+                font-size: 55%;
+            }
+            section {
+                padding: 2rem 5%;
+            }
+            .header-1 {
+                padding: 2rem 5%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                display: none;
+            }
+            #menu-btn {
+                display: inline-block;
+            }
+            .about .features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 450px) {
+            html {
+                font-size: 50%;
+            }
+            .heading {
+                font-size: 3.5rem;
+            }
+            .about .image img {
+                width: 300px;
+                height: 225px;
+            }
+            .about .bulk-order img {
+                width: 150px;
+                height: 112.5px;
+            }
+            .about {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+   <header class="header">
+        <div class="header-1">
+            <a href="./index.html"><img src="https://i.ibb.co/YBN3svcb/LOGO-logo-dot.png" alt="Logo" class="logo" height="100"></a>
+            <div class="icons">
+                <div id="menu-btn" class="fas fa-bars"></div>
+            </div>
+        </div>
+        <div class="header-2">
+            <nav class="navbar" id="navbar">
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Shop by Category</button>
+                    <div class="dropdown-content">
+                              <a href="index.html#classbook">Electronic</a>
+        <!-- <a href="index.html#classbook">Men fashion</a>
+        <a href="index.html#classbook">Women fashion</a>
+         <a href="index.html#classbook">Home Fashion</a>
+          <a href="index.html#classbook">Copper COllection</a>   -->
+           </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">More</button>
+                    <div class="dropdown-content">
+                        <a href="Aboutus.html">About us</a>
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <a href="support.html">Support</a>
+            </nav>
+            <!-- Mobile Menu -->
+            <div class="mobile-menu" id="mobile-menu">
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Shop by Category</button>
+                    <div class="dropdown-content">
+                        <!-- <a href="index.html#category">Ad</a> -->
+                       
+                        <li><a class="dropdown-item" href="#" data-category="Electronics">Electronics</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Crocs">Crocs</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Women's Fashion">Women's Fashion</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Home Appliances">Home Appliances</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Copper Collection">Copper Collection</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Kids Styling">Kids Styling</a></li>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">More</button>
+                    <div class="dropdown-content">
+                        <a href="Aboutus.html">About us</a>
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <a href="support.html">Support</a>
+            </div>
+        </div>
+    </header>
+<!-- about us section -->
+<section class="about" id="about-us">
+  <h1 class="heading">About <span>Us</span></h1>
+  <div class="content">
+    <h3>Our Story</h3>
+    <p>
+      We are a trusted leader in the <strong>electronics and smart technology</strong> industry, driving innovation across India through high-quality <strong>consumer electronics and advanced tech solutions</strong>. With operations spanning over 12 states, we aim to bring reliable and future-ready technology to every user.
+      <br><br>
+      At <strong>dotcomtechnology</strong>, we specialize in <strong>manufacturing, distribution, and digital integration</strong> of electronic products such as <strong>LED lights, electric kettles, steam irons, and digital accessories</strong>. Our focus is on combining durability, performance, and innovation to make technology more efficient and accessible.
+      <br><br>
+      From energy-efficient devices to IoT-enabled smart systems, we are building a future where innovation and quality define everyday technology experiences.
+    </p>
+
+    <h3>Why Choose Us</h3>
+    <div class="features">
+      <div class="feature">
+        <img src="https://cdn.dca-design.com/uploads/images/_listing_small/245741/Web_Electronics_003.webp?v=1749030559" alt="Wide Product Range">
+        <h4>End-to-End Electronics Solutions</h4>
+        <p>From product design and manufacturing to distribution and after-sales support — we handle every process with precision and expertise.</p>
+      </div>
+
+      <div class="feature">
+        <img src="https://media.istockphoto.com/id/1787992755/vector/accept-like-thumbs-thik-check-accept-thumbs-icon.jpg?s=612x612&w=0&k=20&c=eiGotzFDnTpZ3pbQgyrX56x1Z_rbxWRovzT5YUGyKuA=" alt="Affordable Pricing">
+        <h4>Affordable & Reliable Products</h4>
+        <p>We deliver high-performance electronic products at competitive prices, ensuring premium quality and long-term reliability.</p>
+      </div>
+
+      <div class="feature">
+        <img src="https://cdn.prod.website-files.com/650abfbd5bf4d19bcbe2bf85/667eaed80ebf3a21c0de712e_Data-Driven%20Innovation%20Discover%20New%20Possibilities%20in%20Your%20Data.jpg" alt="Innovative Technology">
+        <h4>Innovation-Driven Technology</h4>
+        <p>Our R&D team focuses on innovation — integrating AI, automation, and energy efficiency into next-generation electronic solutions.</p>
+      </div>
+    </div>
+
+    <div class="quote">
+      “Empowering modern living through innovation and technology.” <span>— dotcomtechnology Electronics</span>
+    </div>
+
+    <div class="centered-content">
+      <p>Join us in redefining the future of electronics with smart, sustainable, and high-performance products.</p>
+      <h3>Looking for Bulk or B2B Solutions?</h3>
+      <p>We supply customized electronic products and bulk solutions for distributors, corporates, and resellers across India.</p>
+      <div class="image bulk-order">
+        <img src="https://i.ibb.co/YBN3svcb/LOGO-logo-dot.png" alt="dotcomtechnology Logo">
+      </div>
+      <a href="bulkorder.html" class="btn">Get Started</a>
+    </div>
+  </div>
+</section>
+
+
+
+
+    <!-- footer section -->
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>Our Locations</h3>
+                <a href="#">
+                    <img src="https://i.ibb.co/YBN3svcb/LOGO-logo-dot.png" alt="Company Logo" style="width: 100px; height: auto;">
+                </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> India </a>
+            </div>
+            <div class="box">
+                <h3>Quick Links</h3>
+                <a href="index.html"> <i class="fas fa-arrow-right"></i> Home </a>
+                <a href="index.html#classbook" class="d-flex align-items-center mb-2"><i class="fas fa-arrow-right me-2"></i> All Subjects </a>
+                <a href="index.html#allclass" class="d-flex align-items-center mb-2"><i class="fas fa-arrow-right me-2"></i> Classes </a>
+                <a href="bulkorder.html"> <i class="fas fa-arrow-right"></i> Bulk Order </a>
+                <a href="contact.html"> <i class="fas fa-arrow-right"></i> Contact </a>
+                <a href="Aboutus.html"> <i class="fas fa-arrow-right"></i> About Us </a>
+            </div>
+            <div class="box">
+                <h3>Extra Links</h3>
+                <a href="./privacy-policy.html"> <i class="fas fa-arrow-right"></i> Privacy Policy </a>
+                <a href="./refund.html"> <i class="fas fa-arrow-right"></i> Refund & Returns </a>
+                <a href="./shipping-policy.html"> <i class="fas fa-arrow-right"></i> Shipping Policy </a>
+                <a href="./Terms.html"> <i class="fas fa-arrow-right"></i> Terms & Conditions </a>
+                <a href="https://www.shiprocket.in/shipment-tracking/"> <i class="fas fa-arrow-right"></i> Track Order </a>
+            </div>
+            <div class="box">
+                <h3>Contact Info</h3>
+                <a href="#"> <i class="fas fa-phone"></i> +919105118956 </a>
+                <a href="#"> <i class="fas fa-clock"></i> Everyday: 10:00 AM - 7:30 PM </a>
+                 <a href="#" class="d-flex align-items-center mb-2"><i class="fas fa-city me-2"></i> Plot No. 9, Block-D, Sector 3, Noida, Uttar Pradesh 201301</a>
+                <a href="#"> <i class="fas fa-envelope"></i> support@dotcomtechnology.co.in</a>
+                <img src="https://i.ibb.co/mFXb5R4G/Blue-Grey-Minimalist-Modern-Business-Card.png" class="map" alt="Business Card">
+            </div>
+        </div>
+        <div class="share">
+            <a href="#" class="fab fa-facebook-f" aria-label="Facebook"></a>
+            <a href="#" class="fab fa-whatsapp" aria-label="WhatsApp"></a>
+            <a href="#" class="fab fa-instagram" aria-label="Instagram"></a>
+            <a href="#" class="fab fa-linkedin" aria-label="LinkedIn"></a>
+        </div>
+        <div class="credit"> created by <span>dotcomtechnology</span> | all rights reserved! </div>
+    </section>
+
+    <script>
+        // Disable right-click
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+        document.onkeydown = function(e) {
+            if (e.key === 'F12') {
+                alert("F12 is disabled.");
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+                alert("Inspect shortcut is disabled.");
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.key === 'J') {
+                alert("Console shortcut is disabled.");
+                return false;
+            }
+            if (e.ctrlKey && e.key === 'U') {
+                alert("View Source is disabled.");
+                return false;
+            }
+        };
+
+        // Create the WhatsApp button element
+        const toggleButton = document.createElement('div');
+        const whatsappIcon = document.createElement('img');
+        whatsappIcon.src = 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg';
+        whatsappIcon.alt = 'WhatsApp';
+        whatsappIcon.style.width = '35px';
+        whatsappIcon.style.height = '35px';
+
+        Object.assign(toggleButton.style, {
+            position: 'fixed',
+            left: '20px',
+            bottom: '20px',
+            width: '60px',
+            height: '60px',
+            backgroundColor: '#25D366',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer',
+            boxShadow: '0 4px 10px rgba(0,0,0,0.2)',
+            transition: 'transform 0.4s ease, background-color 0.4s ease',
+            zIndex: '9999'
+        });
+
+        toggleButton.appendChild(whatsappIcon);
+        document.body.appendChild(toggleButton);
+
+        toggleButton.addEventListener('click', function() {
+            toggleButton.style.transform = 'scale(1.2) rotate(45deg)';
+            toggleButton.style.backgroundColor = '#075e54';
+            setTimeout(function() {
+                window.location.href = 'https://wa.me/+919105118956';
+            }, 200);
+        });
+
+        // Loader
+        window.addEventListener('load', function() {
+            document.querySelector('.loader-container')?.classList.add('fade-out');
+        });
+
+        // Mobile Menu Functionality
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileDropdowns = document.querySelectorAll('.mobile-menu .dropbtn');
+
+        menuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+        });
+
+        mobileDropdowns.forEach(dropbtn => {
+            dropbtn.addEventListener('click', function() {
+                const dropdown = this.parentElement;
+                dropdown.classList.toggle('active');
+            });
+        });
+    </script>
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+</body>
+</html>

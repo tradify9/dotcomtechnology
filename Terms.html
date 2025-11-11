@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - dodcomtechnologies</title>
+    <link rel="icon" type="image/png" href="https://i.ibb.co/YBN3svcb/LOGO-logo-dot.pngg">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Verdana', sans-serif;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: all .5s linear;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #ecfdf5;
+        }
+
+        section {
+            padding: 2rem 9%;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 4rem;
+            color: #14532d;
+            padding: 1rem;
+            margin: 2rem 0;
+            background: rgba(74, 222, 128, .05);
+            border-radius: .5rem;
+        }
+
+        .heading span {
+            color: #ec4899;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 1rem;
+            border-radius: .5rem;
+            border: .2rem solid #14532d;
+            font-weight: 500;
+            font-size: 1.7rem;
+            cursor: pointer;
+            color: #14532d;
+            background: #fff;
+            padding: .8rem 3rem;
+        }
+
+        .btn:hover {
+            background: linear-gradient(90deg, #22c55e, #ec4899);
+            color: #fff;
+            border-color: transparent;
+        }
+
+        .header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: #fff;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-1 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem 9%;
+        }
+
+        .header .logo {
+            font-size: 2.5rem;
+            font-weight: bolder;
+            color: #14532d;
+        }
+
+        .header .logo img {
+            height: 10rem;
+        }
+
+        .header .search-form {
+            width: 50rem;
+            height: 5rem;
+            border: .1rem solid rgba(0, 0, 0, .1);
+            background: #f9fafb;
+            display: flex;
+            align-items: center;
+            border-radius: .5rem;
+        }
+
+        .header .search-form input {
+            width: 100%;
+            padding: 0 1.5rem;
+            font-size: 1.6rem;
+            color: #1f2937;
+            text-transform: none;
+        }
+
+        .header .search-form label {
+            font-size: 2rem;
+            padding-right: 1.5rem;
+            color: #6b7280;
+            cursor: pointer;
+        }
+
+        .header .search-form label:hover {
+            color: #ec4899;
+        }
+
+        .header .icons div,
+        .header .icons a {
+            font-size: 2.5rem;
+            margin-left: 2rem;
+            color: #14532d;
+            cursor: pointer;
+        }
+
+        .header .icons div:hover,
+        .header .icons a:hover {
+            color: #ec4899;
+        }
+
+        .head {
+            background: linear-gradient(135deg, #ec9c09, #ec9c09);
+            padding: 1rem 5%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .navbar a,
+        .dropbtn {
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.6rem;
+            padding: 0.8rem 1.2rem;
+            border-radius: 6px;
+            background: transparent;
+            cursor: pointer;
+            text-transform: capitalize;
+        }
+
+        .navbar a:hover,
+        .dropbtn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 110%;
+            left: 0;
+            background-color: #f8f3f5;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 0.8rem 1rem;
+            display: block;
+            font-size: 1.5rem;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f3e8f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .navbar-toggle {
+            display: none;
+            font-size: 2.8rem;
+            color: #1a1a1a;
+            cursor: pointer;
+            margin-left: 2.5rem;
+        }
+
+        .terms-conditions .content {
+            max-width: 80rem;
+            margin: 0 auto;
+            background: #fff;
+            padding: 2rem;
+            border: .1rem solid rgba(0, 0, 0, .1);
+            border-radius: .5rem;
+        }
+
+        .terms-conditions .content h3 {
+            font-size: 2.5rem;
+            color: #14532d;
+            margin: 2rem 0 1rem;
+        }
+
+        .terms-conditions .content p {
+            font-size: 1.6rem;
+            color: #6b7280;
+            line-height: 2;
+            margin-bottom: 1.5rem;
+        }
+
+        .terms-conditions .content ul {
+            list-style-type: disc;
+            padding-left: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .terms-conditions .content ul li {
+            font-size: 1.6rem;
+            color: #6b7280;
+            line-height: 2;
+        }
+
+        .footer .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 1.5rem;
+        }
+
+        .footer .box-container .box h3 {
+            font-size: 2.2rem;
+            color: #14532d;
+            padding: 1rem 0;
+        }
+
+        .footer .box-container .box a {
+            display: block;
+            font-size: 1.4rem;
+            color: #6b7280;
+            padding: 1rem 0;
+        }
+
+        .footer .box-container .box a i {
+            color: #ec4899;
+            padding-right: .5rem;
+        }
+
+        .footer .box-container .box a:hover {
+            color: #ec4899;
+        }
+
+        .footer .box-container .box .map {
+            width: 100%;
+        }
+
+        .footer .share {
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .footer .share a {
+            height: 5rem;
+            width: 5rem;
+            line-height: 5rem;
+            font-size: 2rem;
+            color: #fff;
+            background: #14532d;
+            margin: 0 .2rem;
+            border-radius: .5rem;
+        }
+
+        .footer .share a:hover {
+            background: #ec4899;
+        }
+
+        .footer .credit {
+            padding: 1rem;
+            text-align: center;
+            font-size: 2rem;
+            color: #6b7280;
+            border-top: .1rem solid rgba(0, 0, 0, .1);
+        }
+
+        .footer .credit span {
+            color: #ec4899;
+        }
+
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10000;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+        }
+
+        .loader-container.fade-out {
+            top: -120%;
+        }
+
+        @media (max-width: 991px) {
+            html {
+                font-size: 55%;
+            }
+
+            section {
+                padding: 2rem;
+            }
+
+            .header-1 {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #search-btn {
+                display: none;
+            }
+
+            .header .search-form {
+                position: absolute;
+                top: 115%;
+                right: 2rem;
+                width: 90%;
+                box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+            }
+
+            .header .search-form.active {
+                top: 100%;
+            }
+        }
+
+        @media (max-width: 450px) {
+            html {
+                font-size: 50%;
+            }
+
+            .heading {
+                font-size: 3rem;
+            }
+
+            .terms-conditions .content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header section -->
+    <header class="header">
+        <div class="header-1">
+            <a href="index.html" class="logo">
+                <img src="https://i.ibb.co/YBN3svcb/LOGO-logo-dot.pngg" alt="dodcomtechnologies Logo">
+            </a>
+            <div class="icons">
+                <div id="search-btn" class="fas fa-search"></div>
+            </div>
+        </div>
+        <div class="head">
+            <nav class="navbar" id="navbar">
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Shop by Category</button>
+                    <div class="dropdown-content">
+                       <li><a class="dropdown-item" href="#" data-category="Electronics">Electronics</a></li>
+                            <!-- <li><a class="dropdown-item" href="#" data-category="Crocs">Crocs</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Women's Fashion">Women's Fashion</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Home Appliances">Home Appliances</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Copper Collection">Copper Collection</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Kids Styling">Kids Styling</a></li> -->
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">More</button>
+                    <div class="dropdown-content">
+                        <a href="aboutus.html">About Us</a>
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <a href="#" id="bulk-order-btn">Support</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- terms and conditions section -->
+    <section class="terms-conditions">
+        <h1 class="heading">Terms & <span>Conditions</span></h1>
+        <div class="content">
+            <h3>Terms & Conditions</h3>
+            <p>Welcome to dodcomtechnologies. By accessing or using our website, you agree to comply with and be bound
+                by the following terms and conditions. Please review them carefully before using our services.</p>
+
+            <h3>1. Introduction</h3>
+            <p>This document is an electronic record under the Information Technology Act, 2000, and relevant rules. It
+                is generated by a computer system and does not require physical or digital signatures.</p>
+
+            <h3>2. Eligibility</h3>
+            <p>Only individuals capable of forming legally binding contracts under the Indian Contract Act, 1872, may
+                use the dodcomtechnologies website. Persons deemed “incompetent to contract,” such as minors or
+                un-discharged insolvents, are not eligible to use our services.</p>
+
+            <h3>3. User Account</h3>
+            <p>You are responsible for safeguarding your account credentials and restricting access to your device. You
+                accept full responsibility for any activities conducted under your account.</p>
+
+            <h3>4. Product Information</h3>
+            <p>We aim to provide accurate product details, but we do not guarantee that descriptions, images, or other
+                content are error-free, complete, or current. If a product is not as described, your sole remedy is to
+                return it in unused condition as per our return policy.</p>
+
+            <h3>5. Pricing</h3>
+            <p>Prices are listed in Indian Rupees (INR) and include applicable taxes unless stated otherwise. We reserve
+                the right to modify prices without prior notice. The price at the time of order confirmation applies.
+            </p>
+
+            <h3>6. Payment</h3>
+            <p>We accept payments via credit/debit cards, net banking, UPI, and other available methods. By submitting
+                payment details, you confirm your legal authorization to use the chosen payment method.</p>
+
+            <h3>7. Shipping and Delivery</h3>
+            <p>Orders are typically shipped within 4-8 business days after payment confirmation. Delivery timelines may
+                vary based on location and logistics partner. Risk of loss transfers to you upon delivery to the
+                carrier. Refer to our <a href="shipping-policy.html">Shipping Policy</a> for details.</p>
+
+            <h3>8. Cancellation and Refund Policy</h3>
+            <p>Cancellations are permitted within 24 hours of order placement, subject to order status. Refunds are
+                issued for defective or incorrect items, provided claims are made within 7 days of delivery. See our <a
+                    href="refund.html">Refund & Returns Policy</a> for more information.</p>
+
+            <!-- <h3>9. Bulk Orders</h3> -->
+            <p>dodcomtechnologies offers discounts for businesses and institutions. To place a, contact us at <a
+                    href="mailto:support@dodcomtechnologies.com">support@dodcomtechnologies.com</a> or +91 9105118956.
+                Bulk order terms include:</p>
+            <ul>
+                <li><strong>Minimum Order Quantity:</strong> A minimum order value of Rs. 15,000 is required for
+                    discounts.</li>
+                <li><strong>Pricing and Discounts:</strong> Discounts vary based on order volume and are confirmed upon
+                    inquiry.</li>
+                <li><strong>Payment Terms:</strong> Full prepayment is required for order</li>
+                <li><strong>Shipping and Delivery:</strong> orders can be shipped to multiple locations, with delivery
+                    coordinated by our team.</li>
+                <li><strong>Returns and Exchanges:</strong> Due to discounted pricing, orders are non-returnable except
+                    for manufacturing defects, which qualify for exchanges only.</li>
+            </ul>
+
+            <h3>10. Intellectual Property Rights</h3>
+            <p>All content on the dodcomtechnologies website, including text, graphics, logos, images, and software, is
+                owned by dodcomtechnologies or its licensors and is protected by Indian and international copyright and
+                trademark laws.</p>
+
+            <h3>11. Limitation of Liability</h3>
+            <p>dodcomtechnologies, its affiliates, or their respective officers, directors, or employees shall not be
+                liable for any indirect, incidental, special, or consequential damages arising from your use of the
+                website or services, even if advised of such damages.</p>
+
+            <h3>12. Indemnification</h3>
+            <p>You agree to indemnify and hold harmless dodcomtechnologies, its affiliates, and their respective
+                officers, directors, and employees from any claims, damages, or demands resulting from your violation of
+                these terms, misuse of the website, or infringement of third-party rights.</p>
+
+            <h3>13. Governing Law and Jurisdiction</h3>
+            <p>These terms are governed by the laws of India. Any disputes arising from these terms or your use of the
+                website shall be subject to the exclusive jurisdiction of the courts in Noida, Uttar Pradesh.</p>
+
+            <h3>14. Modifications to Terms and Conditions</h3>
+            <p>We may update these terms at any time without prior notice. Continued use of the website after changes
+                constitutes your acceptance of the revised terms.</p>
+
+            <h3>15. Contact Information</h3>
+            <p>For questions or concerns regarding these terms, please contact us at:</p>
+            <p>dodcomtechnologies<br>
+                Plot No. 123, Sector 10, Noida, Uttar Pradesh 201301<br>
+                <a href="mailto:support@dodcomtechnologies.com">support@dodcomtechnologies.com</a><br>
+                +91 9105118956
+            </p>
+
+            <p>By using our website, you confirm that you have read, understood, and agree to these terms and
+                conditions.</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>Our Locations</h3>
+                <a href="#">
+                    <img src="https://i.ibb.co/YBN3svcb/LOGO-logo-dot.pngg" alt="Company Logo"
+                        style="width: 100px; height: auto;">
+                </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> India </a>
+            </div>
+            <div class="box">
+                <h3>Quick Links</h3>
+                <a href="index.html"> <i class="fas fa-arrow-right"></i> Home </a>
+                <a href="index.html#categories"> <i class="fas fa-arrow-right"></i> Categories </a>
+                <a href="bulkorder.html" id="bulk-order-footer-btn"> <i class="fas fa-arrow-right"></i> Support </a>
+                <a href="contact.html"> <i class="fas fa-arrow-right"></i> Contact </a>
+                <a href="aboutus.html"> <i class="fas fa-arrow-right"></i> About Us </a>
+            </div>
+            <div class="box">
+                <h3>Extra Links</h3>
+                <a href="privacy-policy.html"> <i class="fas fa-arrow-right"></i> Privacy Policy </a>
+                <a href="refund.html"> <i class="fas fa-arrow-right"></i> Refund & Returns </a>
+                <a href="shipping-policy.html"> <i class="fas fa-arrow-right"></i> Shipping Policy </a>
+                <a href="terms.html"> <i class="fas fa-arrow-right"></i> Terms & Conditions </a>
+                <a href="https://www.shiprocket.in/shipment-tracking/"> <i class="fas fa-arrow-right"></i> Track Order
+                </a>
+            </div>
+            <div class="box">
+                <h3>Contact Info</h3>
+                <a href="#"> <i class="fas fa-phone"></i> +91 9105118956 </a>
+                <a href="#"> <i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 6:00 PM </a>
+                <a href="#" class="d-flex align-items-center mb-2"><i class="fas fa-city me-2"></i> Plot No. 9, Block-D,
+                    Sector 3, Noida, Uttar Pradesh 201301</a>
+                <a href="#"> <i class="fas fa-envelope"></i> support@dodcomtechnologies.com </a>
+                <img src="https://i.ibb.co/mFXb5R4G/Blue-Grey-Minimalist-Modern-Business-Card.png" class="map" alt="">
+            </div>
+        </div>
+        <div class="share">
+            <a href="#" class="fab fa-facebook-f" aria-label="Facebook"></a>
+            <a href="#" class="fab fa-whatsapp" aria-label="WhatsApp"></a>
+            <a href="#" class="fab fa-instagram" aria-label="Instagram"></a>
+            <a href="#" class="fab fa-linkedin" aria-label="LinkedIn"></a>
+        </div>
+        <div class="credit"> created by <span>dodcomtechnologies</span> | all rights reserved! </div>
+    </section>
+
+
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script>
+        // Prevent right-click and developer tools
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+        });
+
+        document.onkeydown = (e) => {
+            if (e.keyCode === 123) {
+                alert("F12 is disabled.");
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+                alert("Inspect shortcut is disabled.");
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+                alert("Console shortcut is disabled.");
+                return false;
+            }
+            if (e.ctrlKey && e.keyCode === 85) {
+                alert("View Source is disabled.");
+                return false;
+            }
+        };
+
+        // Loader
+        window.addEventListener('load', () => {
+            document.querySelector('.loader-container').classList.add('fade-out');
+        });
+
+        // Search Toggle
+        document.getElementById('search-btn').addEventListener('click', () => {
+            document.querySelector('.search-form').classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>

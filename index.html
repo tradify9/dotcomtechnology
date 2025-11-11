@@ -1,0 +1,4517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dotcomtechnologies </title>
+    <link rel="icon" type="image/png" href="https://img.freepik.com/premium-vector/ecommerce-logo-design_624194-152.jpg?semt=ais_hybrid&w=740">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Swiper JS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <!-- Razorpay -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <style>
+   :root {
+    --primary-color: #ec9c09; /* Green */
+    --secondary-color: #be185d; /* Pink */
+    --accent-color: #ec9c09; /* Darker green */
+    --light-color: #f7f7f7;
+    --dark-color: #333;
+    --gray-color: #666;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light-color);
+    position: relative;
+    margin: 0;
+}
+
+.background-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.1;
+}
+
+.heading {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--dark-color);
+    padding: 1rem;
+    margin: 2rem 0;
+    background: rgba(190, 24, 93, 0.05); /* Pink background */
+}
+
+.heading span {
+    color: var(--primary-color);
+}
+
+.btn-custom {
+    border-radius: 0.5rem;
+    border: 0.2rem solid var(--secondary-color);
+    font-weight: 600;
+    color: var(--secondary-color);
+    background: #fff;
+    padding: 0.8rem 2rem;
+    margin: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s linear;
+}
+
+.btn-custom:hover {
+    background: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.btn-custom.buy-now:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.btn-custom::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+    z-index: -1;
+}
+
+.btn-custom:active::after {
+    width: 20rem;
+    height: 20rem;
+    opacity: 0;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #fff;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.header-1 {
+    padding: 1rem 0;
+}
+
+.header .logo {
+    height: 7rem;
+    width: 12rem;
+}
+
+.header .search-form {
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    background: #f9f9f9;
+    border-radius: 0.5rem;
+}
+
+.header .search-form .form-control {
+    border: none;
+    background: transparent;
+}
+
+.header .search-form .btn {
+    color: var(--gray-color);
+}
+
+.header .search-form .btn:hover {
+    color: var(--primary-color);
+}
+
+.header .icons .btn {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    position: relative;
+}
+
+.header .icons .btn:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.count {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.header-2 {
+    background: linear-gradient(135deg, #ec9c09, #ec9c09);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header .navbar .nav-link {
+    color: #fff;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+}
+
+.header .navbar .nav-link:hover {
+    background: #fff;
+    color: var(--primary-color);
+}
+
+.dropdown-menu {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+    color: var(--primary-color);
+}
+
+.carousel-section {
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.swiper.carousel {
+    width: 100%;
+    height: 45rem;
+    margin-bottom: 0;
+}
+
+.swiper.carousel .swiper-slide img {
+    width: 100%;
+    height: 65%;
+}
+
+.swiper-pagination-bullet {
+    background: var(--primary-color);
+    opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--primary-color);
+    opacity: 1;
+}
+
+.class-selection {
+    margin: -16rem 0;
+    text-align: center;
+    animation: fadeInUp 0.8s ease-in-out;
+}
+
+.class-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+.class-card {
+    background: #ffffff;
+    border-radius: 10px;
+    border-top: 4px solid var(--accent-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+}
+
+.class-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 16px rgba(34, 197, 94, 0.2);
+}
+
+.class-card h3 {
+    font-size: 1.2rem;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.icons-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: space-evenly;
+    padding: 1rem;
+}
+
+.icons-container .icon-box {
+    width: 300px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+
+.icons-container .icon-box:hover {
+    transform: translateY(-5px);
+}
+
+.icons-container .icon-box i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+.icons-container .icon-box h3 {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    padding-bottom: 0.5rem;
+}
+
+.icons-container .icon-box p {
+    font-size: 1rem;
+    color: var(--gray-color);
+}
+
+@media (max-width: 600px) {
+    .icons-container {
+        justify-content: center;
+    }
+
+    .icons-container .icon-box {
+        width: 90%;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .icons-container .icon-box i {
+        font-size: 3rem;
+    }
+
+    .icons-container .icon-box h3 {
+        font-size: 1.3rem;
+    }
+
+    .icons-container .icon-box p {
+        font-size: 0.95rem;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(160px, 20vw, 200px), 1fr));
+    gap: clamp(0.8rem, 2vw, 1.2rem);
+    padding: clamp(0.4rem, 1.5vw, 0.6rem) 0; /* Removed side padding for full width */
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+}
+
+.book-card {
+    background: #fff;
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.3rem;
+    padding: clamp(0.8rem, 2vw, 1rem);
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.book-card:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.2);
+}
+
+.book-card .image {
+    flex: 0 0 auto;
+    height: clamp(10rem, 22vw, 14rem);
+    overflow: hidden;
+}
+
+.book-card .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.book-card:hover .image img {
+    transform: scale(1.1);
+}
+
+.book-card .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: clamp(0.4rem, 1vw, 0.5rem) 0;
+}
+
+.book-card .content h3 {
+    font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+    color: var(--secondary-color, #333);
+    height: clamp(2.8rem, 6vw, 3rem);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin-bottom: clamp(0.2rem, 1vw, 0.3rem);
+    line-height: 1.5;
+}
+
+.book-card .content .category,
+.book-card .content .author,
+.book-card .content .class {
+    font-size: clamp(0.7rem, 1.6vw, 0.8rem);
+    color: var(--gray-color, #666);
+    margin: clamp(0.1rem, 0.5vw, 0.15rem) 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4;
+}
+
+.book-card .content .price {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    color: var(--primary-color, #007bff);
+    font-weight: bold;
+    margin: clamp(0.2rem, 1vw, 0.3rem) 0;
+    line-height: 1.4;
+}
+
+.book-card .content .price span {
+    font-size: clamp(0.8rem, 1.6vw, 0.9rem);
+    color: var(--gray-color, #666);
+    text-decoration: line-through;
+}
+
+.book-card .content .stars i {
+    font-size: clamp(0.8rem, 1.6vw, 0.9rem);
+    color: var(--primary-color, #007bff);
+}
+
+.book-card .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(0.2rem, 1vw, 0.3rem);
+    justify-content: center;
+    margin-top: clamp(0.4rem, 1.5vw, 0.6rem);
+}
+
+.book-card .actions button,
+.book-card .actions a {
+    padding: clamp(0.3rem, 1.2vw, 0.5rem) clamp(0.6rem, 1.8vw, 1rem);
+    font-size: clamp(0.75rem, 1.6vw, 0.85rem);
+    border: 0.1rem solid var(--primary-color, #007bff);
+    border-radius: 0.3rem;
+    background: var(--primary-color, #007bff);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+.book-card .actions button:hover,
+.book-card .actions a:hover {
+    background: #fff;
+    color: var(--primary-color, #007bff);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .book-grid {
+        grid-template-columns: repeat(auto-fit, minmax(clamp(140px, 18vw, 160px), 1fr));
+        gap: clamp(0.6rem, 1.8vw, 1rem);
+    }
+
+    .book-card .image {
+        height: clamp(8rem, 20vw, 12rem);
+    }
+
+    .book-card .content h3 {
+        font-size: clamp(0.75rem, 1.6vw, 0.85rem);
+        height: clamp(2.4rem, 5vw, 2.8rem);
+    }
+
+    .book-card .content .category,
+.book-card .content .author,
+.book-card .content .class {
+        font-size: clamp(0.65rem, 1.4vw, 0.75rem);
+    }
+
+    .book-card .content .price {
+        font-size: clamp(0.9rem, 1.8vw, 1rem);
+    }
+
+    .book-card .content .price span {
+        font-size: clamp(0.75rem, 1.4vw, 0.85rem);
+    }
+
+    .book-card .content .stars i {
+        font-size: clamp(0.75rem, 1.4vw, 0.85rem);
+    }
+
+    .book-card .actions button,
+.book-card .actions a {
+        padding: clamp(0.25rem, 1vw, 0.4rem) clamp(0.5rem, 1.6vw, 0.8rem);
+        font-size: clamp(0.7rem, 1.4vw, 0.8rem);
+    }
+}
+
+@media (min-width: 1200px) {
+    .book-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .book-card .image {
+        height: clamp(12rem, 20vw, 14rem);
+    }
+}
+
+@media (hover: none) {
+    .book-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .book-card .image img {
+        transform: none;
+    }
+
+    .book-card .actions button:hover,
+.book-card .actions a:hover {
+        background: var(--primary-color, #007bff);
+        color: #fff;
+    }
+}
+
+.cart-container {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 40rem;
+    height: 100%;
+    background: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 10001;
+    transition: right 0.3s ease;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.cart-container.active {
+    right: 0;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
+}
+
+.cart-item img {
+    width: 6rem;
+    height: 6rem;
+    object-fit: contain;
+    margin-right: 1rem;
+}
+
+.cart-toggle {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    background: var(--primary-color);
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+}
+
+.cart-toggle .fas {
+    font-size: 2rem;
+}
+
+.cart-toggle .count {
+    background: var(--secondary-color);
+}
+
+.sidebar-filter {
+    display: none !important; /* Completely hide the sidebar filter */
+}
+
+.filter-toggle-btn {
+    display: none !important; /* Hide the toggle button as filters are permanently hidden */
+}
+
+.main-content {
+    padding: 0 !important; /* Remove all padding to allow full-width display */
+    margin: 0 !important; /* Remove margins for full coverage */
+    width: 100%;
+}
+
+.filter-results-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 0.75rem 1rem;
+    background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+}
+
+.filter-results-info .total-items {
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.filter-results-info .sort-by {
+    display: flex;
+    align-items: center;
+}
+
+.filter-results-info .sort-by label {
+    margin-right: 0.5rem;
+    color: var(--gray-color);
+}
+
+.why-choose-us {
+    background-color: #f8f9fa;
+    padding: 4rem 0;
+}
+
+.why-choose-us .card {
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%;
+    border-top: 3px solid var(--primary-color);
+}
+
+.why-choose-us .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.why-choose-us .card-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.why-choose-us .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.why-choose-us .card-text {
+    font-size: 0.9rem;
+    color: var(--gray-color);
+}
+
+#reviewSection {
+    background-color: #fafafa;
+    padding: 3rem 1rem;
+}
+
+#reviewSection .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+#reviewSection .section-header .subtitle {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+#reviewSection .section-header h2 {
+    font-weight: 900;
+    font-size: 2.5rem;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 0.3rem;
+}
+
+#reviewSection .section-header h2::after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+#reviewSection .review-carousel {
+    overflow: hidden;
+    position: relative;
+}
+
+#reviewSection .review-track {
+    display: flex;
+    gap: 1.5rem;
+    animation: scrollReviews 30s linear infinite;
+    will-change: transform;
+}
+
+#reviewSection .review-card {
+    background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25px rgb(0 0 0 / 0.1);
+    flex: 0 0 300px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 300px;
+    position: relative;
+}
+
+#reviewSection .review-card .profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+}
+
+#reviewSection .review-card .profile img.profile-pic,
+#reviewSection .review-card .profile .profile-placeholder {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    background-color: var(--gray-color);
+    color: white;
+    font-weight: 700;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: lowercase;
+}
+
+#reviewSection .review-card .profile-info {
+    flex-grow: 1;
+}
+
+#reviewSection .review-card .profile-info .name {
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-size: 1rem;
+    margin: 0;
+}
+
+#reviewSection .review-card .profile-info .time {
+    font-size: 0.75rem;
+    color: var(--gray-color);
+    margin: 0;
+}
+
+#reviewSection .google-logo-container {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    pointer-events: none;
+}
+
+#reviewSection .google-logo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#reviewSection .review-card .stars {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+#reviewSection .review-card .review-text {
+    font-size: 0.9rem;
+    color: #212529;
+    line-height: 1.3;
+    white-space: pre-wrap;
+}
+
+@keyframes scrollReviews {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-300px * 10 - 1.5rem * 10));
+    }
+}
+
+#reviewSection .review-carousel:hover .review-track {
+    animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+    #reviewSection .review-card {
+        flex: 0 0 260px;
+        min-width: 260px;
+    }
+
+    @keyframes scrollReviews {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-260px * 10 - 1.5rem * 10));
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    #reviewSection .section-header h2 {
+        font-size: 1.75rem;
+    }
+
+    #reviewSection .review-card {
+        flex: 0 0 220px;
+        min-width: 220px;
+        padding: 1rem;
+    }
+
+    @keyframes scrollReviews {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-220px * 10 - 1.5rem * 10));
+        }
+    }
+}
+
+.section-title {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.image-text {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    line-height: 1.2;
+    user-select: none;
+}
+
+.image-text p {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.image-text .orange {
+    color: var(--primary-color);
+}
+
+.image-text .white {
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0,0,0,0.7);
+}
+
+.image-text .green {
+    color: var(--accent-color);
+}
+
+.feature-number {
+    font-weight: 900;
+    font-size: 3rem;
+    color: #d1d5db;
+    user-select: none;
+}
+
+.feature-text {
+    font-weight: 600;
+    color: var(--gray-color);
+    font-size: 0.9rem;
+}
+
+.feature-highlight {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+@media (max-width: 991px) {
+    .swiper.carousel {
+        height: 40rem;
+    }
+    
+    .book-card .image {
+        height: 20rem;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        display: none;
+        width: 100%;
+        box-shadow: none;
+    }
+    
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .swiper.carousel {
+        height: 30rem;
+    }
+    
+    .book-card .image {
+        height: 18rem;
+    }
+    
+    .cart-container {
+        width: 100%;
+        z-index: 10002;
+    }
+    
+    .filter-results-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .filter-results-info .sort-by {
+        margin-top: 0.5rem;
+    }
+    
+    /* Mobile dropdown menu styles */
+    .navbar-nav .dropdown-menu {
+        position: static;
+        float: none;
+        width: 100%;
+        margin-top: 0;
+        background-color: rgba(0,0,0,0.05);
+        border: none;
+        box-shadow: none;
+    }
+    
+    .navbar-nav .dropdown-item {
+        padding-left: 2rem;
+        color: #fff;
+    }
+    
+    .navbar-nav .dropdown-item:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+}
+
+@media (max-width: 576px) {
+    .heading {
+        font-size: 2rem;
+    }
+    
+    .swiper.carousel {
+        height: 20rem;
+    }
+    
+    .book-card .image {
+        height: 16rem;
+    }
+    
+    .class-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .image-text {
+        position: static;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    
+    .image-text p {
+        font-size: 1.1rem;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.whatsapp-btn {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.4s ease;
+    z-index: 9999;
+}
+
+.whatsapp-btn img {
+    width: 35px;
+    height: 35px;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.2) rotate(45deg);
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-results.active {
+    display: block;
+}
+
+.search-result-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+}
+
+.search-result-item:hover {
+    background-color: #f5f5f5;
+}
+
+.search-result-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.search-form .input-group {
+    position: relative;
+}
+
+.search-results .result-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+        /* Previous CSS styles remain the same */
+        /* Add this new style for search results */
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-results.active {
+            display: block;
+        }
+
+        .search-result-item {
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.2s;
+        }
+
+        .search-result-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        .search-result-item img {
+            width: 40px;
+            height: 50px;
+            object-fit: contain;
+            margin-right: 10px;
+        }
+
+        .search-result-item .title {
+            font-weight: 600;
+        }
+
+        .search-result-item .details {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .search-result-item .price {
+            font-weight: bold;
+            color: #ec9c09;
+        }
+
+        .search-form-container {
+            position: relative;
+        }
+.search-results .result-item:hover {
+    background-color: #f5f5f5;
+}
+
+.search-results .result-item img {
+    width: 40px;
+    height: 50px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+.search-results .result-item .info {
+    flex: 1;
+}
+
+.search-results .result-item .title {
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.search-results .result-item .details {
+    font-size: 0.8rem;
+    color: var(--gray-color);
+}
+
+.search-results .result-item .price {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-left: 10px;
+}
+
+.search-results .no-results {
+    padding: 10px;
+    color: var(--gray-color);
+    text-align: center;
+}
+
+.search-category-dropdown {
+    border-radius: 5px 0 0 5px;
+    border-right: none;
+    max-width: 150px;
+}
+
+.search-form-container {
+    display: flex;
+    position: relative;
+}
+
+.cart-item .quantity {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.cart-item .quantity button {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    background: #f5f5f5;
+    cursor: pointer;
+}
+
+.cart-item .quantity span {
+    min-width: 30px;
+    text-align: center;
+}
+
+.footer {
+    background-color: #cedbd2;
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 2rem;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #666;
+}
+
+.footer a:hover {
+    color: #be185d;
+}
+
+.footer a i {
+    color: #ee287e;
+}
+
+.footer h3 {
+    color: green;
+}
+
+.footer .share {
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footer .share a {
+    height: 3rem;
+    width: 3rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    color: #fff;
+    background: #14532d;
+    margin: 0 .3rem;
+    border-radius: 50%;
+}
+
+.footer .share a:hover {
+    background: #ec4899;
+    transform: rotate(360deg);
+}
+
+.footer .share i {
+    height: 5px;
+    margin-bottom: 20px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    align-items: center;
+}
+
+.about-text h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+ </style>
+</head>
+<body>
+   <!-- Header Section -->
+<header class="header">
+    <div class="header-1 bg-white py-2">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3 col-6">
+                    <a href="index.html" class="d-flex align-items-center">
+                        <img src="https://i.ibb.co/YBN3svcb/LOGO-logo-dot.png" alt="Logo" class="logo img-fluid">
+                    </a>
+                </div>
+                <div class="col-md-6 col-12 order-md-2 order-3 mt-md-0 mt-2">
+                    <div class="search-form-container">
+                        <form class="search-form position-relative" id="searchForm" style="width: 450px;">
+                            <div class="input-group">
+                                <input type="search" class="form-control" name="search" placeholder="Search products..." id="search-box" aria-label="Search products">
+                                <button class="btn" type="button" id="search-btn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                            <div class="search-results" id="searchResults"></div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 order-md-3 order-2 text-end">
+                    <div class="icons d-flex justify-content-end">
+                        <button class="btn position-relative me-2" id="search-toggle">
+                            <!-- <i class="fas fa-search"></i> -->
+                        </button>
+                        <a href="wishlist.html" class="btn position-relative" id="wishlist">
+                            <i class="fas fa-heart"></i>
+                            
+                            <span class="count" id="wishlistCount" hidden>0</span>
+                        </a>
+                        <a href="login.html"  class="btn position-relative">
+                           <i class="fas fa-user"></i>
+                        </a>
+                         <a href="#" class="btn position-relative ">
+                          <i class="fas fa-sign-out-alt" id="logoutBtn"></i>
+                         </a>
+                        <!-- <li class="nav-item"> -->
+                        <!-- <a class="nav-link" href="#" id="logoutBtn">Logout</a> -->
+                    <!-- </li> -->
+                        <button class="navbar-toggler ms-2 d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+
+// Function to handle logout
+function logout() {
+    localStorage.removeItem('isLoggedIn');
+    alert("You have successfully logged out!");
+    window.location.href = 'login.html';
+}
+
+
+
+// Add event listeners for logout buttons
+document.getElementById('logoutBtn').addEventListener('click', logout);
+document.getElementById('logoutBtnAlt').addEventListener('click', logout);    </script>
+   
+    <div class="header-2">
+        <div class="container">
+            <nav class="navbar navbar-expand-md p-0">
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Shop by Category
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                            <li><a class="dropdown-item" href="#" data-category="Electronics">Electronics</a></li>
+                            <!-- <li><a class="dropdown-item" href="#" data-category="Crocs">Crocs</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Women's Fashion">Women's Fashion</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Home Appliances">Home Appliances</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Copper Collection">Copper Collection</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Kids Styling">Kids Styling</a></li> -->
+                        </ul>
+                    </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                More
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link text-dark" href="Aboutus.html">About Us</a></li>
+                                <li><a class="nav-link text-dark" href="contact.html">Contact</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="bulkorder.html" id="bulk-order-btn">Support</a>
+                        </li>
+                         
+                        
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+   
+    <!-- Cart Container -->
+    <div class="cart-container" id="cartContainer">
+        <div class="cart-header d-flex justify-content-between align-items-center pb-2 border-bottom">
+            <h3 class="m-0">Your Cart</h3>
+            <button class="btn p-0" id="cartClose"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="cartItems" class="my-3"></div>
+        <div class="cart-total text-end mb-2" id="cartTotal">Total: ₹0.00</div>
+        <div class="cart-total text-end mb-2" id="shippingTotal">Shipping charges: ₹0.00</div>
+        <div class="cart-total text-end mb-3" id="grandTotal">Grand Total: ₹0.00</div>
+        <button class="btn btn-primary w-100 py-2" id="checkoutBtn">Proceed to Checkout</button>
+    </div>
+
+    <!-- Cart Toggle Button -->
+    <div class="cart-toggle" id="cartToggle">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="count" id="cartCount">0</span>
+    </div>
+
+    <!-- Carousel Section -->
+    <section class="carousel-section">
+        <div class="swiper carousel">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="tradify_image/banner1.jpg" class="img-fluid" alt="Carousel 1"></div>
+                <div class="swiper-slide"><img src="tradify_image/banner2.jpg" class="img-fluid" alt="Carousel 2"></div>
+                <!-- <div class="swiper-slide"><img src="image/b3.png" class="img-fluid" alt="Carousel 3"></div> -->
+            </div>
+            <div class="swiper-pagination" style="position: relative; bottom: 200px;"></div>
+        </div>
+    </section>
+<!-- About Us Section -->
+<section class="class-selection py-5">
+    <div class="container">
+        <h1 class="heading">About <span>Us</span></h1>
+        <div class="class-grid about-grid" id="aboutGrid">
+            <div class="class-card about-text">
+                <h3>Welcome to dotcomtechnologies store</h3>
+                <p>At dotcomtechnologies, we don't just build eCommerce solutions — we craft seamless digital experiences that drive growth, boost sales, and connect brands with their customers. From design to deployment, our focus is on innovation, performance, and delivering results that empower your online business to thrive.</p>
+            </div>
+            <div class="class-card about-image">
+                <img src="https://img.etimg.com/thumb/width-420,height-315,imgsize-2192726,resizemode-75,msid-92741290/tech/technology/indias-e-commerce-market-size-to-reach-120-billion-by-2026-report/ecommerce.jpg" alt="About Us Image" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Add this just before the main content section 
+<button class="btn btn-primary filter-toggle-btn d-lg-none" id="filterToggle" style="display: none;">
+    <i class="fas fa-filter"></i> Filters
+</button>-->
+<br> <br> <br> <br> <br> <br> <br> <br> <br>
+    <!-- Icons Container -->
+    <section class="icons-container py-5 bg-light">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3 col-sm-6">
+                    <div class="icon-box">
+                        <i class="fas fa-book me-3"></i>
+                        <div class="content">
+                            <h3>Wide Selection</h3>
+                            <p>Thousands of books across genres</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="icon-box">
+                        <i class="fas fa-lock me-3"></i>
+                        <div class="content">
+                            <h3>Secure Payment</h3>
+                            <p>Safe and secure transactions</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="icon-box">
+                        <i class="fas fa-tags me-3"></i>
+                        <div class="content">
+                            <h3>Seller</h3>
+                            <p>Up to bestsellers</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="icon-box">
+                        <i class="fas fa-headset me-3"></i>
+                        <div class="content">
+                            <h3>24/7 Support</h3>
+                            <p>Call us anytime</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Books Section with Sidebar Filters -->
+    <section class="featured py-5 position-relative" id="featured">
+        <canvas class="background-canvas" id="featuredCanvas"></canvas>
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar Filters -->
+                <div class="col-lg-3">
+                    <div class="sidebar-filter">
+                        <h3>Filter By Subject</h3>
+                        <div class="filter-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="allSubjects" value="all" checked onclick="filterBooksByCategory('all')">
+                                <label class="form-check-label" for="allSubjects">All Subjects</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="accountancy" value="Accountancy" onclick="toggleSubjectFilter('Accountancy')">
+                                <label class="form-check-label" for="accountancy">Accountancy</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="arts" value="Arts" onclick="toggleSubjectFilter('Arts')">
+                                <label class="form-check-label" for="arts">Arts</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="biology" value="Biology" onclick="toggleSubjectFilter('Biology')">
+                                <label class="form-check-label" for="biology">Biology</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="biotechnology" value="Biotechnology" onclick="toggleSubjectFilter('Biotechnology')">
+                                <label class="form-check-label" for="biotechnology">Biotechnology</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="businessStudies" value="Business Studies" onclick="toggleSubjectFilter('Business Studies')">
+                                <label class="form-check-label" for="businessStudies">Business Studies</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="chemistry" value="Chemistry" onclick="toggleSubjectFilter('Chemistry')">
+                                <label class="form-check-label" for="chemistry">Chemistry</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="civics" value="Civics" onclick="toggleSubjectFilter('Civics')">
+                                <label class="form-check-label" for="civics">Civics</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="computer" value="Computer" onclick="toggleSubjectFilter('Computer')">
+                                <label class="form-check-label" for="computer">Computer</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="economics" value="Economics" onclick="toggleSubjectFilter('Economics')">
+                                <label class="form-check-label" for="economics">Economics</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="english" value="English" onclick="toggleSubjectFilter('English')">
+                                <label class="form-check-label" for="english">English</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="environmentalStudies" value="Environmental Studies" onclick="toggleSubjectFilter('Environmental Studies')">
+                                <label class="form-check-label" for="environmentalStudies">Environmental Studies</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="ganit" value="Ganit" onclick="toggleSubjectFilter('Ganit')">
+                                <label class="form-check-label" for="ganit">Ganit</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="geography" value="Geography" onclick="toggleSubjectFilter('Geography')">
+                                <label class="form-check-label" for="geography">Geography</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="hindi" value="Hindi" onclick="toggleSubjectFilter('Hindi')">
+                                <label class="form-check-label" for="hindi">Hindi</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="history" value="History" onclick="toggleSubjectFilter('History')">
+                                <label class="form-check-label" for="history">History</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="mathematics" value="Mathematics" onclick="toggleSubjectFilter('Mathematics')">
+                                <label class="form-check-label" for="mathematics">Mathematics</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="physicalEducation" value="Physical Education" onclick="toggleSubjectFilter('Physical Education')">
+                                <label class="form-check-label" for="physicalEducation">Physical Education</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="physics" value="Physics" onclick="toggleSubjectFilter('Physics')">
+                                <label class="form-check-label" for="physics">Physics</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="politicalScience" value="Political Science" onclick="toggleSubjectFilter('Political Science')">
+                                <label class="form-check-label" for="politicalScience">Political Science</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="psychology" value="Psychology" onclick="toggleSubjectFilter('Psychology')">
+                                <label class="form-check-label" for="psychology">Psychology</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="sanskrit" value="Sanskrit" onclick="toggleSubjectFilter('Sanskrit')">
+                                <label class="form-check-label" for="sanskrit">Sanskrit</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="science" value="Science" onclick="toggleSubjectFilter('Science')">
+                                <label class="form-check-label" for="science">Science</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="socialScience" value="Social Science" onclick="toggleSubjectFilter('Social Science')">
+                                <label class="form-check-label" for="socialScience">Social Science</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="vigyan" value="Vigyan" onclick="toggleSubjectFilter('Vigyan')">
+                                <label class="form-check-label" for="vigyan">Vigyan</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="vocational" value="Vocational" onclick="toggleSubjectFilter('Vocational')">
+                                <label class="form-check-label" for="vocational">Vocational</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="subjectFilter" id="yoga" value="Yoga" onclick="toggleSubjectFilter('Yoga')">
+                                <label class="form-check-label" for="yoga">Yoga</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-filter mt-3">
+                        <h3>Filter By Class</h3>
+                        <div class="filter-group">
+                            <div class="form-check" id="allclass">
+                                <input class="form-check-input" type="checkbox" name="classFilter" id="allClasses" value="all" checked onclick="filterBooksByClass('all')">
+                                <label class="form-check-label" for="allClasses">All Classes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="classFilter" id="class1" value="1" onclick="filterBooksByClass(1)">
+                                <label class="form-check-label" for="class1">Class 1</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="classFilter" id="class2" value="2" onclick="filterBooksByClass(2)">
+                                <label class="form-check-label" for="class2">Class 2</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="classFilter" id="class3" value="3" onclick="filterBooksByClass(3)">
+                                <label class="form-check-label" for="class3">Class 3</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="classFilter" id="class4" value="4" onclick="filterBooksByClass(4)">
+                                <label class="form-check-label" for="class4">Class 4</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="classFilter" id="class5" value="5" onclick="filterBooksByClass(5)">
+                                <label class="form-check-label" for="class5">Class 5</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="classFilter" id="class6" value="6" onclick="filterBooksByClass(6)">
+                                <label class="form-check-label" for="class6">Class 6</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="classFilter" id="class7" value="7" onclick="filterBooksByClass(7)">
+                                <label class="form-check-label" for="class7">Class 7</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="classFilter" id="class8" value="8" onclick="filterBooksByClass(8)">
+                                <label class="form-check-label" for="class8">Class 8</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="classFilter" id="class9" value="9" onclick="filterBooksByClass(9)">
+                                <label class="form-check-label" for="class9">Class 9</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="classFilter" id="class10" value="10" onclick="filterBooksByClass(10)">
+                                <label class="form-check-label" for="class10">Class 10</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="classFilter" id="class11" value="11" onclick="filterBooksByClass(11)">
+                                <label class="form-check-label" for="class11">Class 11</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="classFilter" id="class12" value="12" onclick="filterBooksByClass(12)">
+                                <label class="form-check-label" for="class12">Class 12</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-filter mt-3">
+                        <h3>Filter By Publisher</h3>
+                        <div class="filter-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="publisherFilter" id="allPublishers" value="all" checked onclick="filterBooksByPublisher('all')">
+                                <label class="form-check-label" for="allPublishers">All Publishers</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="publisherFilter" id="ncert" value="NCERT" onclick="filterBooksByPublisher('NCERT')">
+                                <label class="form-check-label" for="ncert">NCERT</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-filter mt-3">
+                        <h3>Filter By Price</h3>
+                        <div class="filter-group">
+                            <input type="range" class="form-range price-range-slider" min="0" max="500" step="10" id="priceRange" oninput="updatePriceRange()">
+                            <div class="price-range-values">
+                                <span id="minPriceValue">₹0</span>
+                                <span id="maxPriceValue">₹500</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Main Content Area -->
+                <div class="col-lg-9 main-content" id="classbook" >
+                    <h1 class="heading">Features <span></span></h1>
+                    
+                    <div class="filter-results-info">
+                        <div class="total-items" id="totalItems">Showing all Products</div>
+                        <div class="sort-by">
+                            <label for="sortBooks">Sort By:</label>
+                            <select class="form-select form-select-sm" id="sortBooks" onchange="sortBooks()">
+                                <option value="default">Default</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="name-asc">Name: A to Z</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="book-grid" id="featuredBooks"></div>
+                    <div class="view-all text-center mt-4">
+                        <button class="btn-custom" onclick="viewAllBooks()">View All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Arrivals -->
+    <section class="featured new-arrivals py-5 position-relative">
+        <canvas class="background-canvas" id="newArrivalsCanvas"></canvas>
+        <div class="container">
+            <h1 class="heading">New <span>Arrivals</span></h1>
+            <div class="book-grid" id="newArrivalsBooks"></div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter py-5 position-relative">
+        <canvas class="background-canvas" id="newsletterCanvas"></canvas>
+        <div class="container">
+            <form id="newsletterForm" class="bg-white p-4 rounded">
+                <h3 class="mb-3">Subscribe for Latest Updates</h3>
+                <div class="input-group mb-3">
+                    <input type="email" class="form-control" placeholder="Enter your email" id="newsletterEmail" required aria-label="Email">
+                    <button class="btn btn-primary" type="submit">Subscribe</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    
+    
+
+    <!-- Why Choose Us Cards -->
+    <section class="why-choose-us py-5">
+        <div class="container">
+            <h1 class="heading">Why <span>Choose Us</span></h1>
+            <div class="row g-4">
+                <div class="col-md-3 col-sm-6">
+                    <div class="card h-100 p-3">
+                        <div class="card-body text-center">
+                            <div class="card-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <h5 class="card-title">Wide Selection</h5>
+                            <p class="card-text">Thousands of item across all item and products to choose from</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="card h-100 p-3">
+                        <div class="card-body text-center">
+                            <div class="card-icon">
+                                <i class="fas fa-rupee-sign"></i>
+                            </div>
+                            <h5 class="card-title">Affordable Prices</h5>
+                            <p class="card-text">Best prices with discounts and offers on all items</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="card h-100 p-3">
+                        <div class="card-body text-center">
+                            <div class="card-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <h5 class="card-title">Fast Delivery</h5>
+                            <p class="card-text">Quick and reliable delivery across India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="card h-100 p-3">
+                        <div class="card-body text-center">
+                            <div class="card-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h5 class="card-title">Customer Support</h5>
+                            <p class="card-text">24/7 support to help with your queries and orders</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Footer -->
+    <section class="footer py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="box">
+                        <h3>Our Locations</h3>
+                        <a href="index.html" class="d-block mb-3">
+                            <img src="https://i.ibb.co/YBN3svcb/LOGO-logo-dot.png" alt="Company Logo" class="img-fluid" style="max-width: 150px;">
+                        </a>
+                        <a href="#" class="d-flex align-items-center mb-2"><i class="fas fa-map-marker-alt me-2"></i> India </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="box">
+                        <h3>Quick Links</h3>
+                        <a href="index.html" class="d-flex align-items-center mb-2"><i class="fas fa-arrow-right me-2"></i> Home </a>
+                      <a href="index.html#classbook" class="d-flex align-items-center mb-2"><i class="fas fa-arrow-right me-2"></i> Category</a>
+                        <a href="index.html#allclass" class="d-flex align-items-center mb-2"><i class="fas fa-arrow-right me-2"></i> Shop Store </a>
+                 
+                        <a href="#" class="d-flex align-items-center mb-2" id="bulk-order-footer-btn"><i class="fas fa-arrow-right me-2"></i> Support </a>
+                        <a href="contact.html" class="d-flex align-items-center mb-2"><i class="fas fa-arrow-right me-2"></i> Contact </a>
+                        <a href="Aboutus.html" class="d-flex align-items-center mb-2"><i class="fas fa-arrow-right me-2"></i> About Us</a>
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="box">
+                        <h3>Extra Links</h3>
+                        <a href="privacy-policy.html" class="d-flex align-items-center mb-2"><i class="fas fa-arrow-right me-2"></i> Privacy Policy </a>
+                        <a href="refund.html" class="d-flex align-items-center mb-2"><i class="fas fa-arrow-right me-2"></i> Refund & Returns </a>
+                        <a href="shipping-policy.html" class="d-flex align-items-center mb-2"><i class="fas fa-arrow-right me-2"></i> Shipping Policy </a>
+                        <a href="Terms.html" class="d-flex align-items-center mb-2"><i class="fas fa-arrow-right me-2"></i> Terms & Conditions </a>
+                        <a href="https://www.shiprocket.in/shipment-tracking/" class="d-flex align-items-center mb-2"><i class="fas fa-arrow-right me-2"></i> Track Order </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="box">
+                        <h3>Contact Info</h3>
+                        <a href="tel:+919105118956" class="d-flex align-items-center mb-2"><i class="fas fa-phone me-2"></i> +91 9105118956 </a>
+                        <a href="#" class="d-flex align-items-center mb-2"><i class="fas fa-clock me-2"></i> Everyday: 10:00 AM - 7:30 PM </a>
+                        <a href="#" class="d-flex align-items-center mb-2"><i class="fas fa-city me-2"></i> Plot No. 9, Block-D, Sector 3, Noida, Uttar Pradesh 201301</a>
+                                            <a href="mailto:support@dotcomtechnologies.com" class="d-flex align-items-center mb-2"><i class="fas fa-envelope me-2"></i>  support@dotcomtechnology.co.in</a>
+                        <img src="https://i.ibb.co/mFXb5R4G/Blue-Grey-Minimalist-Modern-Business-Card.png" class="img-fluid mt-2" alt="Contact Card" style="max-width: 200px;">
+                    </div>
+                </div>
+            </div>
+            <div class="share text-center py-4">
+                <a href="#" class="d-inline-flex align-items-center justify-content-center mx-2"><i class="fab fa-facebook-f" style="color: #fff;"></i></a>
+                <a href="#" class="d-inline-flex align-items-center justify-content-center mx-2"><i class="fab fa-whatsapp" style="color: #fff;"></i></a>
+                <a href="#" class="d-inline-flex align-items-center justify-content-center mx-2"><i class="fab fa-instagram" style="color: #fff;"></i></a>
+                <a href="#" class="d-inline-flex align-items-center justify-content-center mx-2"><i class="fab fa-linkedin" style="color: #fff;"></i></a>
+            </div>
+            <div class="credit text-center">
+                created by <span style="color: #be185d;">dotcomtechnologies</span> | all rights reserved!
+            </div>
+        </div>
+    </section>
+    <!-- Bulk Order Modal -->
+    <div class="modal fade" id="bulkOrderModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Customer Support</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="bulkOrderForm">
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" placeholder="Enter your name" id="bulkName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="Enter your email" id="bulkEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Phone</label>
+                            <input type="tel" class="form-control" placeholder="Enter your phone number" id="bulkPhone" required>
+                        </div>
+                        
+                        
+                       
+                        <div class="mb-3">
+                            <label class="form-label">Additional Message</label>
+                            <textarea class="form-control" placeholder="message?" id="bulkNotes"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Buy Now Modal -->
+    <div class="modal fade" id="buyNowModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Checkout</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="buyNowForm">
+                        <div id="buyNowProduct" class="mb-4"></div>
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" placeholder="Enter your name" id="buyName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="Enter your email" id="buyEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Phone</label>
+                            <input type="tel" class="form-control" placeholder="Enter your phone number" id="buyPhone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Delivery Address</label>
+                            <textarea class="form-control" placeholder="Enter delivery address" id="buyAddress" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Pincode</label>
+                            <input type="text" class="form-control" placeholder="Enter 6-digit pincode" id="pincodeInput" required>
+                            <div id="pincodeResult" class="form-text"></div>
+                        </div>
+                        <div id="shippingCost" class="mb-2"></div>
+                        <div id="totalCost" class="mb-3 fw-bold text-success"></div>
+                        <button type="submit" class="btn btn-primary w-100">Proceed to Payment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preview Modal -->
+    <div class="modal fade" id="previewModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Book Preview</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="previewContent">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/+919105118956" class="whatsapp-btn" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    
+   <script>
+    
+   document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the books array
+          window.books = [
+  {
+    "id": 1,
+    "name": "Portable Neck Rechargeable Cooling Fan",
+    "image": "https://m.media-amazon.com/images/I/61I6Fh7rftS.jpg",
+    "price": 799.00,
+    "class": null,
+    "description": "Stay cool with this portable neck fan featuring a hands-free design with 22 air outlets for full-face cooling. It offers a long-lasting rechargeable battery, three adjustable speed settings, and is ultra-lightweight. Safe for children and the elderly, it’s perfect for on-the-go use.",
+    "category": "Electronics",
+    "author": "Trendshop",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Weight: 110 g",
+      "Features: Hands-free, 22 air outlets, adjustable airflow",
+      "Battery: Long-lasting rechargeable",
+      "Safety: Wingless design"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Mini Ice Cooler Portable Cooler",
+    "image": "https://i5.walmartimages.com/seo/YiBai-Small-Cooler-Chiller-5-Quart-Portable-Cooler-Outdoor-Mini-Refrigerated-Container-Ice-Bucket-for-Camping-Blue_b65eef37-c169-47ee-a634-9026c5482b16.a39cca96aba361527eef92c03e74f0fd.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF",
+    "price": 799.00,
+    "class": null,
+    "isNew": true,
+    "description": "A portable cooling solution for home or office use. This mini ice cooler is designed for personal cooling, offering efficient air circulation in small spaces. Compact and easy to use, it’s ideal for personal comfort.",
+    "category": "Home Appliances",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: Unknown",
+      "Use: Home and office",
+      "Type: Portable cooler"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Portable Air Conditioner Mini Cooler",
+    "image": "https://i5.walmartimages.com/seo/Wamans-Air-Conditioner-Portable-Usb-Rechargeable-Mini-Cooling-Fan-Water-Air-Conditioning-Fan-Mini-Fan-Usb-Fan-Desktop-Turbo-Spray-Humidifica_332e18f2-c05a-4498-acb0-35affd4bb347.80c1ed80233d59681500d85e8988d5f0.jpeg",
+    "price": 1250.00,
+    "class": null,
+    "isNew": true,
+    "description": "India’s top-selling 3-in-1 portable air cooler, humidifier, and purifier. Features a replaceable filter, three wind speeds, and an easy-fill water tank that runs up to 8 hours. Compact, eco-friendly, and ultra-quiet, it’s perfect for home, office, or travel.",
+    "category": "Home Appliances",
+    "author": "Trensz",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: 800 g",
+      "Dimensions: 17 x 16.4 x 14.9 cm",
+      "Features: 3-in-1, eco-friendly, ultra-quiet",
+      "Runtime: Up to 8 hours"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Bedtime Fun Kids Slide Projector Torch",
+    "image": "https://m.media-amazon.com/images/I/81TzIvbtp1L._AC_UL320_.jpg",
+    "price": 550.00,
+    "isNew": true,
+    "class": null,
+    "description": "A versatile toy combining learning and entertainment, this projector torch uses premium ABS materials and interchangeable slides to spark creativity. It doubles as a flashlight for nighttime safety, making it a perfect sleep companion for children aged 8 months to 8 years.",
+    "category": "Kids Styling",
+    "author": "Trensz",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: 40 g",
+      "Dimensions: 7 x 4 x 3 cm",
+      "Material: Eco-friendly rubber button, polymer plastic",
+      "Age Range: 8 months - 8 years"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Portable High Power Car Vacuum Cleaner",
+    "image": "https://m.media-amazon.com/images/I/61YOMLX2qbL._AC_UL320_.jpg",
+    "price": 799.00,
+    "class": null,
+    "description": "A compact, handheld car vacuum cleaner with a HEPA filter, powered by a 3.7V battery for up to 40 minutes of runtime. Features strong suction for cleaning dust, dirt, and hair, with a washable filter and included nozzle and brush. Lightweight and portable for travel or camping.",
+    "category": "Automotive",
+    "author": null,
+    "rating": null,
+    "additionalInfo": [
+      "Weight: Unknown",
+      "Dimensions: 8 x 5 x 10 cm",
+      "Features: Portable, lightweight, HEPA filter",
+      "Runtime: 40 minutes"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Portable Desk Fan with USB Charging",
+    "image": "https://m.media-amazon.com/images/I/51QXlIuRLTL._AC_UL320_.jpg",
+    "price": 599.00,
+    "class": null,
+    "description": "A compact desk fan with USB charging, perfect for home or office use. Features three speed settings and a quiet motor for efficient cooling. Lightweight and portable, it’s ideal for small spaces or travel.",
+    "category": "Electronics",
+    "author": "Trendshop",
+    "rating": 4.0,
+    "additionalInfo": [
+      "Weight: 200 g",
+      "Features: USB charging, three speed settings",
+      "Noise Level: Low",
+      "Use: Desk or travel"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Kids Interactive Storybook Projector",
+    "image": "https://m.media-amazon.com/images/I/81TzIvbtp1L._AC_UL320_.jpg",
+    "price": 650.00,
+    "class": null,
+    "description": "An engaging storybook projector for kids, featuring colorful slides and audio narration. Made from safe ABS materials, it promotes creativity and learning. Suitable for ages 3-10, it also functions as a nightlight.",
+    "category": "Toys & Games",
+    "author": "Trensz",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: 50 g",
+      "Material: ABS plastic",
+      "Age Range: 3-10 years",
+      "Features: Nightlight function"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Mini Portable Blender for Smoothies",
+    "image": "https://m.media-amazon.com/images/I/71e+QllPFrL.jpg",
+    "price": 899.00,
+    "class": null,
+    "description": "A compact blender for smoothies and shakes, featuring a USB-rechargeable battery and stainless steel blades. Perfect for home, gym, or travel, it’s easy to clean and lightweight.",
+    "category": "Home Appliances",
+    "author": "Trensz",
+    "rating": 4.2,
+    "additionalInfo": [
+      "Weight: 300 g",
+      "Material: Stainless steel blades",
+      "Features: USB-rechargeable",
+      "Use: Smoothies, shakes"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Wireless Car Air Purifier",
+    "image": "https://m.media-amazon.com/images/I/7141Bc9dC7L._AC_UF1000,1000_QL80_.jpg",
+    "price": 999.00,
+    "class": null,
+    "description": "A portable car air purifier with a HEPA filter, powered by USB. Removes dust, allergens, and odors, ensuring a fresh interior. Compact design fits in any vehicle, ideal for daily commutes.",
+    "category": "Automotive",
+    "author": "Trendshop",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: 150 g",
+      "Filter: HEPA",
+      "Power: USB",
+      "Use: Car interior"
+    ]
+  },
+//   {
+//     "id": 10,
+//     "name": "Portable Electric Kettle 1L",
+//     "image": "https://m.media-amazon.com/images/I/51dVaMrCq9L._UF894,1000_QL80_.jpg",
+//     "price": 699.00,
+//     "class": null,
+//     "description": "A 1-liter portable electric kettle with a stainless steel body and auto shut-off feature. Compact and lightweight, it’s perfect for home, office, or travel. Boils water in minutes.",
+//     "category": "Home Appliances",
+//     "author": "My Store",
+//     "rating": null,
+//     "additionalInfo": [
+//       "Weight: 500 g",
+//       "Capacity: 1 liter",
+//       "Material: Stainless steel",
+//       "Features: Auto shut-off"
+//     ]
+//   },
+  {
+    "id": 11,
+    "name": "Rechargeable LED Camping Lantern",
+    "image": "https://m.media-amazon.com/images/I/61+H07XRuyL._AC_UL320_.jpg",
+    "price": 499.00,
+    "class": null,
+    "description": "A bright LED camping lantern with a rechargeable battery and three brightness modes. Compact and durable, it’s perfect for camping, hiking, or emergency use.",
+    "category": "Sports & Outdoors",
+    "author": "Trendshop",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Weight: 250 g",
+      "Battery: Rechargeable",
+      "Modes: Three brightness levels",
+      "Use: Camping, hiking"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Portable Wireless Speaker",
+    "image": "https://m.media-amazon.com/images/I/71PvIY11X2L.jpg",
+    "price": 799.00,
+    "class": null,
+    "description": "A compact wireless speaker with Bluetooth connectivity and up to 6 hours of playtime. Waterproof and durable, it’s ideal for outdoor adventures or home use.",
+    "category": "Electronics",
+    "author": "Trendshop",
+    "rating": 4.1,
+    "additionalInfo": [
+      "Weight: 200 g",
+      "Battery: Up to 6 hours",
+      "Features: Waterproof, Bluetooth",
+      "Use: Indoor/outdoor"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Portable Handheld Steam Iron",
+    "image": "https://m.media-amazon.com/images/I/61YwgVrudBL.jpg",
+    "price": 999.00,
+    "class": null,
+    "description": "A compact handheld steam iron for quick wrinkle removal. Features a ceramic soleplate and dual voltage for travel. Lightweight and easy to use for home or on-the-go.",
+    "category": "Home & Garden > Household Appliances",
+    "author": "Trensz",
+    "rating": 4.0,
+    "additionalInfo": [
+      "Weight: 400 g",
+      "Material: Ceramic soleplate",
+      "Features: Dual voltage",
+      "Use: Home, travel"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Kids Remote Control Car",
+    "image": "https://m.media-amazon.com/images/I/81ap+We87nL.jpg",
+    "price": 699.00,
+    "class": null,
+    "description": "A durable remote control car for kids, featuring a rechargeable battery and rugged wheels for indoor/outdoor play. Suitable for ages 5-12, promotes motor skills.",
+    "category": "Kids Styling",
+    "author": "Trensz",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: 500 g",
+      "Battery: Rechargeable",
+      "Age Range: 5-12 years",
+      "Use: Indoor/outdoor"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Mini LED Projector for Home",
+    "image": "https://m.media-amazon.com/images/I/51TF2ZxwFEL.jpg",
+    "price": 2999.00,
+    "class": null,
+    "description": "A compact LED projector for home entertainment, supporting 1080p resolution and multiple inputs (HDMI, USB). Portable and easy to set up, perfect for movie nights.",
+    "category": "Electronics",
+    "author": "Trendshop",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Weight: 1 kg",
+      "Resolution: 1080p",
+      "Inputs: HDMI, USB",
+      "Use: Home entertainment"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Portable Car Tire Inflator",
+    "image": "https://m.media-amazon.com/images/I/61+H07XRuyL._AC_UL320_.jpg",
+    "price": 899.00,
+    "class": null,
+    "description": "A compact car tire inflator with a digital display and auto shut-off. Powered by a 12V car adapter, it’s perfect for roadside emergencies or regular maintenance.",
+    "category": "Automotive",
+    "author": "Trendshop",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: 600 g",
+      "Power: 12V car adapter",
+      "Features: Digital display, auto shut-off",
+      "Use: Tire inflation"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Rechargeable Electric Mosquito Swatter",
+    "image": "https://m.media-amazon.com/images/I/71yHmGpkOuL._AC_UF894,1000_QL80_.jpg",
+    "price": 399.00,
+    "class": null,
+    "description": "An electric mosquito swatter with a rechargeable battery and LED light. Safe and effective for indoor/outdoor use, it eliminates pests without chemicals.",
+    "category": "Home & Garden > Pest Control",
+    "author": "Trensz",
+    "rating": 4.0,
+    "additionalInfo": [
+      "Weight: 200 g",
+      "Battery: Rechargeable",
+      "Features: LED light",
+      "Use: Indoor/outdoor"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Portable Digital Luggage Scale",
+    "image": "https://m.media-amazon.com/images/I/61YOMLX2qbL._AC_UL320_.jpg",
+    "price": 299.00,
+    "class": null,
+    "description": "A compact digital luggage scale with a clear LCD display. Measures up to 50 kg, perfect for travel to avoid excess baggage fees. Lightweight and easy to carry.",
+    "category": "Travel Accessories",
+    "author": "Trendshop",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Weight: 100 g",
+      "Capacity: Up to 50 kg",
+      "Display: LCD",
+      "Use: Travel"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Anker Nano Power Bank 10000mAh",
+    "image": "https://m.media-amazon.com/images/I/51QXlIuRLTL._AC_UL320_.jpg",
+    "price": 1499.00,
+    "class": null,
+    "isNew": true,
+    "description": "Compact and high-capacity power bank with fast charging capabilities. Ideal for charging smartphones, tablets, and other devices on the go. Supports PD and QC fast charging.",
+    "category": "Electronics",
+    "author": "Anker",
+    "rating": 4.6,
+    "additionalInfo": [
+      "Capacity: 10000mAh",
+      "Ports: USB-C, USB-A",
+      "Features: Fast charging, compact design",
+      "Weight: 180g"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Sony WH-1000XM6 Noise-Cancelling Headphones",
+    "image": "https://m.media-amazon.com/images/I/61nGlYFDZNL._AC_UF894,1000_QL80_.jpg",
+    "price": 2999.00,
+    "class": null,
+    "description": "Premium wireless headphones with advanced noise cancellation, high-quality sound, and up to 30 hours of battery life. Perfect for travel and daily use.",
+    "category": "Electronics",
+    "author": "Sony",
+    "rating": 4.7,
+    "additionalInfo": [
+      "Battery Life: 30 hours",
+      "Features: ANC, touch controls, app support",
+      "Weight: 254g",
+      "Connectivity: Bluetooth 5.2"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Nebula Mars 3 Air Portable Projector",
+    "image": "https://m.media-amazon.com/images/I/61PyErA3hqL.jpg",
+    "price": 4999.00,
+    "class": null,
+    "isNew": true,
+    "description": "Portable projector with built-in battery for up to 2.5 hours of playback. Delivers 1080p resolution and 400 ANSI lumens brightness for outdoor movie nights.",
+    "category": "Electronics",
+    "author": "Nebula",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Resolution: 1080p",
+      "Battery: 2.5 hours",
+      "Features: Android TV, auto focus",
+      "Weight: 1.5kg"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "JBL Go 4 Portable Bluetooth Speaker",
+    "image": "https://m.media-amazon.com/images/I/51QXlIuRLTL._AC_UL320_.jpg",
+    "price": 999.00,
+    "class": null,
+    "description": "Ultra-portable waterproof speaker with powerful sound and 7 hours of playtime. Ideal for travel and outdoor activities.",
+    "category": "Electronics",
+    "author": "JBL",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Battery: 7 hours",
+      "Features: Waterproof IP67, Bluetooth",
+      "Weight: 190g",
+      "Sound: 4.2W output"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Bowers & Wilkins Px8 S2 Headphones",
+    "image": "https://m.media-amazon.com/images/I/61s3HPY+RML._UF1000,1000_QL80_.jpg",
+    "price": 5999.00,
+    "class": null,
+    "isNew": true,
+    "description": "Flagship noise-cancelling headphones with premium audio quality and luxurious design. Up to 30 hours battery life.",
+    "category": "Electronics",
+    "author": "Bowers & Wilkins",
+    "rating": 4.8,
+    "additionalInfo": [
+      "Battery: 30 hours",
+      "Features: ANC, aptX Adaptive",
+      "Weight: 320g",
+      "Build: Leather and aluminum"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "KEF Muo Portable Bluetooth Speaker",
+    "image": "https://cdn.mos.cms.futurecdn.net/ZqgPPSqCKrJjZXcvNxZ6mg.jpg",
+    "price": 1999.00,
+    "class": null,
+    "description": "Sculptural portable speaker with high-fidelity sound and up to 12 hours battery. Designed for audiophiles on the move.",
+    "category": "Electronics",
+    "author": "KEF",
+    "rating": 4.6,
+    "additionalInfo": [
+      "Battery: 12 hours",
+      "Features: Bluetooth 5.0, IPX5 water resistant",
+      "Weight: 600g",
+      "Drivers: Dual 40mm"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Fujifilm Instax Mini Link 3 Printer",
+    "image": "https://m.media-amazon.com/images/I/61+H07XRuyL._AC_UL320_.jpg",
+    "price": 1099.00,
+    "class": null,
+    "isNew": true,
+    "description": "Portable instant photo printer that connects to your smartphone. Prints credit-card sized photos quickly and easily.",
+    "category": "Electronics",
+    "author": "Fujifilm",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Print Size: Mini",
+      "Features: Bluetooth, app integration",
+      "Battery: 100 prints per charge",
+      "Weight: 205g"
+    ]
+  },
+//   {
+//     "id": 26,
+//     "name": "Belkin BoostCharge Plus 10K Power Bank",
+//     "image": "https://m.media-amazon.com/images/I/51dVaMrCq9L._AC_UL320_.jpg",
+//     "price": 1299.00,
+//     "class": null,
+//     "description": "Slim portable charger with 10,000mAh capacity and pass-through charging. Charges up to three devices simultaneously.",
+//     "category": "Electronics",
+//     "author": "Belkin",
+//     "rating": 4.5,
+//     "additionalInfo": [
+//       "Capacity: 10000mAh",
+//       "Ports: USB-C PD, USB-A",
+//       "Features: Built-in cables",
+//       "Weight: 227g"
+//     ]
+//   },
+  {
+    "id": 27,
+    "name": "Anker Soundcore Motion X600 Speaker",
+    "image": "https://m.media-amazon.com/images/I/61pjv-70W+L._UF1000,1000_QL80_.jpg",
+    "price": 1499.00,
+    "class": null,
+    "isNew": true,
+    "description": "Spatial audio speaker with 50W output and five drivers for immersive sound. Portable with 12-hour battery life.",
+    "category": "Electronics",
+    "author": "Anker",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Battery: 12 hours",
+      "Features: Spatial audio, IPX7 waterproof",
+      "Weight: 2kg",
+      "Output: 50W"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Jackery Explorer 1000 Power Station",
+    "image": "https://m.media-amazon.com/images/I/71o3jY4fJZL._AC_UL320_.jpg",
+    "price": 7999.00,
+    "class": null,
+    "description": "Portable power station with 1002Wh capacity for charging multiple devices. Solar compatible for off-grid use.",
+    "category": "Electronics",
+    "author": "Jackery",
+    "rating": 4.7,
+    "additionalInfo": [
+      "Capacity: 1002Wh",
+      "Ports: AC, USB, DC",
+      "Features: Solar input, fast charging",
+      "Weight: 10.6kg"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "DJI Pocket 3 Mini Camera",
+    "image": "https://m.media-amazon.com/images/I/61tukvVUMiL.jpg",
+    "price": 4999.00,
+    "class": null,
+    "isNew": true,
+    "description": "Pocket-sized 4K camera with gimbal stabilization. Perfect for vlogging and capturing adventures on the go.",
+    "category": "Electronics",
+    "author": "DJI",
+    "rating": 4.6,
+    "additionalInfo": [
+      "Resolution: 4K",
+      "Features: Gimbal, 1-inch sensor",
+      "Battery: 166 minutes",
+      "Weight: 179g"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Sharge Retractable 3-in-1 Power Bank",
+    "image": "https://m.media-amazon.com/images/I/51QXlIuRLTL._AC_UL320_.jpg",
+    "price": 2499.00,
+    "class": null,
+    "description": "Versatile 10,000mAh power bank that doubles as a 30W wall charger. Foldable prongs for direct wall charging.",
+    "category": "Electronics",
+    "author": "Sharge",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Capacity: 10000mAh",
+      "Features: 3-in-1, transparent design",
+      "Weight: 250g",
+      "Output: 30W"
+    ]
+  },
+  {
+    "id": 31,
+    "name": "LG WM4000H Washing Machine",
+    "image": "https://m.media-amazon.com/images/I/61+H07XRuyL._AC_UL320_.jpg",
+    "price": 59999.00,
+    "class": null,
+    "isNew": true,
+    "description": "High-efficiency front-load washer with AI-driven cycles and steam technology. Energy Star certified for efficient cleaning.",
+    "category": "Home Appliances",
+    "author": "LG",
+    "rating": 4.6,
+    "additionalInfo": [
+      "Capacity: 4.5 cu ft",
+      "Features: TurboWash, allergen cycle",
+      "Energy: Energy Star",
+      "Dimensions: 27 x 39 x 30.25 in"
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Breville Smart Oven Air Fryer Pro",
+    "image": "https://m.media-amazon.com/images/I/51jCxzgxYwL._AC_UF894,1000_QL80_.jpg",
+    "price": 3499.00,
+    "class": null,
+    "description": "Versatile countertop oven with air frying, baking, and dehydrating functions. Precise temperature control for perfect results.",
+    "category": "Home Appliances",
+    "author": "Breville",
+    "rating": 4.7,
+    "additionalInfo": [
+      "Capacity: 1 cu ft",
+      "Features: 13 functions, Element IQ",
+      "Temperature: Up to 480°F",
+      "Weight: 38.9 lbs"
+    ]
+  },
+//   {
+//     "id": 33,
+//     "name": "Cuisinart Custom 14-Cup Food Processor",
+//     "image": "https://m.media-amazon.com/images/I/51dVaMrCq9L._AC_UL320_.jpg",
+//     "price": 1999.00,
+//     "class": null,
+//     "isNew": true,
+//     "description": "Durable food processor for chopping, slicing, and pureeing. Powerful motor handles tough ingredients with ease.",
+//     "category": "Home Appliances",
+//     "author": "Cuisinart",
+//     "rating": 4.5,
+//     "additionalInfo": [
+//       "Capacity: 14 cups",
+//       "Features: 3-in-1 disc, shredding/slicing",
+//       "Motor: 720 watts",
+//       "Weight: 18.5 lbs"
+//     ]
+//   },
+  {
+    "id": 34,
+    "name": "Cosori Smart Air Fryer",
+    "image": "https://images-cdn.ubuy.co.in/65287337c0785d0691031987-cosori-pro-ii-5-8-quart-smart-air-fryer.jpg",
+    "price": 999.00,
+    "class": null,
+    "description": "Compact air fryer with app control for easy cooking. 5.5L capacity for family meals with minimal oil.",
+    "category": "Home Appliances",
+    "author": "Cosori",
+    "rating": 4.6,
+    "additionalInfo": [
+      "Capacity: 5.5L",
+      "Features: WiFi, 11 presets",
+      "Temperature: 95-450°F",
+      "Weight: 11 lbs"
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Tovala Smart Oven",
+    "image": "https://cdn.tovala.com/landing-pages/tovala-smart-oven/hero.webp",
+    "price": 2999.00,
+    "class": null,
+    "isNew": true,
+    "description": "Smart countertop oven with scan-to-cook technology. Prepares meals from fresh or frozen ingredients effortlessly.",
+    "category": "Home Appliances",
+    "author": "Tovala",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Functions: Bake, broil, steam",
+      "Features: QR code scanning, app",
+      "Capacity: Fits 12\" pizza",
+      "Weight: 34 lbs"
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Ecouzy Smart Nugget Ice Maker",
+    "image": "https://m.media-amazon.com/images/I/51QXlIuRLTL._AC_UL320_.jpg",
+    "price": 2499.00,
+    "class": null,
+    "description": "WiFi-enabled ice maker producing chewable nugget ice. Compact design for home or office use.",
+    "category": "Home Appliances",
+    "author": "Ecouzy",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Daily Output: 24 lbs",
+      "Features: WiFi, self-cleaning",
+      "Reservoir: 2L",
+      "Dimensions: 13.4 x 10.2 x 17.5 in"
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Instant Pot Pro Plus",
+    "image": "https://m.media-amazon.com/images/I/61+H07XRuyL._AC_UL320_.jpg",
+    "price": 1799.00,
+    "class": null,
+    "isNew": true,
+    "description": "Multi-cooker with 10 functions and smart app control. Pressure cook, slow cook, and more in one pot.",
+    "category": "Home Appliances",
+    "author": "Instant Pot",
+    "rating": 4.6,
+    "additionalInfo": [
+      "Capacity: 6 qt",
+      "Features: 10 functions, WiFi",
+      "Pressure: High/low",
+      "Weight: 11.8 lbs"
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Bosch 800 Series Dishwasher",
+    "image": "https://mobileimages.lowes.com/productimages/18090352-49a0-4166-8efa-88c095c197f8/67270242.jpeg",
+    "price": 12999.00,
+    "class": null,
+    "description": "Quiet and efficient dishwasher with PrecisionWash technology. CrystalDry for spotless results.",
+    "category": "Home Appliances",
+    "author": "Bosch",
+    "rating": 4.7,
+    "additionalInfo": [
+      "Capacity: 16 place settings",
+      "Noise: 42 dBA",
+      "Features: Home Connect app",
+      "Cycles: 5"
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Samsung Bespoke Refrigerator",
+    "image": "https://images.samsung.com/is/image/samsung/p6pim/in/rt34dg5a4dslhl/gallery/in-top-mount-freezer-twin-cooling-plus-529470-rt34dg5a4dslhl-548848807?$684_547_PNG$",
+    "price": 89999.00,
+    "class": null,
+    "isNew": true,
+    "description": "Smart French-door fridge with customizable panels and AI Family Hub. Beverage center and large capacity.",
+    "category": "Home Appliances",
+    "author": "Samsung",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Capacity: 23 cu ft",
+      "Features: AI Vision Inside, WiFi",
+      "Dimensions: 35.8 x 70 x 28.1 in",
+      "Ice: Dual dispenser"
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Whirlpool Over-the-Range Microwave",
+    "image": "https://m.media-amazon.com/images/I/51dVaMrCq9L._AC_UL320_.jpg",
+    "price": 15999.00,
+    "class": null,
+    "description": "1.9 cu ft microwave with sensor cooking and ventilation. Easy to install above the range.",
+    "category": "Home Appliances",
+    "author": "Whirlpool",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Capacity: 1.9 cu ft",
+      "Power: 1000W",
+      "Features: Sensor cooking, hood combo",
+      "Vent CFM: 300"
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Fanttik X8 Apex Tire Inflator",
+    "image": "https://fanttik.com/cdn/shop/files/X8APEX_a1cc1bb3-16dd-457c-8dcf-77e69b53ced7.jpg?crop=center&height=1200&v=1709627130&width=1200",
+    "price": 2999.00,
+    "class": null,
+    "isNew": true,
+    "description": "Portable tire inflator with digital pressure gauge and auto shut-off. Works for cars, bikes, and balls.",
+    "category": "Automotive",
+    "author": "Fanttik",
+    "rating": 4.6,
+    "additionalInfo": [
+      "PSI: Up to 150",
+      "Power: DC 12V",
+      "Features: LED light, preset modes",
+      "Weight: 1kg"
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Carly OBD Diagnostic Scanner",
+    "image": "https://www.mycarly.com/wp-content/uploads/2023/01/Carly_Shopping_010.png",
+    "price": 4999.00,
+    "class": null,
+    "description": "Bluetooth OBD-II scanner for vehicle diagnostics. App provides real-time data and coding options.",
+    "category": "Automotive",
+    "author": "Carly",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Compatibility: OBD-II vehicles",
+      "Features: App, coding, live data",
+      "Connectivity: Bluetooth",
+      "Weight: 50g"
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Tile Mate Key Finder",
+    "image": "https://m.media-amazon.com/images/I/51QXlIuRLTL._AC_UL320_.jpg",
+    "price": 999.00,
+    "class": null,
+    "isNew": true,
+    "description": "Bluetooth tracker for keys and items. Locate via app with separation alerts and community find network.",
+    "category": "Automotive",
+    "author": "Tile",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Battery: 3 years",
+      "Range: 250 ft",
+      "Features: Water-resistant, loud ring",
+      "Size: 1.1 x 1.1 x 0.3 in"
+    ]
+  },
+  {
+    "id": 44,
+    "name": "VANMASS Car Phone Mount",
+    "image": "https://m.media-amazon.com/images/I/61+H07XRuyL._AC_UL320_.jpg",
+    "price": 1499.00,
+    "class": null,
+    "description": "Strong suction dashboard mount for secure phone holding. Fits all smartphones with adjustable arms.",
+    "category": "Automotive",
+    "author": "VANMASS",
+    "rating": 4.7,
+    "additionalInfo": [
+      "Compatibility: All phones",
+      "Features: 85lbs suction, one-hand operation",
+      "Mount: Dashboard/windshield",
+      "Weight: 200g"
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Teeran Wireless CarPlay Adapter",
+    "image": "https://m.media-amazon.com/images/I/51r-ZC0XZBL._UF894,1000_QL80_.jpg",
+    "price": 3999.00,
+    "class": null,
+    "isNew": true,
+    "description": "Converts wired CarPlay to wireless. Plug-and-play for seamless iPhone integration in your car.",
+    "category": "Automotive",
+    "author": "Teeran",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Compatibility: iPhone 6+",
+      "Features: Low latency, auto connect",
+      "Size: Mini USB",
+      "Weight: 30g"
+    ]
+  },
+  {
+    "id": 46,
+    "name": "GlowShift Turbo Boost Gauge Kit",
+    "image": "https://m.media-amazon.com/images/I/615AOk7fk7L.jpg",
+    "price": 3499.00,
+    "class": null,
+    "description": "Digital gauge for monitoring turbo pressure up to 30 PSI. Includes sensors for easy installation.",
+    "category": "Automotive",
+    "author": "GlowShift",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Range: 0-30 PSI",
+      "Features: Stepper motor, electrical sender",
+      "Display: 52mm",
+      "Warranty: Lifetime"
+    ]
+  },
+//   {
+//     "id": 47,
+//     "name": "Piper Computer Kit",
+//     "image": "https://m.media-amazon.com/images/I/51dVaMrCq9L._AC_UL320_.jpg",
+//     "price": 4999.00,
+//     "class": null,
+//     "isNew": true,
+//     "description": "Build-your-own computer kit teaching coding and electronics. Includes Raspberry Pi and guided projects.",
+//     "category": "Toys & Games",
+//     "author": "Piper",
+//     "rating": 4.6,
+//     "additionalInfo": [
+//       "Age: 8-12",
+//       "Features: Minecraft mods, circuits",
+//       "Components: Raspberry Pi, sensors",
+//       "Weight: 1kg"
+//     ]
+//   },
+  {
+    "id": 48,
+    "name": "Osmo Little Genius Starter Kit",
+    "image": "https://m.media-amazon.com/images/I/81B4HrwxeDL.jpg",
+    "price": 2999.00,
+    "class": null,
+    "description": "Interactive iPad learning kit for preschoolers. Teaches letters, numbers, and shapes through play.",
+    "category": "Kids Styling",
+    "author": "Osmo",
+    "rating": 4.7,
+    "additionalInfo": [
+      "Age: 3-5",
+      "Features: 6 games, physical pieces",
+      "Compatibility: iPad",
+      "Weight: 1.5kg"
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Nintendo Switch 2 with Mario Kart",
+    "image": "https://target.scene7.com/is/image/Target/GUEST_fb66135b-140a-4712-aad3-44b0bacf8ec4",
+    "price": 34999.00,
+    "class": null,
+    "isNew": true,
+    "description": "Hybrid gaming console with enhanced graphics and included Mario Kart game. Perfect for family play.",
+    "category": "Electronics",
+    "author": "Nintendo",
+    "rating": 4.8,
+    "additionalInfo": [
+      "Storage: 256GB",
+      "Features: 8\" screen, Joy-Con controllers",
+      "Battery: 4-9 hours",
+      "Weight: 0.4kg"
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Contixo 7\" Kids Tablet",
+    "image": "https://m.media-amazon.com/images/I/61+H07XRuyL._AC_UL320_.jpg",
+    "price": 9999.00,
+    "class": null,
+    "description": "Educational Android tablet with parental controls and 50 Disney eBooks. Safe screen time for kids.",
+    "category": "Kids Styling",
+    "author": "Contixo",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Storage: 32GB",
+      "Screen: 7\"",
+      "Features: Kid-proof case, WiFi",
+      "Battery: 6 hours"
+    ]
+  },
+
+  
+  {
+    "id": 51,
+    "name": "Ruffpad 8.5E Re-Writable LCD Writing Pad",
+    "image": "https://m.media-amazon.com/images/I/51nzIs6jTCL.jpg",
+    "price": 349.00,
+    "class": null,
+    "description": "An 8.5-inch LCD writing pad for drawing and writing, featuring pressure-sensitive technology and a lock function to save creations. Environmentally friendly and reusable, suitable for kids and adults.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.2,
+    "additionalInfo": [
+      "Screen Size: 8.5 inches",
+      "Features: Stylus, Anti-Erase Lock, Reusable",
+      "Uses: Drawing, Writing, Notes",
+      "App Support: Save doodles on iOS/Android"
+    ]
+  },
+  {
+    "id": 52,
+    "name": "Multifunction Rechargeable Solar Lamp",
+    "image": "https://m.media-amazon.com/images/I/71j69XhRhWL.jpg",
+    "price": 999.00,
+    "class": null,
+    "description": "A portable LED camping lantern with 1500 lumens, rechargeable via solar or USB, and a mobile charger function. Features adjustable brightness and IPX4 waterproofing for outdoor use.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Material: Metal, ABS",
+      "Power Source: Battery Powered, Solar",
+      "Features: 1500 lumens, IPX4 waterproof, Foldable hooks",
+      "Brightness Modes: Cool white, Warm light"
+    ]
+  },
+  {
+    "id": 53,
+    "name": "CROME 7 LED Bluetooth Speaker + Wireless Charger",
+    "image": "https://m.media-amazon.com/images/I/51-JaartjrL._UF1000,1000_QL80_.jpg",
+    "price": 2399.00,
+    "class": null,
+    "description": "A multifunctional 4-in-1 device combining a Bluetooth speaker, wireless charger, night light, and FM radio. Features RGB music sync lighting and app-based smart control.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.1,
+    "additionalInfo": [
+      "Material: ABS, PC",
+      "Color: Wireless Charger G-Lamp",
+      "Features: Energy Efficient, Dimmable, Timer, Colour Changing, Adjustable",
+      "Compatibility: iPhone, Samsung Galaxy"
+    ]
+  },
+//   {
+//     "id": 54,
+//     "name": "Portable Electric Kettle",
+//     "image": "https://m.media-amazon.com/images/I/61+XzTLZFPL._AC_SL1500_.jpg",
+//     "price": 599.00,
+//     "class": null,
+//     "description": "A compact 1.2-liter electric kettle with fast boiling and auto shut-off. Perfect for home, office, or travel, made with stainless steel for durability.",
+//     "category": "Electronics",
+//     "author": "GVM Store",
+//     "rating": 4.0,
+//     "additionalInfo": [
+//       "Material: Stainless Steel, Plastic",
+//       "Capacity: 1.2 Liters",
+//       "Features: Auto Shut-off, Cordless",
+//       "Power: 1500W"
+//     ]
+//   },
+  {
+    "id": 55,
+    "name": "Wireless Earbuds with Charging Case",
+    "image": "https://m.media-amazon.com/images/I/51wAPUt8SKL._UF1000,1000_QL80_.jpg",
+    "price": 1499.00,
+    "class": null,
+    "description": "High-quality wireless earbuds with noise cancellation and up to 20 hours of battery life. Includes a compact charging case for on-the-go use.",
+    "category": "Electronics > Audio",
+    "author": "GVM Store",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Material: Plastic",
+      "Battery Life: 20 hours",
+      "Features: Noise Cancellation, Bluetooth 5.0",
+      "Compatibility: iOS, Android"
+    ]
+  },
+//   {
+//     "id": 56,
+//     "name": "LED Desk Lamp with USB Port",
+//     "image": "https://m.media-amazon.com/images/I/712v184omCL._AC_SL1500_.jpg",
+//     "price": 799.00,
+//     "class": null,
+//     "description": "A modern LED desk lamp with adjustable brightness and a USB charging port. Ideal for studying, working, or reading, with energy-efficient lighting.",
+//     "category": "Electronics",
+//     "author": "GVM Store",
+//     "rating": 4.2,
+//     "additionalInfo": [
+//       "Material: Plastic, Metal",
+//       "Features: Adjustable Brightness, USB Port",
+//       "Light Type: LED",
+//       "Power Source: USB Powered"
+//     ]
+//   },
+  {
+    "id": 57,
+    "name": "Portable Car Vacuum Cleaner",
+    "image": "https://m.media-amazon.com/images/I/61YOMLX2qbL._AC_SL1500_.jpg",
+    "price": 1299.00,
+    "class": null,
+    "description": "A compact car vacuum cleaner with strong suction and multiple attachments. Powered by a car's 12V outlet, perfect for quick cleanups.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.1,
+    "additionalInfo": [
+      "Material: Plastic",
+      "Power: 120W",
+      "Features: HEPA Filter, Multiple Attachments",
+      "Cord Length: 4 meters"
+    ]
+  },
+//   {
+//     "id": 58,
+//     "name": "Adjustable Laptop Stand",
+//     "image": "https://m.media-amazon.com/images/I/71cOnHXOg9L.jpg",
+//     "price": 699.00,
+//     "class": null,
+//     "description": "A foldable aluminum laptop stand with adjustable height and angle. Improves ergonomics and cooling, suitable for laptops up to 15 inches.",
+//     "category": "Electronics > Computer Accessories",
+//     "author": "GVM Store",
+//     "rating": 4.3,
+//     "additionalInfo": [
+//       "Material: Aluminum",
+//       "Compatibility: Laptops up to 15 inches",
+//       "Features: Adjustable, Foldable, Non-slip",
+//       "Weight: 300g"
+//     ]
+//   },
+  {
+    "id": 59,
+    "name": "Mini USB Humidifier",
+    "image": "https://m.media-amazon.com/images/I/61hvvWP7TbL._AC_UF894,1000_QL80_.jpg",
+    "price": 349.00,
+    "class": null,
+    "description": "A compact USB-powered humidifier with mist control and LED night light. Perfect for office desks or travel to maintain air moisture.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.0,
+    "additionalInfo": [
+      "Material: Plastic",
+      "Capacity: 200ml",
+      "Features: USB Powered, LED Light",
+      "Mist Modes: Continuous, Intermittent"
+    ]
+  },
+  {
+    "id": 60,
+    "name": "Portable Bluetooth Projector",
+    "image": "https://m.media-amazon.com/images/I/61wnDkE1Z3L.jpg",
+    "price": 2999.00,
+    "class": null,
+    "description": "A compact Bluetooth projector with 1080p resolution and built-in speakers. Supports HDMI and USB inputs for home entertainment.",
+    "category": "Electronics > Video",
+    "author": "GVM Store",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Resolution: 1080p",
+      "Connectivity: HDMI, USB, Bluetooth",
+      "Features: Built-in Speakers, Portable",
+      "Projection Distance: 1-5 meters"
+    ]
+  },
+  {
+    "id": 61,
+    "name": "Electric Hand Mixer",
+    "image": "https://m.media-amazon.com/images/I/61hhidLHaDL._AC_SL1500_.jpg",
+    "price": 799.00,
+    "class": null,
+    "description": "A 5-speed electric hand mixer with stainless steel beaters and dough hooks. Perfect for baking and cooking, with easy storage.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.1,
+    "additionalInfo": [
+      "Material: Plastic, Stainless Steel",
+      "Speeds: 5",
+      "Features: Beaters, Dough Hooks",
+      "Power: 300W"
+    ]
+  },
+  {
+    "id": 62,
+    "name": "Portable Power Bank 10000mAh",
+    "image": "https://m.media-amazon.com/images/I/61YOMLX2qbL._AC_SL1500_.jpg",
+    "price": 999.00,
+    "class": null,
+    "description": "A slim 10000mAh power bank with dual USB ports for fast charging. Compact design, ideal for travel and daily use.",
+    "category": "Electronics > Phone Accessories",
+    "author": "GVM Store",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Capacity: 10000mAh",
+      "Ports: Dual USB",
+      "Features: Fast Charging, LED Indicator",
+      "Weight: 200g"
+    ]
+  },
+  {
+    "id": 63,
+    "name": "Wireless Charging Mouse Pad",
+    "image": "https://m.media-amazon.com/images/I/812ciMZCfHL.jpg",
+    "price": 699.00,
+    "class": null,
+    "description": "A mouse pad with built-in wireless charging for compatible devices. Non-slip base and smooth surface for precise mouse control.",
+    "category": "Electronics > Computer Accessories",
+    "author": "GVM Store",
+    "rating": 4.2,
+    "additionalInfo": [
+      "Material: Rubber, Fabric",
+      "Features: Wireless Charging, Non-slip",
+      "Compatibility: Qi-enabled Devices",
+      "Size: 30 x 20 cm"
+    ]
+  },
+  {
+    "id": 64,
+    "name": "Mini LED Flashlight",
+    "image": "https://m.media-amazon.com/images/I/71CtylJkqtL._AC_SL1500_.jpg",
+    "price": 249.00,
+    "class": null,
+    "description": "A compact LED flashlight with adjustable focus and 3 light modes. Waterproof and durable, perfect for camping or emergencies.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Material: Aluminum",
+      "Features: Adjustable Focus, Waterproof",
+      "Modes: High, Low, Strobe",
+      "Power: Battery Operated"
+    ]
+  },
+  {
+    "id": 65,
+    "name": "Smart Digital Bathroom Scale",
+    "image": "https://i.ebayimg.com/images/g/sUMAAOSwTWdmKM17/s-l1200.jpg",
+    "price": 899.00,
+    "class": null,
+    "description": "A digital bathroom scale with body composition analysis, including weight, BMI, and fat percentage. Syncs with mobile apps for tracking.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.1,
+    "additionalInfo": [
+      "Material: Tempered Glass",
+      "Features: Bluetooth, App Sync",
+      "Capacity: Up to 180kg",
+      "Power: Battery Operated"
+    ]
+  },
+  {
+    "id": 66,
+    "name": "Electric Toothbrush with Timer",
+    "image": "https://i5.walmartimages.com/asr/03d46cdf-dd6c-4d55-8fc7-4c2acb8a0f2e.b607c71827fad45485411abec155d532.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF",
+    "price": 599.00,
+    "class": null,
+    "description": "A rechargeable electric toothbrush with a 2-minute timer and multiple brushing modes. Includes 3 replacement heads.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Material: Plastic",
+      "Features: Rechargeable, 2-minute Timer",
+      "Modes: Clean, Sensitive, Massage",
+      "Includes: 3 Brush Heads"
+    ]
+  },
+  {
+    "id": 67,
+    "name": "Mini Electric Screwdriver Set",
+    "image": "https://m.media-amazon.com/images/I/817uOYDey6L._AC_SL1500_.jpg",
+    "price": 799.00,
+    "class": null,
+    "description": "A rechargeable electric screwdriver with 10 bits for home repairs. Compact and lightweight, with LED light for precision.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.2,
+    "additionalInfo": [
+      "Material: Plastic, Metal",
+      "Features: Rechargeable, LED Light",
+      "Bits Included: 10",
+      "Power: USB Rechargeable"
+    ]
+  },
+  {
+    "id": 68,
+    "name": "Digital Kitchen Timer",
+    "image": "https://m.media-amazon.com/images/I/61aG8Zgd-gL.jpg",
+    "price": 299.00,
+    "class": null,
+    "description": "A digital kitchen timer with a magnetic back and loud alarm. Perfect for cooking, baking, or time management tasks.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.0,
+    "additionalInfo": [
+      "Material: Plastic",
+      "Features: Magnetic Back, Loud Alarm",
+      "Power: Battery Operated",
+      "Display: LCD"
+    ]
+  },
+  {
+    "id": 69,
+    "name": "Portable Smoothie Blender",
+    "image": "https://m.media-amazon.com/images/I/81skhWMDoPL.jpg",
+    "price": 799.00,
+    "class": null,
+    "description": "A 300ml portable blender for smoothies and shakes, USB rechargeable. Compact and easy to clean, ideal for travel or home use.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Material: Plastic, Stainless Steel",
+      "Capacity: 300ml",
+      "Features: USB Rechargeable, Easy to Clean",
+      "Power: 150W"
+    ]
+  },
+  {
+    "id": 70,
+    "name": "Anker Nano Power Bank 10000mAh",
+    "image": "https://m.media-amazon.com/images/I/51QXlIuRLTL._AC_SL1500_.jpg",
+    "price": 1499.00,
+    "class": null,
+    "description": "Compact and high-capacity power bank with fast charging capabilities. Ideal for charging smartphones, tablets, and other devices on the go. Supports PD and QC fast charging.",
+    "category": "Electronics",
+    "author": "Anker",
+    "rating": 4.6,
+    "additionalInfo": [
+      "Capacity: 10000mAh",
+      "Ports: USB-C, USB-A",
+      "Features: Fast charging, compact design",
+      "Weight: 180g"
+    ]
+  },
+  {
+    "id": 71,
+    "name": "Sony WH-1000XM6 Noise-Cancelling Headphones",
+    "image": "https://m.media-amazon.com/images/I/61nGlYFDZNL._AC_UF894,1000_QL80_.jpg",
+    "price": 2999.00,
+    "class": null,
+    "description": "Premium wireless headphones with advanced noise cancellation, high-quality sound, and up to 30 hours of battery life. Perfect for travel and daily use.",
+    "category": "Electronics",
+    "author": "Sony",
+    "rating": 4.7,
+    "additionalInfo": [
+      "Battery Life: 30 hours",
+      "Features: ANC, touch controls, app support",
+      "Weight: 254g",
+      "Connectivity: Bluetooth 5.2"
+    ]
+  },
+  {
+    "id": 72,
+    "name": "Nebula Mars 3 Air Portable Projector",
+    "image": "https://m.media-amazon.com/images/I/61PyErA3hqL.jpg",
+    "price": 4999.00,
+    "class": null,
+    "description": "Portable projector with built-in battery for up to 2.5 hours of playback. Delivers 1080p resolution and 400 ANSI lumens brightness for outdoor movie nights.",
+    "category": "Electronics",
+    "author": "Nebula",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Resolution: 1080p",
+      "Battery: 2.5 hours",
+      "Features: Android TV, auto focus",
+      "Weight: 1.5kg"
+    ]
+  },
+  {
+    "id": 73,
+    "name": "JBL Go 4 Portable Bluetooth Speaker",
+    "image": "https://m.media-amazon.com/images/I/51QXlIuRLTL._AC_SL1500_.jpg",
+    "price": 999.00,
+    "class": null,
+    "description": "Ultra-portable waterproof speaker with powerful sound and 7 hours of playtime. Ideal for travel and outdoor activities.",
+    "category": "Electronics",
+    "author": "JBL",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Battery: 7 hours",
+      "Features: Waterproof IP67, Bluetooth",
+      "Weight: 190g",
+      "Sound: 4.2W output"
+    ]
+  },
+  {
+    "id": 74,
+    "name": "Bowers & Wilkins Px8 S2 Headphones",
+    "image": "https://content.abt.com/image.php/Bowers-Wilkins-PX8-S2-Tan-NC-Headphones-PX8TAN-Front-Left.jpg?image=/images/products/BDP_Images/Bowers-Wilkins-PX8-S2-Tan-NC-Headphones-PX8TAN-Front-Left.jpg&canvas=1&width=750&height=550",
+    "price": 5999.00,
+    "class": null,
+    "description": "Flagship noise-cancelling headphones with premium audio quality and luxurious design. Up to 30 hours battery life.",
+    "category": "Electronics",
+    "author": "Bowers & Wilkins",
+    "rating": 4.8,
+    "additionalInfo": [
+      "Battery: 30 hours",
+      "Features: ANC, aptX Adaptive",
+      "Weight: 320g",
+      "Build: Leather and aluminum"
+    ]
+  },
+  {
+    "id": 75,
+    "name": "KEF Muo Portable Bluetooth Speaker",
+    "image": "https://cdn.mos.cms.futurecdn.net/ZqgPPSqCKrJjZXcvNxZ6mg.jpg",
+    "price": 1999.00,
+    "class": null,
+    "description": "Sculptural portable speaker with high-fidelity sound and up to 12 hours battery. Designed for audiophiles on the move.",
+    "category": "Electronics",
+    "author": "KEF",
+    "rating": 4.6,
+    "additionalInfo": [
+      "Battery: 12 hours",
+      "Features: Bluetooth 5.0, IPX5 water resistant",
+      "Weight: 600g",
+      "Drivers: Dual 40mm"
+    ]
+  },
+  {
+    "id": 76,
+    "name": "Fujifilm Instax Mini Link 3 Printer",
+    "image": "https://m.media-amazon.com/images/I/61+H07XRuyL._AC_SL1500_.jpg",
+    "price": 1099.00,
+    "class": null,
+    "description": "Portable instant photo printer that connects to your smartphone. Prints credit-card sized photos quickly and easily.",
+    "category": "Electronics",
+    "author": "Fujifilm",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Print Size: Mini",
+      "Features: Bluetooth, app integration",
+      "Battery: 100 prints per charge",
+      "Weight: 205g"
+    ]
+  },
+//   {
+//     "id": 77,
+//     "name": "Belkin BoostCharge Plus 10K Power Bank",
+//     "image": "https://m.media-amazon.com/images/I/51dVaMrCq9L._AC_SL1500_.jpg",
+//     "price": 1299.00,
+//     "class": null,
+//     "description": "Slim portable charger with 10,000mAh capacity and pass-through charging. Charges up to three devices simultaneously.",
+//     "category": "Electronics",
+//     "author": "Belkin",
+//     "rating": 4.5,
+//     "additionalInfo": [
+//       "Capacity: 10000mAh",
+//       "Ports: USB-C PD, USB-A",
+//       "Features: Built-in cables",
+//       "Weight: 227g"
+//     ]
+//   },
+  {
+    "id": 78,
+    "name": "Anker Soundcore Motion X600 Speaker",
+    "image": "https://m.media-amazon.com/images/I/61pjv-70W+L._UF1000,1000_QL80_.jpg",
+    "price": 1499.00,
+    "class": null,
+    "description": "Spatial audio speaker with 50W output and five drivers for immersive sound. Portable with 12-hour battery life.",
+    "category": "Electronics",
+    "author": "Anker",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Battery: 12 hours",
+      "Features: Spatial audio, IPX7 waterproof",
+      "Weight: 2kg",
+      "Output: 50W"
+    ]
+  },
+  {
+    "id": 79,
+    "name": "Jackery Explorer 1000 Power Station",
+    "image": "https://m.media-amazon.com/images/I/71o3jY4fJZL._AC_SL1500_.jpg",
+    "price": 7999.00,
+    "class": null,
+    "description": "Portable power station with 1002Wh capacity for charging multiple devices. Solar compatible for off-grid use.",
+    "category": "Electronics",
+    "author": "Jackery",
+    "rating": 4.7,
+    "additionalInfo": [
+      "Capacity: 1002Wh",
+      "Ports: AC, USB, DC",
+      "Features: Solar input, fast charging",
+      "Weight: 10.6kg"
+    ]
+  },
+  {
+    "id": 80,
+    "name": "DJI Pocket 3 Mini Camera",
+    "image": "https://m.media-amazon.com/images/I/61tukvVUMiL.jpg",
+    "price": 4999.00,
+    "class": null,
+    "description": "Pocket-sized 4K camera with gimbal stabilization. Perfect for vlogging and capturing adventures on the go.",
+    "category": "Electronics",
+    "author": "DJI",
+    "rating": 4.6,
+    "additionalInfo": [
+      "Resolution: 4K",
+      "Features: Gimbal, 1-inch sensor",
+      "Battery: 166 minutes",
+      "Weight: 179g"
+    ]
+  },
+  {
+    "id": 81,
+    "name": "Sharge Retractable 3-in-1 Power Bank",
+    "image": "https://m.media-amazon.com/images/I/51QXlIuRLTL._AC_SL1500_.jpg",
+    "price": 2499.00,
+    "class": null,
+    "description": "Versatile 10,000mAh power bank that doubles as a 30W wall charger. Foldable prongs for direct wall charging.",
+    "category": "Electronics",
+    "author": "Sharge",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Capacity: 10000mAh",
+      "Features: 3-in-1, transparent design",
+      "Weight: 250g",
+      "Output: 30W"
+    ]
+  },
+  {
+    "id": 82,
+    "name": "Nintendo Switch 2 with Mario Kart",
+    "image": "https://target.scene7.com/is/image/Target/GUEST_fb66135b-140a-4712-aad3-44b0bacf8ec4",
+    "price": 34999.00,
+    "class": null,
+    "description": "Hybrid gaming console with enhanced graphics and included Mario Kart game. Perfect for family play.",
+    "category": "Electronics",
+    "author": "Nintendo",
+    "rating": 4.8,
+    "additionalInfo": [
+      "Storage: 256GB",
+      "Features: 8\" screen, Joy-Con controllers",
+      "Battery: 4-9 hours",
+      "Weight: 0.4kg"
+    ]
+  },
+  {
+    "id": 83,
+    "name": "Contixo 7\" Kids Tablet",
+    "image": "https://m.media-amazon.com/images/I/61+H07XRuyL._AC_SL1500_.jpg",
+    "price": 9999.00,
+    "class": null,
+    "description": "Educational Android tablet with parental controls and 50 Disney eBooks. Safe screen time for kids.",
+    "category": "Electronics",
+    "author": "Contixo",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Storage: 32GB",
+      "Screen: 7\"",
+      "Features: Kid-proof case, WiFi",
+      "Battery: 6 hours"
+    ]
+  },
+  {
+    "id": 84,
+    "name": "Mini LED Projector for Home",
+    "image": "https://m.media-amazon.com/images/I/51TF2ZxwFEL.jpg",
+    "price": 2999.00,
+    "class": null,
+    "description": "A compact LED projector for home entertainment, supporting 1080p resolution and multiple inputs (HDMI, USB). Portable and easy to set up, perfect for movie nights.",
+    "category": "Electronics",
+    "author": "Trendshop",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Weight: 1 kg",
+      "Resolution: 1080p",
+      "Inputs: HDMI, USB",
+      "Use: Home entertainment"
+    ]
+  },
+  {
+    "id": 85,
+    "name": "Portable Wireless Speaker",
+    "image": "https://m.media-amazon.com/images/I/71PvIY11X2L.jpg",
+    "price": 799.00,
+    "class": null,
+    "description": "A compact wireless speaker with Bluetooth connectivity and up to 6 hours of playtime. Waterproof and durable, it’s ideal for outdoor adventures or home use.",
+    "category": "Electronics",
+    "author": "Trendshop",
+    "rating": 4.1,
+    "additionalInfo": [
+      "Weight: 200 g",
+      "Battery: Up to 6 hours",
+      "Features: Waterproof, Bluetooth",
+      "Use: Indoor/outdoor"
+    ]
+  },
+  {
+    "id": 86,
+    "name": "Wireless Car Air Purifier",
+    "image": "https://m.media-amazon.com/images/I/7141Bc9dC7L._AC_UF1000,1000_QL80_.jpg",
+    "price": 999.00,
+    "class": null,
+    "description": "A portable car air purifier with a HEPA filter, powered by USB. Removes dust, allergens, and odors, ensuring a fresh interior. Compact design fits in any vehicle.",
+    "category": "Electronics",
+    "author": "Trendshop",
+    "rating": 4.2,
+    "additionalInfo": [
+      "Weight: 150 g",
+      "Filter: HEPA",
+      "Power: USB",
+      "Use: Car interior"
+    ]
+  },
+  {
+    "id": 87,
+    "name": "Rechargeable LED Camping Lantern",
+    "image": "https://m.media-amazon.com/images/I/61+H07XRuyL._AC_SL1500_.jpg",
+    "price": 499.00,
+    "class": null,
+    "description": "A bright LED camping lantern with a rechargeable battery and three brightness modes. Compact and durable, it’s perfect for camping, hiking, or emergency use.",
+    "category": "Electronics",
+    "author": "Trendshop",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Weight: 250 g",
+      "Battery: Rechargeable",
+      "Modes: Three brightness levels",
+      "Use: Camping, hiking"
+    ]
+  },
+  {
+    "id": 88,
+    "name": "Portable High Power Car Vacuum Cleaner",
+    "image": "https://m.media-amazon.com/images/I/61YOMLX2qbL._AC_SL1500_.jpg",
+    "price": 799.00,
+    "class": null,
+    "description": "A compact, handheld car vacuum cleaner with a HEPA filter, powered by a 3.7V battery for up to 40 minutes of runtime. Features strong suction for cleaning dust, dirt, and hair.",
+    "category": "Electronics",
+    "author": "Trendshop",
+    "rating": 4.0,
+    "additionalInfo": [
+      "Weight: Unknown",
+      "Dimensions: 8 x 5 x 10 cm",
+      "Features: Portable, lightweight, HEPA filter",
+      "Runtime: 40 minutes"
+    ]
+  },
+  {
+    "id": 89,
+    "name": "Smart Wi-Fi LED Bulb",
+    "image": "https://m.media-amazon.com/images/I/51QXlIuRLTL._AC_SL1500_.jpg",
+    "price": 499.00,
+    "class": null,
+    "description": "A smart LED bulb with Wi-Fi connectivity, compatible with Alexa and Google Home. Adjustable brightness and color temperature for home lighting.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Wattage: 9W",
+      "Features: Wi-Fi, Voice Control, Dimmable",
+      "Compatibility: Alexa, Google Home",
+      "Color: Warm White to Cool White"
+    ]
+  },
+  {
+    "id": 90,
+    "name": "USB-C Hub Adapter",
+    "image": "https://m.media-amazon.com/images/I/71LR5VorKEL.jpg",
+    "price": 1299.00,
+    "class": null,
+    "description": "A multi-port USB-C hub with HDMI, USB 3.0, and SD card slots. Compact design for laptops and tablets, ideal for work or travel.",
+    "category": "Electronics > Computer Accessories",
+    "author": "GVM Store",
+    "rating": 4.2,
+    "additionalInfo": [
+      "Ports: HDMI, USB 3.0, SD, USB-C",
+      "Features: Plug-and-Play, Compact",
+      "Compatibility: USB-C Devices",
+      "Material: Aluminum"
+    ]
+  },
+  {
+    "id": 91,
+    "name": "Wireless Gaming Mouse",
+    "image": "https://m.media-amazon.com/images/I/51TF2ZxwFEL.jpg",
+    "price": 999.00,
+    "class": null,
+    "description": "A rechargeable wireless gaming mouse with adjustable DPI and RGB lighting. Ergonomic design for prolonged gaming sessions.",
+    "category": "Electronics > Computer Accessories",
+    "author": "GVM Store",
+    "rating": 4.4,
+    "additionalInfo": [
+      "DPI: Up to 16000",
+      "Features: RGB Lighting, Rechargeable",
+      "Connectivity: 2.4GHz Wireless, USB",
+      "Weight: 120g"
+    ]
+  },
+  {
+    "id": 92,
+    "name": "Portable Mini Air Purifier",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPlToljLSXU5rAcy3nLugMMDrKet0P6vAYzQ&s",
+    "price": 699.00,
+    "class": null,
+    "description": "A compact air purifier with HEPA filter for personal use. USB-powered, ideal for desks, cars, or travel.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.1,
+    "additionalInfo": [
+      "Filter: HEPA",
+      "Power: USB",
+      "Features: Portable, Quiet Operation",
+      "Weight: 150g"
+    ]
+  },
+  {
+    "id": 93,
+    "name": "Smart Plug with Wi-Fi",
+    "image": "https://m.media-amazon.com/images/I/61+H07XRuyL._AC_SL1500_.jpg",
+    "price": 599.00,
+    "class": null,
+    "description": "A Wi-Fi-enabled smart plug for controlling devices remotely via app or voice assistants like Alexa and Google Home. Energy monitoring included.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Compatibility: Alexa, Google Home",
+      "Features: Energy Monitoring, Remote Control",
+      "Power: 10A, 120V",
+      "Connectivity: Wi-Fi"
+    ]
+  },
+  {
+    "id": 94,
+    "name": "Mini Wireless Keyboard",
+    "image": "https://m.media-amazon.com/images/I/61YOMLX2qbL._AC_SL1500_.jpg",
+    "price": 799.00,
+    "class": null,
+    "description": "A compact wireless keyboard with touchpad for smart TVs, laptops, and gaming consoles. Rechargeable and lightweight for easy use.",
+    "category": "Electronics > Computer Accessories",
+    "author": "GVM Store",
+    "rating": 4.2,
+    "additionalInfo": [
+      "Connectivity: 2.4GHz Wireless",
+      "Features: Touchpad, Rechargeable",
+      "Compatibility: Smart TVs, Laptops",
+      "Weight: 100g"
+    ]
+  },
+  {
+    "id": 95,
+    "name": "Portable Document Scanner",
+    "image": "https://m.media-amazon.com/images/I/51QXlIuRLTL._AC_SL1500_.jpg",
+    "price": 1999.00,
+    "class": null,
+    "description": "A handheld document scanner with 1200 DPI resolution. USB-powered, ideal for scanning documents, photos, or books on the go.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.1,
+    "additionalInfo": [
+      "Resolution: Up to 1200 DPI",
+      "Features: Portable, USB-Powered",
+      "Compatibility: Windows, Mac",
+      "Weight: 200g"
+    ]
+  },
+  {
+    "id": 96,
+    "name": "Bluetooth FM Transmitter",
+    "image": "https://m.media-amazon.com/images/I/71o3jY4fJZL._AC_SL1500_.jpg",
+    "price": 499.00,
+    "class": null,
+    "description": "A car Bluetooth FM transmitter with dual USB ports for charging and music streaming. Supports hands-free calling and TF card playback.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Connectivity: Bluetooth, FM",
+      "Features: Hands-free Calling, Dual USB",
+      "Compatibility: iOS, Android",
+      "Power: 12-24V"
+    ]
+  },
+  {
+    "id": 97,
+    "name": "Portable Hard Drive 1TB",
+    "image": "https://m.media-amazon.com/images/I/61z3z3z3z3L._AC_SL1500_.jpg",
+    "price": 3999.00,
+    "class": null,
+    "description": "A 1TB portable hard drive with USB 3.0 for fast data transfer. Compact and durable, ideal for backups and file storage.",
+    "category": "Electronics > Computer Accessories",
+    "author": "GVM Store",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Capacity: 1TB",
+      "Connectivity: USB 3.0",
+      "Features: Shock-resistant, Compact",
+      "Weight: 150g"
+    ]
+  },
+  {
+    "id": 98,
+    "name": "Smart Doorbell Camera",
+    "image": "https://images.ctfassets.net/fltupc9ltp8m/1XdBCuSgoQN8YCdKbdClSs/8090a63002cd7ece6825150ce613ca75/doorbell-hero_2x.png?fm=webp&w=1900&q=80",
+    "price": 2499.00,
+    "class": null,
+    "description": "A Wi-Fi-enabled doorbell camera with 1080p HD video and motion detection. Supports two-way audio and night vision for home security.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Resolution: 1080p",
+      "Features: Motion Detection, Two-way Audio",
+      "Connectivity: Wi-Fi",
+      "Night Vision: Yes"
+    ]
+  },
+  {
+    "id": 99,
+    "name": "Wireless Earphones with Mic",
+    "image": "https://m.media-amazon.com/images/I/61+H07XRuyL._AC_SL1500_.jpg",
+    "price": 1199.00,
+    "class": null,
+    "description": "Wireless earphones with a built-in mic and up to 15 hours of battery life. Sweat-resistant, ideal for workouts and daily use.",
+    "category": "Electronics > Audio",
+    "author": "GVM Store",
+    "rating": 4.2,
+    "additionalInfo": [
+      "Battery Life: 15 hours",
+      "Features: Sweat-resistant, Built-in Mic",
+      "Connectivity: Bluetooth 5.0",
+      "Weight: 20g"
+    ]
+  },
+  {
+    "id": 100,
+    "name": "Mini Action Camera",
+    "image": "https://m.media-amazon.com/images/I/61YOMLX2qbL._AC_SL1500_.jpg",
+    "price": 1999.00,
+    "class": null,
+    "description": "A compact action camera with 4K video recording and waterproof housing. Perfect for capturing outdoor adventures and sports.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Resolution: 4K",
+      "Features: Waterproof, Wide-angle Lens",
+      "Battery: 90 minutes",
+      "Weight: 60g"
+    ]
+  },
+  ];
+        
+  // Search functionality
+    const searchInput = document.getElementById('search-box');
+    const searchResults = document.getElementById('searchResults');
+    const searchForm = document.getElementById('searchForm');
+
+    searchInput.addEventListener('input', function() {
+        const query = this.value.trim().toLowerCase();
+        
+        // Clear previous results
+        searchResults.innerHTML = '';
+        
+        if (query.length === 0) {
+            searchResults.style.display = 'none';
+            return;
+        }
+
+        // Filter products by name, category, or author
+        const results = window.books.filter(product => 
+            product.name.toLowerCase().includes(query) || 
+            product.category.toLowerCase().includes(query) ||
+            (product.author && product.author.toLowerCase().includes(query))
+        );
+
+        if (results.length === 0) {
+            searchResults.innerHTML = '<div class="search-result-item text-muted">No products found</div>';
+        } else {
+            results.forEach(product => {
+                const resultItem = document.createElement('div');
+                resultItem.classList.add('search-result-item');
+                resultItem.innerHTML = `
+                    <div class="d-flex align-items-center">
+                        <img src="${product.image}" alt="${product.name}">
+                        <div>
+                            <div class="title">${product.name}</div>
+                            <div class="details">${product.category} • ${product.author || 'Unknown'}</div>
+                            <div class="price">₹${product.price.toFixed(2)}</div>
+                        </div>
+                    </div>
+                `;
+                resultItem.addEventListener('click', () => {
+                    // Store selected product and redirect
+                    localStorage.setItem('selectedBook', JSON.stringify(product));
+                    window.location.href = 'product.html';
+                });
+                searchResults.appendChild(resultItem);
+            });
+        }
+        
+        searchResults.style.display = 'block';
+    });
+
+    // Hide search results when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!searchForm.contains(e.target)) {
+            searchResults.style.display = 'none';
+        }
+    });
+
+    // Handle search button click
+    document.getElementById('search-btn').addEventListener('click', function() {
+        const query = searchInput.value.trim().toLowerCase();
+        if (query.length === 0) return;
+
+        // Filter products and update displayed products
+        window.displayedBooks = window.books.filter(product => 
+            product.name.toLowerCase().includes(query) || 
+            product.category.toLowerCase().includes(query) ||
+            (product.author && product.author.toLowerCase().includes(query))
+        );
+        
+        window.applyFilters();
+        searchResults.style.display = 'none';
+        searchInput.value = '';
+        
+        // Scroll to products section
+        const featuredSection = document.getElementById('featured');
+        if (featuredSection) {
+            featuredSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            window.scrollBy(0, -70);
+        }
+    });
+
+    // Prevent form submission on enter
+    searchForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.getElementById('search-btn').click();
+    });
+            // Initialize other variables
+            window.cart = JSON.parse(localStorage.getItem('cart')) || [];
+            window.wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            window.viewAllClicked = false;
+            window.displayedBooks = window.books.slice(0, 15);
+            window.shippingCost = 0;
+            window.currentBuyBook = null;
+            window.currentFilters = {
+                subjects: ['all'],
+                class: 'all',
+                publisher: 'all',
+                minPrice: 0,
+                maxPrice: 5000
+            };
+
+            // Add event listeners for category dropdown items
+            document.querySelectorAll('.dropdown-item[data-category]').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const category = this.getAttribute('data-category');
+                    
+                    // 1. Filter products by category
+                    filterProductsByCategory(category);
+                    
+                    // 2. Smooth scroll to products section
+                    const targetSection = document.getElementById('featured');
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Adjust scroll position to account for fixed header
+                        setTimeout(() => {
+                            window.scrollBy(0, -70);
+                        }, 500);
+                    }
+                    
+                    // 3. Keep the dropdown open on mobile
+                    if (window.innerWidth < 992) {
+                        e.stopPropagation(); // Prevent Bootstrap from closing the dropdown
+                    }
+                });
+            });
+
+            // Product filter function
+            function filterProductsByCategory(category) {
+                // Reset all filters
+                window.currentFilters = {
+                    subjects: ['all'],
+                    class: 'all',
+                    publisher: 'all',
+                    minPrice: 0,
+                    maxPrice: 5000
+                };
+                
+                // Set the category filter
+                window.currentFilters.subjects = [category];
+                
+                // Apply filters
+                window.applyFilters();
+                
+                // Update the display
+                document.getElementById('totalItems').textContent = `Showing ${category} products`;
+            }
+
+            // Update the applyFilters function
+            window.applyFilters = function() {
+                window.displayedBooks = window.books.filter(book => {
+                    // Subject filter - check if book's category is in the selected subjects or if 'all' is selected
+                    const subjectMatch = window.currentFilters.subjects.includes('all') || 
+                                       window.currentFilters.subjects.includes(book.category);
+                    
+                    // Class filter
+                    const classMatch = window.currentFilters.class === 'all' || 
+                                      book.class == window.currentFilters.class;
+                    
+                    // Publisher filter
+                    const publisherMatch = window.currentFilters.publisher === 'all' || 
+                                          book.publisher === window.currentFilters.publisher;
+                    
+                    // Price range filter
+                    const priceMatch = book.price >= window.currentFilters.minPrice && 
+                                      book.price <= window.currentFilters.maxPrice;
+                    
+                    return subjectMatch && classMatch && publisherMatch && priceMatch;
+                });
+
+                // Update the total items display
+                const totalItems = document.getElementById('totalItems');
+                if (window.currentFilters.subjects.includes('all') && 
+                    window.currentFilters.class === 'all' && 
+                    window.currentFilters.publisher === 'all' &&
+                    window.currentFilters.minPrice === 0 &&
+                    window.currentFilters.maxPrice === 5000) {
+                    totalItems.textContent = `Showing all ${window.displayedBooks.length} products`;
+                } else {
+                    const selectedSubjects = window.currentFilters.subjects.filter(s => s !== 'all');
+                    const subjectText = selectedSubjects.length > 0 ? `Category: ${selectedSubjects.join(', ')}` : '';
+                    const classText = window.currentFilters.class !== 'all' ? `Class: ${window.currentFilters.class}` : '';
+                    const publisherText = window.currentFilters.publisher !== 'all' ? `Publisher: ${window.currentFilters.publisher}` : '';
+                    const priceText = window.currentFilters.minPrice !== 0 || window.currentFilters.maxPrice !== 5000 
+                        ? `Price: ₹${window.currentFilters.minPrice} - ₹${window.currentFilters.maxPrice}` 
+                        : '';
+                    
+                    const filterText = [subjectText, classText, publisherText, priceText].filter(t => t).join(' | ');
+                    totalItems.textContent = filterText || `Showing ${window.displayedBooks.length} filtered products`;
+                }
+
+                // Limit to 12 products unless viewAllBooks was called
+                if (!window.viewAllClicked) {
+                    window.displayedBooks = window.displayedBooks.slice(0, 15);
+                }
+
+                window.displayFeaturedBooks(window.displayedBooks);
+            };
+
+            // Rest of your existing functions...
+            window.updateCounts = function() {
+                const totalItems = window.cart.reduce((sum, item) => sum + item.quantity, 0);
+                document.getElementById('cartCount').textContent = totalItems;
+                document.getElementById('wishlistCount').textContent = window.wishlist.length;
+                window.updateCart();
+            }
+
+            document.getElementById('bulkOrderForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const formData = {
+                    access_key: '8f814c56-3e30-4f2f-9764-41f6fd39eeaa',
+                    subject: 'Bulk Order Request',
+                    name: document.getElementById('bulkName').value,
+                    email: document.getElementById('bulkEmail').value,
+                    phone: document.getElementById('bulkPhone').value,
+                    organization: document.getElementById('bulkOrganization').value || 'N/A',
+                    books: document.getElementById('bulkBooks').value,
+                    address: document.getElementById('bulkAddress').value,
+                    notes: document.getElementById('bulkNotes').value || 'None'
+                };
+                try {
+                    const response = await fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData)
+                    });
+                    if ((await response.json()).success) {
+                        alert('Bulk order request submitted!');
+                        document.getElementById('bulkOrderModal').hide();
+                        document.getElementById('bulkOrderForm').reset();
+                    }
+                } catch (error) {
+                    alert('Error submitting request.');
+                }
+            });
+
+            document.getElementById('newsletterForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = document.getElementById('newsletterEmail').value;
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    alert('Invalid email address.');
+                    return;
+                }
+                alert('Subscribed successfully!');
+                document.getElementById('newsletterForm').reset();
+            });
+
+            window.updateCart = function() {
+                const cartItems = document.getElementById('cartItems');
+                const cartTotal = document.getElementById('cartTotal');
+                const shippingTotal = document.getElementById('shippingTotal');
+                const grandTotal = document.getElementById('grandTotal');
+                cartItems.innerHTML = '';
+                let total = 0;
+                window.cart.forEach(item => {
+                    if (!item.price) {
+                        console.warn(`Invalid price for item: ${item.name}, skipping.`);
+                        return;
+                    }
+                    total += item.price * item.quantity;
+                    const itemDiv = document.createElement('div');
+                    itemDiv.classList.add('cart-item');
+                    itemDiv.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" class="img-fluid">
+                        <div class="content">
+                            <h4>${item.name}</h4>
+                            <p>₹${item.price.toFixed(2)} x ${item.quantity}</p>
+                        </div>
+                        <div class="quantity">
+                            <button class="btn btn-sm" onclick="updateQuantity(${item.id}, -1)">-</button>
+                            <span class="mx-2">${item.quantity}</span>
+                            <button class="btn btn-sm" onclick="updateQuantity(${item.id}, 1)">+</button>
+                        </div>
+                    `;
+                    cartItems.appendChild(itemDiv);
+                });
+                cartTotal.textContent = `Total: ₹${total.toFixed(2)}`;
+                shippingTotal.textContent = `Shipping charges: ₹${window.shippingCost.toFixed(2)}`;
+                grandTotal.textContent = `Grand Total: ₹${(total + window.shippingCost).toFixed(2)}`;
+            }
+
+            function calculateShipping(pincode) {
+                if (!/^\d{6}$/.test(pincode)) {
+                    return 0;
+                }
+                const pincodeNum = parseInt(pincode);
+                if (pincodeNum >= 100000 && pincodeNum <= 199999) {
+                    return 50;
+                } else if (pincodeNum >= 200000 && pincodeNum <= 399999) {
+                    return 100;
+                } else {
+                    return 150;
+                }
+            }
+
+            document.getElementById('pincodeInput').addEventListener('input', () => {
+                const pincode = document.getElementById('pincodeInput').value;
+                const pincodeResult = document.getElementById('pincodeResult');
+                const shippingCostDiv = document.getElementById('shippingCost');
+                const totalCostDiv = document.getElementById('totalCost');
+                if (!/^\d{6}$/.test(pincode)) {
+                    pincodeResult.textContent = 'Please enter a valid 6-digit pincode.';
+                    window.shippingCost = 0;
+                    shippingCostDiv.textContent = `Shipping charges: ₹${window.shippingCost.toFixed(2)}`;
+                    if (window.currentBuyBook) {
+                        totalCostDiv.textContent = `Total: ₹${window.currentBuyBook.price.toFixed(2)}`;
+                    } else {
+                        const cartTotal = window.cart.reduce((sum, item) => sum + (item.price || 0) * item.quantity, 0);
+                        totalCostDiv.textContent = `Total: ₹${cartTotal.toFixed(2)}`;
+                    }
+                    return;
+                }
+                window.shippingCost = calculateShipping(pincode);
+                pincodeResult.textContent = window.shippingCost > 0 ? 'Pincode is serviceable!' : 'Pincode is not serviceable.';
+                shippingCostDiv.textContent = `Shipping charges: ₹${window.shippingCost.toFixed(2)}`;
+                if (window.currentBuyBook) {
+                    totalCostDiv.textContent = `Total: ₹${(window.currentBuyBook.price + window.shippingCost).toFixed(2)}`;
+                } else {
+                    const cartTotal = window.cart.reduce((sum, item) => sum + (item.price || 0) * item.quantity, 0);
+                    totalCostDiv.textContent = `Total: ₹${(cartTotal + window.shippingCost).toFixed(2)}`;
+                }
+            });
+
+            document.getElementById('buyNowForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const pincode = document.getElementById('pincodeInput').value;
+                const pincodeResult = document.getElementById('pincodeResult');
+                if (!/^\d{6}$/.test(pincode)) {
+                    pincodeResult.textContent = 'Please enter a valid 6-digit pincode.';
+                    return;
+                }
+                const shippingCost = calculateShipping(pincode);
+                if (shippingCost === 0) {
+                    pincodeResult.textContent = 'Pincode not serviceable.';
+                    return;
+                }
+                const formData = {
+                    name: document.getElementById('buyName').value,
+                    email: document.getElementById('buyEmail').value,
+                    phone: document.getElementById('buyPhone').value,
+                    address: document.getElementById('buyAddress').value,
+                    pincode: pincode
+                };
+                const totalAmount = window.currentBuyBook ? 
+                    window.currentBuyBook.price + shippingCost : 
+                    window.cart.reduce((sum, item) => sum + (item.price || 0) * item.quantity, 0) + shippingCost;
+                const options = {
+                    key: 'rzp_live_0ZX85z1FASJGfs',
+                    amount: totalAmount * 100,
+                    currency: 'INR',
+                    name: 'Janata Books Point',
+                    description: window.currentBuyBook ? `Purchase of ${window.currentBuyBook.name}` : 'Cart Purchase',
+                    image: 'https://i.ibb.co/YBN3svcb/LOGO-logo-dot.png',
+                    handler: function (response) {
+                        alert(`Payment successful! Payment ID: ${response.razorpay_payment_id}`);
+                        document.getElementById('buyNowModal').hide();
+                        document.getElementById('buyNowForm').reset();
+                        window.cart = [];
+                        localStorage.setItem('cart', JSON.stringify(window.cart));
+                        window.updateCounts();
+                    },
+                    prefill: {
+                        name: formData.name,
+                        email: formData.email,
+                        contact: formData.phone
+                    },
+                    theme: {
+                        color: '#f97316'
+                    }
+                };
+                const rzp = new Razorpay(options);
+                rzp.open();
+            });
+
+            window.displayFeaturedBooks = function(bookList = window.displayedBooks) {
+                const container = document.getElementById('featuredBooks');
+                container.innerHTML = '';
+                if (bookList.length === 0) {
+                    container.innerHTML = '<p class="text-center text-muted">No products found matching your filters.</p>';
+                    return;
+                }
+                bookList.forEach(book => {
+                    const stars = Math.floor(book.rating || 0);
+                    const hasHalfStar = book.rating % 1 >= 0.5;
+                    const bookDiv = document.createElement('div');
+                    bookDiv.classList.add('book-card');
+                    bookDiv.innerHTML = `
+                        <div class="image">
+                            <img src="${book.image}" alt="${book.name}" class="img-fluid">
+                        </div>
+                        <div class="content">
+                            <h3>${book.name}</h3>
+                            <p class="category">Category: ${book.category}</p>
+                            <p class="author">By ${book.author}</p>
+                            <p class="class">Class: ${book.class || 'N/A'}</p>
+                            <div class="price">₹${book.price.toFixed(2)} <span>₹${(book.price * 1.2).toFixed(2)}</span></div>
+                            <div class="stars">
+                                ${'<i class="fas fa-star"></i>'.repeat(stars)}
+                                ${hasHalfStar ? '<i class="fas fa-star-half-alt"></i>' : ''}
+                            </div>
+                            <div class="actions">
+                                <button class="btn-custom" onclick="addToCart(${book.id})">Add to Cart</button>
+                                <button class="btn-custom buy-now" onclick="buyNow(${book.id})">Buy Now</button>
+                                <button class="btn-custom" onclick="showPreview(${book.id})">Preview</button>
+                                <i class="fas fas-heart" onclick="addToWishlist(${book.id})" style="font-size: 1.5rem; color: ${window.wishlist.some(item => item.id === book.id) ? '#f97316' : '#666'}; cursor: pointer;"></i>
+                            </div>
+                        </div>
+                    `;
+                    bookDiv.addEventListener('click', (e) => {
+                        if (e.target.tagName !== 'BUTTON' && e.target.tagName !== 'I') {
+                            localStorage.setItem('selectedBook', JSON.stringify(book));
+                            window.location.href = 'product.html';
+                        }
+                    });
+                    container.appendChild(bookDiv);
+                });
+            }
+
+            window.displayNewArrivals = function() {
+                const container = document.getElementById('newArrivalsBooks');
+                container.innerHTML = '';
+                const newBooks = window.books.filter(book => book.isNew);
+                if (newBooks.length === 0) {
+                    container.innerHTML = '<p class="text-center text-muted">No new arrivals yet.</p>';
+                    return;
+                }
+                newBooks.forEach(book => {
+                    const stars = Math.floor(book.rating || 0);
+                    const hasHalfStar = book.rating % 1 >= 0.5;
+                    const bookDiv = document.createElement('div');
+                    bookDiv.classList.add('book-card');
+                    bookDiv.innerHTML = `
+                        <div class="image">
+                            <img src="${book.image}" alt="${book.name}" class="img-fluid">
+                        </div>
+                        <div class="content">
+                            <h3>${book.name}</h3>
+                            <p class="category">Category: ${book.category}</p>
+                            <p class="author">By ${book.author}</p>
+                            <p class="class">Class: ${book.class || 'N/A'}</p>
+                            <div class="price">₹${book.price.toFixed(2)} <span>₹${(book.price * 1.2).toFixed(2)}</span></div>
+                            <div class="stars">
+                                ${'<i class="fas fa-star"></i>'.repeat(stars)}
+                                ${hasHalfStar ? '<i class="fas fa-star-half-alt"></i>' : ''}
+                            </div>
+                            <div class="actions">
+                                <button class="btn-custom" onclick="addToCart(${book.id})">Add to Cart</button>
+                                <button class="btn-custom buy-now" onclick="buyNow(${book.id})">Buy Now</button>
+                                <button class="btn-custom" onclick="showPreview(${book.id})">Preview</button>
+                                <i class="fas fas-heart" onclick="addToWishlist(${book.id})" style="font-size: 1.5rem; color: ${window.wishlist.some(item => item.id === book.id) ? '#f97316' : '#666'}; cursor: pointer;"></i>
+                            </div>
+                        </div>
+                    `;
+                    bookDiv.addEventListener('click', (e) => {
+                        if (e.target.tagName !== 'BUTTON' && e.target.tagName !== 'I') {
+                            localStorage.setItem('selectedBook', JSON.stringify(book));
+                            window.location.href = 'product.html';
+                        }
+                    });
+                    container.appendChild(bookDiv);
+                });
+            }
+
+            document.getElementById('checkoutBtn').addEventListener('click', () => {
+                if (window.cart.length === 0) {
+                    alert('Your cart is empty!');
+                    return;
+                }
+                window.location.href = 'checkout.html';
+            });
+
+            const formulas = ['', '', '²', ''];
+            const canvases = [
+                { id: 'featuredCanvas', section: '.featured' },
+                { id: 'newsletterCanvas', section: '.newsletter' },
+                { id: 'newArrivalsCanvas', section: '.new-arrivals' }
+            ];
+
+            function setupCanvas(canvasId, sectionSelector) {
+                const canvas = document.getElementById(canvasId);
+                if (!canvas) return;
+                const ctx = canvas.getContext('2d');
+                const section = document.querySelector(sectionSelector);
+                let particles = [];
+
+                function resizeCanvas() {
+                    canvas.width = section.offsetWidth;
+                    canvas.height = section.offsetHeight;
+                    initParticles();
+                }
+
+                function initParticles() {
+                    particles = [];
+                    const count = Math.min(50, Math.floor(canvas.width / 20));
+                    for (let i = 0; i < count; i++) {
+                        particles.push({
+                            x: Math.random() * canvas.width,
+                            y: Math.random() * canvas.height,
+                            vx: (Math.random() - 0.5) * 2,
+                            vy: (Math.random() - 0.5) * 2,
+                            text: formulas[Math.floor(Math.random() * formulas.length)],
+                            size: Math.random() * 20 + 10
+                        });
+                    }
+                }
+
+                function animate() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.fillStyle = '#f97316';
+                    ctx.font = 'bold 20px Arial';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    particles.forEach(p => {
+                        p.x += p.vx;
+                        p.y += p.vy;
+                        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                        ctx.font = `${p.size}px Arial`;
+                        ctx.fillText(p.text, p.x, p.y);
+                    });
+                    requestAnimationFrame(animate);
+                }
+
+                resizeCanvas();
+                animate();
+                window.addEventListener('resize', resizeCanvas);
+            }
+
+            canvases.forEach(({ id, section }) => setupCanvas(id, section));
+
+            // Initialize the carousel
+            const carousel = new Swiper('.carousel', {
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                slidesPerView: 1,
+                spaceBetween: 0,
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 1,
+                        spaceBetween: 0
+                    },
+                    992: {
+                        slidesPerView: 1,
+                        spaceBetween: 0
+                    }
+                }
+            });
+
+            // Initialize modals
+            const bulkOrderModal = new bootstrap.Modal(document.getElementById('bulkOrderModal'));
+            const buyNowModal = new bootstrap.Modal(document.getElementById('buyNowModal'));
+            const previewModal = new bootstrap.Modal(document.getElementById('previewModal'));
+
+            document.getElementById('bulk-order-btn').addEventListener('click', (e) => {
+                e.preventDefault();
+                bulkOrderModal.show();
+            });
+
+            document.getElementById('bulk-order-footer-btn').addEventListener('click', (e) => {
+                e.preventDefault();
+                bulkOrderModal.show();
+            });
+
+            const cartToggle = document.getElementById('cartToggle');
+            const cartContainer = document.getElementById('cartContainer');
+            const cartClose = document.getElementById('cartClose');
+
+            cartToggle.addEventListener('click', () => {
+                cartContainer.classList.toggle('active');
+            });
+
+            cartClose.addEventListener('click', () => {
+                cartContainer.classList.remove('active');
+            });
+
+            // Close navbar when clicking on any nav link (for mobile)
+            document.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-item').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth < 992) { // Only for mobile screens
+                        const navbarCollapse = document.getElementById('navbarCollapse');
+                        if (navbarCollapse.classList.contains('show')) {
+                            // Close the navbar
+                            navbarCollapse.classList.remove('show');
+                        }
+                    }
+                });
+            });
+
+            // Close navbar when clicking outside (for mobile)
+            document.addEventListener('click', function(e) {
+                if (window.innerWidth < 992 && !e.target.closest('.navbar') && !e.target.closest('.navbar-toggler')) {
+                    const navbarCollapse = document.getElementById('navbarCollapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        navbarCollapse.classList.remove('show');
+                    }
+                }
+            });
+
+            // Initialize the display
+            window.displayFeaturedBooks();
+            window.displayNewArrivals();
+            window.updateCounts();
+            
+            // Define other functions that might be called from HTML
+            window.addToCart = function(bookId, quantity = 1) {
+                const book = window.books.find(b => b.id === bookId);
+                if (!book || !book.price) {
+                    alert('Error: Invalid book or price data.');
+                    return;
+                }
+                const existingItem = window.cart.find(item => item.id === bookId);
+                if (existingItem) {
+                    existingItem.quantity += quantity;
+                } else {
+                    window.cart.push({ ...book, quantity });
+                }
+                localStorage.setItem('cart', JSON.stringify(window.cart));
+                window.updateCounts();
+                document.getElementById('cartContainer').classList.add('active');
+                alert(`${book.name} added to cart!`);
+            }
+
+            window.updateQuantity = function(bookId, change) {
+                const item = window.cart.find(item => item.id === bookId);
+                if (item) {
+                    item.quantity += change;
+                    if (item.quantity <= 0) {
+                        window.cart = window.cart.filter(i => i.id !== bookId);
+                    }
+                    localStorage.setItem('cart', JSON.stringify(window.cart));
+                    window.updateCounts();
+                }
+            }
+
+            window.addToWishlist = function(bookId) {
+                const book = window.books.find(b => b.id === bookId);
+                if (!window.wishlist.some(item => item.id === bookId)) {
+                    window.wishlist.push(book);
+                    localStorage.setItem('wishlist', JSON.stringify(window.wishlist));
+                    window.updateCounts();
+                    alert(`${book.name} added to wishlist!`);
+                } else {
+                    alert('This book is already in the wishlist.');
+                }
+            }
+
+            window.showPreview = function(bookId) {
+                const book = window.books.find(b => b.id === bookId);
+                const previewContent = document.getElementById('previewContent');
+                previewContent.innerHTML = `
+                    <h3>${book.name}</h3>
+                    <img src="${book.image}" alt="${book.name}" class="img-fluid mb-3" style="max-height: 200px;">
+                    <p><strong>Category:</strong> ${book.category}</p>
+                    <p><strong>Class:</strong> ${book.class || 'N/A'}</p>
+                    <p><strong>Author:</strong> ${book.author}</p>
+                    <p><strong>Price:</strong> ₹${book.price.toFixed(2)}</p>
+                    <p><strong>Description:</strong> ${book.description}</p>
+                    <p><strong>Additional Info:</strong> ${book.additionalInfo.join(', ')}</p>
+                `;
+                previewModal.show();
+            }
+
+            window.buyNow = function(bookId) {
+                const book = window.books.find(b => b.id === bookId);
+                if (book) {
+                    localStorage.setItem('selectedBook', JSON.stringify(book));
+                    window.location.href = 'product.html';
+                } else {
+                    alert('Error: Book not found.');
+                }
+            }
+
+            window.updatePriceRange = function() {
+                const priceRange = document.getElementById('priceRange');
+                const minPriceValue = document.getElementById('minPriceValue');
+                const maxPriceValue = document.getElementById('maxPriceValue');
+                window.currentFilters.minPrice = 0;
+                window.currentFilters.maxPrice = parseInt(priceRange.value);
+                minPriceValue.textContent = '₹0';
+                maxPriceValue.textContent = `₹${priceRange.value}`;
+                window.applyFilters();
+                scrollToFeaturedSection();
+            }
+
+            window.sortBooks = function() {
+                const sortValue = document.getElementById('sortBooks').value;
+                let sortedBooks = [...window.displayedBooks];
+                if (sortValue === 'price-low') {
+                    sortedBooks.sort((a, b) => a.price - b.price);
+                } else if (sortValue === 'price-high') {
+                    sortedBooks.sort((a, b) => b.price - a.price);
+                } else if (sortValue === 'name-asc') {
+                    sortedBooks.sort((a, b) => a.name.localeCompare(b.name));
+                }
+                window.displayFeaturedBooks(sortedBooks);
+                scrollToFeaturedSection();
+            }
+
+            window.viewAllBooks = function() {
+                window.viewAllClicked = true;
+                window.currentFilters = {
+                    subjects: ['all'],
+                    class: 'all',
+                    publisher: 'all',
+                    minPrice: 0,
+                    maxPrice: 5000
+                };
+                document.querySelectorAll('input[name="subjectFilter"]').forEach(checkbox => {
+                    checkbox.checked = checkbox.value === 'all';
+                });
+                document.querySelectorAll('input[name="classFilter"]').forEach(radio => {
+                    radio.checked = radio.value === 'all';
+                });
+                document.querySelectorAll('input[name="publisherFilter"]').forEach(radio => {
+                    radio.checked = radio.value === 'all';
+                });
+                document.getElementById('priceRange').value = 5000;
+                document.getElementById('minPriceValue').textContent = '₹0';
+                document.getElementById('maxPriceValue').textContent = '₹5000';
+                window.applyFilters();
+                scrollToFeaturedSection();
+            }
+
+            window.filterBooksByClass = function(classNumber) {
+                window.currentFilters.class = classNumber;
+                window.applyFilters();
+                document.querySelector(`input[name="classFilter"][value="${classNumber}"]`).checked = true;
+                scrollToFeaturedSection();
+            }
+
+            window.filterBooksByPublisher = function(publisher) {
+                window.currentFilters.publisher = publisher;
+                window.applyFilters();
+                document.querySelector(`input[name="publisherFilter"][value="${publisher}"]`).checked = true;
+                scrollToFeaturedSection();
+            }
+
+            window.toggleSubjectFilter = function(subject) {
+                const allSubjectsCheckbox = document.getElementById('allSubjects');
+                const subjectCheckbox = document.getElementById(subject.toLowerCase().replace(' ', ''));
+                
+                // If clicking "All Subjects", uncheck all others
+                if (subject === 'all') {
+                    document.querySelectorAll('input[name="subjectFilter"]:not(#allSubjects)').forEach(checkbox => {
+                        checkbox.checked = false;
+                    });
+                    window.currentFilters.subjects = ['all'];
+                } 
+                // If clicking any other subject
+                else {
+                    // Uncheck "All Subjects" if it was checked
+                    allSubjectsCheckbox.checked = false;
+                    
+                    // Toggle the clicked subject
+                    const isChecked = subjectCheckbox.checked;
+                    
+                    // Update the current filters
+                    if (isChecked) {
+                        // Add to filters if not already present
+                        if (!window.currentFilters.subjects.includes(subject)) {
+                            window.currentFilters.subjects.push(subject);
+                        }
+                        // Remove 'all' if it's there
+                        window.currentFilters.subjects = window.currentFilters.subjects.filter(s => s !== 'all');
+                    } else {
+                        // Remove from filters
+                        window.currentFilters.subjects = window.currentFilters.subjects.filter(s => s !== subject);
+                        
+                        // If no subjects selected, default to 'all'
+                        if (window.currentFilters.subjects.length === 0) {
+                            allSubjectsCheckbox.checked = true;
+                            window.currentFilters.subjects = ['all'];
+                        }
+                    }
+                }
+                
+                // Apply the filters
+                window.applyFilters();
+                
+                // Update the display
+                const selectedSubjects = window.currentFilters.subjects.filter(s => s !== 'all');
+                document.getElementById('totalItems').textContent = 
+                    selectedSubjects.length === 0 
+                        ? 'Showing all books' 
+                        : `Showing ${selectedSubjects.join(', ')} books`;
+                
+                scrollToFeaturedSection();
+            }
+
+            function scrollToFeaturedSection() {
+                const featuredSection = document.getElementById('featured');
+                if (featuredSection) {
+                    featuredSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Adjust scroll position to account for fixed header
+                    setTimeout(() => {
+                        window.scrollBy(0, -70);
+                    }, 500);
+                }
+            }
+        });
+</script>
+</body>
+</html>

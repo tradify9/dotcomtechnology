@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dodcom Technologies - Authentication</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Your existing CSS remains unchanged */
+        html, body { height: 100%; margin: 0; padding: 0; background: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; flex-direction: column; }
+        body { flex: 1; display: flex; align-items: center; justify-content: center; }
+        .auth-container { flex: 1; display: flex; align-items: center; justify-content: center; width: 100%; padding: 20px; }
+        .auth-card { max-width: 550px; width: 100%; border: none; border-radius: 20px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); background: #ffffff; transition: transform 0.3s ease; }
+        .auth-card:hover { transform: translateY(-5px); }
+        .card-header { background: #ff6200; color: white; border-radius: 20px 20px 0 0; padding: 25px; text-align: center; }
+        .card-header h3 { margin: 0; font-size: 1.8rem; font-weight: 600; }
+        .card-header p { margin: 5px 0 0; font-size: 1rem; opacity: 0.9; }
+        .nav-tabs { border-bottom: 2px solid #ff6200; margin-bottom: 20px; justify-content: center; }
+        .nav-tabs .nav-link { color: #ff6200; font-weight: 500; border: none; padding: 10px 20px; transition: all 0.3s ease; }
+        .nav-tabs .nav-link:hover { background: #fff3e0; }
+        .nav-tabs .nav-link.active { background: #ff6200; color: white; border-radius: 10px 10px 0 0; }
+        .form-control { border: 1px solid #ff6200; border-radius: 8px; padding: 12px; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+        .form-control:focus { border-color: #e65100; box-shadow: 0 0 8px rgba(230, 81, 0, 0.3); }
+        .form-label { font-weight: 500; color: #333; }
+        .btn-primary { background: #ff6200; border: none; border-radius: 8px; padding: 12px; font-size: 1.1rem; font-weight: 500; transition: background 0.3s ease; }
+        .btn-primary:hover { background: #e65100; }
+        .alert { border-radius: 8px; padding: 12px; font-size: 0.9rem; margin-top: 15px; }
+        .alert-success { background: #e6fffa; color: #0a5847; border-color: #a7f3d0; }
+        .alert-danger { background: #fff1f2; color: #9f1239; border-color: #fecdd3; }
+        .card-footer { background: transparent; border-top: none; text-align: center; padding: 15px; }
+        .card-footer a { color: #ff6200; font-weight: 500; text-decoration: none; }
+        .card-footer a:hover { text-decoration: underline; }
+        @media (max-height: 600px) { .auth-container { align-items: flex-start; padding-top: 20px; } }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="card auth-card">
+            <div class="card-header">
+                <h3>Dotcom Technologies</h3>
+                <p>Secure Authentication Portal</p>
+            </div>
+            <div class="card-body p-4">
+                <ul class="nav nav-tabs mb-4" id="authTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="signin-tab" data-bs-toggle="tab" data-bs-target="#signin" type="button" role="tab">Sign In</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signup" type="button" role="tab">Sign Up</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="forgot-tab" data-bs-toggle="tab" data-bs-target="#forgot" type="button" role="tab">Forgot Password</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="authTabContent">
+                    <!-- Sign In Form -->
+                    <div class="tab-pane fade show active" id="signin" role="tabpanel">
+                        <form id="signinForm">
+                            <div class="mb-3">
+                                <label for="signinEmail" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="signinEmail" placeholder="Enter your email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="signinPassword" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="signinPassword" placeholder="Enter your password" minlength="6" required>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Sign In</button>
+                            </div>
+                        </form>
+                        <div id="signinMessage" class="mt-3 text-center"></div>
+                    </div>
+                    <!-- Sign Up Form -->
+                    <div class="tab-pane fade" id="signup" role="tabpanel">
+                        <form id="signupForm">
+                            <div class="mb-3">
+                                <label for="signupName" class="form-label">Full name</label>
+                                <input type="text" class="form-control" id="signupName" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="signupEmail" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="signupEmail" placeholder="Enter your email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="signupPassword" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="signupPassword" placeholder="Enter your password" minlength="6" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="signupConfirmPassword" class="form-label">Confirm password</label>
+                                <input type="password" class="form-control" id="signupConfirmPassword" placeholder="Confirm your password" minlength="6" required>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Sign Up</button>
+                            </div>
+                        </form>
+                        <div id="signupMessage" class="mt-3 text-center"></div>
+                    </div>
+                    <!-- Forgot Password Form -->
+                    <div class="tab-pane fade" id="forgot" role="tabpanel">
+                        <form id="forgotForm">
+                            <div class="mb-3">
+                                <label for="forgotEmail" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="forgotEmail" placeholder="Enter your email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="forgotNewPassword" class="form-label">New password</label>
+                                <input type="password" class="form-control" id="forgotNewPassword" placeholder="Enter new password" minlength="6" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="forgotConfirmPassword" class="form-label">Confirm new password</label>
+                                <input type="password" class="form-control" id="forgotConfirmPassword" placeholder="Confirm new password" minlength="6" required>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Reset Password</button>
+                            </div>
+                        </form>
+                        <div id="forgotMessage" class="mt-3 text-center"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <p>Need help? <a href="mailto:support@dodcomtech.com">Contact Support</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize localStorage for users if not exists
+        if (!localStorage.getItem('users')) {
+            localStorage.setItem('users', JSON.stringify([]));
+        }
+
+        // Helper function to validate email
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Clear messages when switching tabs
+        function clearMessages() {
+            document.getElementById('signinMessage').innerHTML = '';
+            document.getElementById('signupMessage').innerHTML = '';
+            document.getElementById('forgotMessage').innerHTML = '';
+        }
+
+        // Add event listeners to tabs
+        document.querySelectorAll('.nav-link').forEach(tab => {
+            tab.addEventListener('click', clearMessages);
+        });
+
+        // Signup Form
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('signupName').value.trim();
+            const email = document.getElementById('signupEmail').value.trim();
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('signupConfirmPassword').value;
+            const messageDiv = document.getElementById('signupMessage');
+
+            // Validation
+            if (!name || name.length < 2) {
+                messageDiv.innerHTML = '<div class="alert alert-danger">Please enter a valid full name (at least 2 characters).</div>';
+                return;
+            }
+            if (!isValidEmail(email)) {
+                messageDiv.innerHTML = '<div class="alert alert-danger">Please enter a valid email address.</div>';
+                return;
+            }
+            if (password.length < 6) {
+                messageDiv.innerHTML = '<div class="alert alert-danger">Password must be at least 6 characters long.</div>';
+                return;
+            }
+            if (password !== confirmPassword) {
+                messageDiv.innerHTML = '<div class="alert alert-danger">Passwords do not match.</div>';
+                return;
+            }
+
+            // Check if email already exists
+            const users = JSON.parse(localStorage.getItem('users'));
+            if (users.some(user => user.email.toLowerCase() === email.toLowerCase())) {
+                messageDiv.innerHTML = '<div class="alert alert-danger">Email already registered! Please sign in.</div>';
+                setTimeout(() => {
+                    document.getElementById('signin-tab').click();
+                    clearMessages();
+                }, 1500);
+                return;
+            }
+
+            // Register user and auto-login
+            users.push({ name, email: email.toLowerCase(), password });
+            localStorage.setItem('users', JSON.stringify(users));
+            localStorage.setItem('isLoggedIn', 'true');
+            messageDiv.innerHTML = '<div class="alert alert-success">Successfully registered with Dodcom Technologies!</div>';
+            this.reset();
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1500);
+        });
+
+        // Signin Form
+        document.getElementById('signinForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('signinEmail').value.trim();
+            const password = document.getElementById('signinPassword').value;
+            const messageDiv = document.getElementById('signinMessage');
+
+            // Validation
+            if (!isValidEmail(email)) {
+                messageDiv.innerHTML = '<div class="alert alert-danger">Please enter a valid email address.</div>';
+                return;
+            }
+            if (password.length < 6) {
+                messageDiv.innerHTML = '<div class="alert alert-danger">Password must be at least 6 characters long.</div>';
+                return;
+            }
+
+            // Check credentials
+            const users = JSON.parse(localStorage.getItem('users'));
+            const user = users.find(user => user.email.toLowerCase() === email.toLowerCase() && user.password === password);
+            if (user) {
+                localStorage.setItem('isLoggedIn', 'true');
+                messageDiv.innerHTML = '<div class="alert alert-success">Successfully signed in to Dodcom Technologies!</div>';
+                this.reset();
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1500);
+            } else {
+                messageDiv.innerHTML = '<div class="alert alert-danger">Invalid email or password.</div>';
+            }
+        });
+
+        // Forgot Password Form
+        document.getElementById('forgotForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('forgotEmail').value.trim();
+            const newPassword = document.getElementById('forgotNewPassword').value;
+            const confirmPassword = document.getElementById('forgotConfirmPassword').value;
+            const messageDiv = document.getElementById('forgotMessage');
+
+            // Validation
+            if (!isValidEmail(email)) {
+                messageDiv.innerHTML = '<div class="alert alert-danger">Please enter a valid email address.</div>';
+                return;
+            }
+            if (newPassword.length < 6) {
+                messageDiv.innerHTML = '<div class="alert alert-danger">New password must be at least 6 characters long.</div>';
+                return;
+            }
+            if (newPassword !== confirmPassword) {
+                messageDiv.innerHTML = '<div class="alert alert-danger">Passwords do not match.</div>';
+                return;
+            }
+
+            // Update password and auto-login
+            let users = JSON.parse(localStorage.getItem('users'));
+            const userIndex = users.findIndex(user => user.email.toLowerCase() === email.toLowerCase());
+            if (userIndex !== -1) {
+                users[userIndex].password = newPassword;
+                localStorage.setItem('users', JSON.stringify(users));
+                localStorage.setItem('isLoggedIn', 'true');
+                messageDiv.innerHTML = '<div class="alert alert-success">Password reset successfully!</div>';
+                this.reset();
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1500);
+            } else {
+                messageDiv.innerHTML = '<div class="alert alert-danger">Email not found.</div>';
+            }
+        });
+
+        // Handle URL hash to select tab on load
+        window.addEventListener('load', () => {
+            const hash = window.location.hash;
+            if (hash === '#signin') {
+                document.getElementById('signin-tab').click();
+            } else if (hash === '#signup') {
+                document.getElementById('signup-tab').click();
+            } else if (hash === '#forgot') {
+                document.getElementById('forgot-tab').click();
+            }
+            clearMessages();
+        });
+    </script>
+</body>
+</html>

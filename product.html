@@ -1,0 +1,3090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Dodcomtechnologies</title>
+    <link rel="icon" type="image/png" href="https://i.ibb.co/YBN3svcb/LOGO-logo-dot.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <style>
+ /* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+:root {
+    --primary-color: #ec9c09; /* Green */
+    --secondary-color: #be185d; /* Pink */
+    --accent-color: #ec9c09; /* Darker green */
+    --light-color: #f7f7f7;
+    --dark-color: #333;
+    --gray-color: #666;
+}
+
+html {
+    font-size: 62.5%; /* 1rem = 10px for easier scaling */
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(135deg, var(--light-color), rgba(190, 24, 93, 0.1));
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+/* Section and Container Styles */
+section {
+    padding: 5rem 10%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* Headings */
+.heading {
+    text-align: center;
+    font-size: 4rem;
+    color: var(--dark-color);
+    padding: 2.5rem 0;
+    margin: 4rem 0;
+    background: linear-gradient(135deg, #ffffff, var(--light-color));
+    border-radius: 1.5rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.heading span {
+    color: var(--secondary-color);
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    font-weight: 700;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #fff;
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    padding: 1.2rem 3rem;
+    margin: 0.8rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-transform: capitalize;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.btn.secondary {
+    background: #fff;
+    color: var(--dark-color);
+    border: 2px solid var(--secondary-color);
+}
+
+.btn.secondary:hover {
+    background: var(--light-color);
+    border-color: var(--primary-color);
+}
+
+.btn.buy-now {
+    animation: flash 2s infinite;
+}
+
+@keyframes flash {
+    0%, 100% { transform: scale(1); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    50% { transform: scale(1.05); box-shadow: 0 8px 20px rgba(236, 156, 9, 0.5); }
+}
+
+/* Header */
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #fff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.header-1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 10%;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #ffffff, var(--light-color));
+}
+
+.header .logo {
+    height: 9rem;
+}
+
+.header .logo:hover {
+    transform: scale(1.05);
+}
+
+/* Search Form and Icons (Hidden) */
+.header .search-form,
+.header .icons {
+    display: none;
+}
+
+/* Navigation */
+.header-2 {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-color));
+    padding: 1rem 5%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.navbar a,
+.dropbtn {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.6rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 6px;
+    background: transparent;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.navbar a:hover,
+.dropbtn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background-color: #fff;
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.dropdown-content a {
+    color: var(--dark-color);
+    padding: 0.8rem 1rem;
+    display: block;
+    font-size: 1.5rem;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--light-color);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.navbar-toggle {
+    display: none;
+    font-size: 2.8rem;
+    color: var(--dark-color);
+    cursor: pointer;
+    margin-left: 2.5rem;
+}
+
+/* Product Details */
+.product-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    background: #fff;
+    padding: 4rem;
+    border-radius: 1.5rem;
+    margin: 4rem 0;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.6s ease-in-out;
+}
+
+.product-details .image {
+    flex: 1 1 40rem;
+    text-align: center;
+}
+
+.product-details .image img {
+    max-width: 100%;
+    height: 45rem;
+    object-fit: contain;
+    border-radius: 1.2rem;
+}
+
+.product-details .image img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-details .content {
+    flex: 1 1 50rem;
+}
+
+.product-details .content h3 {
+    font-size: 3.5rem;
+    color: var(--dark-color);
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+}
+
+.product-details .content .category, 
+.product-details .content .author, 
+.product-details .content .class {
+    font-size: 1.8rem;
+    color: var(--gray-color);
+    margin: 1rem 0;
+}
+
+.product-details .content .price {
+    font-size: 3.2rem;
+    color: var(--secondary-color);
+    font-weight: 700;
+    margin: 1.2rem 0;
+}
+
+.product-details .content .price span {
+    font-size: 2rem;
+    color: var(--gray-color);
+    text-decoration: line-through;
+}
+
+.product-details .content .description {
+    font-size: 1.7rem;
+    color: var(--dark-color);
+    line-height: 1.9;
+    margin: 2rem 0;
+}
+
+.product-details .content .stars i {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+}
+
+.product-details .pincode-check {
+    margin: 2.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.product-details .pincode-check input {
+    padding: 1.4rem;
+    font-size: 1.8rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 1rem;
+    width: 22rem;
+    background: var(--light-color);
+}
+
+.product-details .pincode-check input:focus {
+    border-color: var(--secondary-color);
+}
+
+.product-details .pincode-check .btn {
+    padding: 1.2rem 2.5rem;
+}
+
+.product-details .pincode-check .result {
+    font-size: 1.7rem;
+    color: var(--dark-color);
+    margin-top: 1.2rem;
+}
+
+.product-details .quantity {
+    margin: 2.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.product-details .quantity input {
+    width: 10rem;
+    padding: 1.4rem;
+    font-size: 1.8rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 1rem;
+    text-align: center;
+    background: var(--light-color);
+}
+
+.product-details .quantity button {
+    font-size: 2rem;
+    padding: 1.2rem 2rem;
+    background: var(--light-color);
+    color: var(--dark-color);
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.product-details .quantity button:hover {
+    background: var(--secondary-color);
+    color: #fff;
+}
+
+.product-details .additional-info {
+    margin: 2.5rem 0;
+}
+
+.product-details .additional-info h4 {
+    font-size: 2.4rem;
+    color: var(--dark-color);
+    margin-bottom: 1.2rem;
+}
+
+.product-details .additional-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.product-details .additional-info li {
+    font-size: 1.7rem;
+    color: var(--dark-color);
+    margin: 1rem 0;
+}
+
+.product-details .actions {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+/* Reviews Section */
+.reviews-section {
+    background: #fff;
+    padding: 4rem;
+    border-radius: 1.5rem;
+    margin: 4rem 0;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.reviews-section h3 {
+    font-size: 3.2rem;
+    color: var(--dark-color);
+    margin-bottom: 2.5rem;
+}
+
+.reviews-section .review {
+    border-bottom: 2px solid #e0e0e0;
+    padding: 2rem 0;
+}
+
+.reviews-section .review p {
+    font-size: 1.7rem;
+    color: var(--dark-color);
+    line-height: 1.9;
+}
+
+.reviews-section .review .stars i {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+}
+
+/* Related Products */
+.related-products .book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 3rem;
+    padding: 1.5rem 0; /* Removed side padding for full-width */
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+}
+
+.related-products .book-card {
+    background: #fff;
+    border: 2px solid #e0e0e0;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.related-products .book-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+.related-products .book-card .image {
+    height: 22rem;
+    overflow: hidden;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.related-products .book-card .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.related-products .book-card:hover .image img {
+    transform: scale(1.08);
+}
+
+.related-products .book-card .content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.related-products .book-card .content h3 {
+    font-size: 2rem;
+    color: var(--dark-color);
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+    height: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.related-products .book-card .content .category,
+.related-products .book-card .content .author,
+.related-products .book-card .content .class {
+    font-size: 1.5rem;
+    color: var(--gray-color);
+}
+
+.related-products .book-card .content .price {
+    font-size: 2.2rem;
+    color: var(--secondary-color);
+    font-weight: 700;
+    margin-top: 0.8rem;
+}
+
+.related-products .book-card .content .price span {
+    font-size: 1.6rem;
+    color: var(--gray-color);
+    text-decoration: line-through;
+    margin-left: 0.5rem;
+}
+
+.related-products .book-card .content .stars i {
+    font-size: 1.6rem;
+    color: var(--secondary-color);
+}
+
+.related-products .book-card .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+/* Footer */
+.footer {
+    background: #ffffff;
+    color: var(--dark-color);
+    padding: 5rem 10%;
+    border-top: 1px solid #e5e5e5;
+}
+
+.footer .box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.footer .box {
+    flex: 1 1 25rem;
+    min-width: 22rem;
+}
+
+.footer .box h3 {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.footer .box h3::after {
+    content: '';
+    display: block;
+    width: 4rem;
+    height: 0.3rem;
+    background: var(--secondary-color);
+    margin-top: 0.5rem;
+}
+
+.footer .box a {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--gray-color);
+    padding: 0.4rem 0;
+}
+
+.footer .box a:hover {
+    color: var(--secondary-color);
+    transform: translateX(0.5rem);
+}
+
+.footer .box a i {
+    color: var(--secondary-color);
+    margin-right: 0.6rem;
+}
+
+.footer .box img.map {
+    width: 100%;
+    margin-top: 1.5rem;
+    border-radius: 0.6rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer .share {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.footer .share a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 4.5rem;
+    width: 4rem;
+    font-size: 1.6rem;
+    color: var(--secondary-color);
+    background: #fff;
+    margin: 0 0.4rem;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer .share a:hover {
+    background: #fff;
+    transform: scale(1.1);
+}
+
+.footer .credit {
+    text-align: center;
+    font-size: 1.4rem;
+    color: var(--gray-color);
+    padding: 2rem 0;
+    border-top: 1px solid #e5e0e0;
+    margin-top: 2rem;
+}
+
+.footer .credit span {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+/* Modal */
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-container.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-container form {
+    background: #fff;
+    border-radius: 1.5rem;
+    width: 90%;
+    max-width: 60rem;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 4rem;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+    transform: scale(0.8);
+}
+
+.modal-container.active form {
+    transform: scale(1);
+}
+
+.modal-container form h3 {
+    font-size: 3.2rem;
+    color: var(--dark-color);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-weight: 700;
+}
+
+.modal-container form span {
+    display: block;
+    font-size: 1.7rem;
+    color: var(--dark-color);
+    padding: 0.6rem 0;
+    font-weight: 600;
+}
+
+.modal-container form .box {
+    width: 100%;
+    border: 2px solid #e0e0e0;
+    border-radius: 1rem;
+    padding: 1.4rem;
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    background: var(--light-color);
+    margin: 1.2rem 0;
+}
+
+.modal-container form .box:focus {
+    border-color: var(--secondary-color);
+}
+
+.modal-container form textarea.box {
+    height: 14rem;
+    resize: vertical;
+}
+
+.modal-container .close-modal-btn {
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    font-size: 3rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Sidebar Filter (Hidden) */
+.sidebar-filter {
+    display: none !important;
+}
+
+.filter-toggle-btn {
+    display: none !important;
+}
+
+/* Main Content */
+.main-content {
+    padding: 0 10% !important; /* Match section padding */
+    margin: 0 auto !important;
+    max-width: 1440px !important;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(3rem); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Media Queries */
+@media (max-width: 991px) {
+    html { font-size: 55%; }
+    section { padding: 4rem; }
+    .main-content { padding: 0 4rem !important; }
+    .header-1 { padding: 2rem 4rem; }
+    .product-details { gap: 3rem; padding: 3rem; }
+}
+
+@media (max-width: 768px) {
+    .navbar-toggle { display: block; }
+    .header .navbar { 
+        display: none; 
+        flex-direction: column;
+        background: linear-gradient(to bottom, var(--secondary-color), var(--primary-color));
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+
+    .header .navbar.active { display: flex; }
+    .header .navbar a { 
+        display: block;
+        padding: 2rem;
+        font-size: 2.2rem;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .header .icons { margin-left: auto; }
+    .product-details { flex-direction: column; }
+    .product-details .image img { height: 35rem; }
+}   </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-1">
+            <a href="index.html"><img style="width: 200px !important; height: 150px;" src="https://i.ibb.co/YBN3svcb/LOGO-logo-dot.png"" alt="Book Point Logo" class="logo"></a>
+            <div class="navbar-toggle fas fa-bars" id="navbar-toggle"></div>
+            <div class="icons"  hidden>
+                <div id="search-btn" class="fas fa-search" aria-label="Toggle search" hidden></div>
+                <a href="wishlist.html" class="fas fa-heart" id="wishlist" aria-label="View wishlist"><span class="count" id="wishlistCount">0</span></a>
+            </div>
+            <form class="search-form" id="searchForm" >
+                <input type="search" name="search" placeholder="Search books..."  id="search-box" aria-label="Search books" >
+                <label for="search-box" class="fas fa-search" aria-label="Submit search" ></label>
+            </form>
+        </div>
+        
+            <!-- HTML -->
+<div class="header-2">
+  <nav class="navbar" id="navbar">
+    <a href="index.html">Home</a>
+
+    
+
+    <div class="dropdown">
+      <button class="dropbtn">Shop By Categories</button>
+      <div class="dropdown-content">
+        <a href="index.html#classbook">Electronic</a>
+        <!-- <a href="index.html#classbook">Men fashion</a>
+        <a href="index.html#classbook">Women fashion</a>
+         <a href="index.html#classbook">Home Fashion</a>
+          <a href="index.html#classbook">Copper COllection</a> -->
+          
+      </div>
+    </div>
+
+   
+    <!-- <a href="shop.html">Shop Now</a> -->
+    <a href="bulkorder.html" id="bulk-order-btn">support</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</div>
+
+        </div>
+    </header>
+
+    <section class="product-details" id="productDetails">
+        <div class="image">
+            <img id="productImage" src="" alt="Product Image">
+        </div>
+        <div class="content">
+            <h3 id="productName"></h3>
+            <p class="category" id="productCategory"></p>
+            <p class="author" id="productAuthor"></p>
+            <p class="class" id="productClass"></p>
+            <div class="price" id="productPrice"></div>
+            <div class="stars" id="productStars"></div>
+            <p class="description" id="productDescription"></p>
+            <div class="quantity">
+                <button onclick="updateQuantity(-1)">-</button>
+                <input type="number" id="quantity" value="1" min="1" onchange="restrictQuantity()">
+                <button onclick="updateQuantity(1)">+</button>
+            </div>
+            <div class="actions">
+                <button class="btn buy-now" onclick="openCheckoutPage()">Buy Now</button>
+                <button class="btn secondary" onclick="addToWishlist()">Add to Wishlist</button>
+            </div>
+            <div class="pincode-check">
+                <input type="text" id="pincodeInput" placeholder="Enter pincode" aria-label="Pincode">
+                <button class="btn" onclick="checkPincode()">Check</button>
+                <div class="result" id="pincodeResult"></div>
+            </div>
+            <div class="additional-info">
+                <h4>Additional Information</h4>
+                <ul id="additionalInfo" style="font-size : 15px"></ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews-section">
+        <h3>Customer Reviews</h3>
+        <div class="review">
+            <p>Excellent book, very helpful for exam preparation!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        </div>
+        <div class="review">
+            <p>Clear explanations and high-quality print.</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+    </section>
+
+    <section class="related-products" id="relatedProducts">
+        <h1 class="heading">Related <span>Products</span></h1>
+        <div class="book-grid" id="relatedBooks"></div>
+    </section>
+<br> <br> <br> <br>
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>Our Locations</h3>
+                <a href="index.html">
+                    <img src="https://i.ibb.co/YBN3svcb/LOGO-logo-dot.png" alt="Company Logo" style="width: 100px;">
+                </a>
+                <a href="#"><i class="fas fa-map-marker-alt"></i> India </a>
+            </div>
+            <div class="box">
+                <h3>Quick Links</h3>
+                <a href="index.html"><i class="fas fa-arrow-right"></i> Home </a>
+                <a href="index.html#classbook" class="d-flex align-items-center mb-2"><i class="fas fa-arrow-right me-2"></i> All Subjects </a>
+                        <a href="index.html#allclass" class="d-flex align-items-center mb-2"><i class="fas fa-arrow-right me-2"></i> Classes </a>
+                    
+                <!-- <a href="#reviews"><i class="fas fa-arrow-right"></i> Reviews </a> -->
+                <a href="#" id="bulk-order-footer-btn"><i class="fas fa-arrow-right"></i> Support </a>
+                <a href="contact.html"><i class="fas fa-arrow-right"></i> Contact </a>
+                                        <a href="Aboutus.html" class="d-flex align-items-center mb-2"><i class="fas fa-arrow-right me-2"></i> About Us</a>
+
+            </div>
+            <div class="box">
+                <h3>Extra Links</h3>
+                <a href="privacy-policy.html"><i class="fas fa-arrow-right"></i> Privacy Policy </a>
+                <a href="refund.html"><i class="fas fa-arrow-right"></i> Refund & Returns </a>
+                <a href="shipping-policy.html"><i class="fas fa-arrow-right"></i> Shipping Policy </a>
+                <a href="Terms.html"><i class="fas fa-arrow-right"></i> Terms & Conditions </a>
+                <a href="https://www.shiprocket.in/shipment-tracking/"><i class="fas fa-arrow-right"></i> Track Order </a>
+            </div>
+            <div class="box">
+                <h3>Contact Info</h3>
+                <a href="tel:+919821586944"><i class="fas fa-phone"></i> +919105118956 </a>
+                <a href="#"><i class="fas fa-clock"></i> Everyday: 10:00 AM - 7:30 PM </a>
+                 <a href="#" class="d-flex align-items-center mb-2"><i class="fas fa-city me-2"></i> Plot No. 9, Block-D, Sector 3, Noida, Uttar Pradesh 201301</a>
+                <a href="mailto:support@dodcomtechnologies.com"><i class="fas fa-envelope"></i>  support@dotcomtechnology.co.in</a>
+                <img src="https://i.ibb.co/mFXb5R4G/Blue-Grey-Minimalist-Modern-Business-Card.png" class="map" alt="Contact Card" height="100">
+            </div>
+        </div>
+        <div class="share">
+            <a href="#" class="fab fa-facebook-f" aria-label="Facebook"></a>
+            <a href="#" class="fab fa-whatsapp" aria-label="WhatsApp"></a>
+            <a href="#" class="fab fa-instagram" aria-label="Instagram"></a>
+            <a href="#" class="fab fa-linkedin" aria-label="LinkedIn"></a>
+        </div>
+        <div class="credit"> created by <span>dotcomtechnology</span> | all rights reserved! </div>
+    </section>
+
+    <div class="modal-container" id="bulkOrderModal">
+        <div class="close-modal-btn fas fa-times" aria-label="Close"></div>
+        <form id="bulkOrderForm">
+            <h3>Bulk Order Request</h3>
+            <span>Name</span>
+            <input type="text" class="box" placeholder="Enter your name" id="bulkName" required aria-label="Name">
+            <span>Email</span>
+            <input type="email" class="box" placeholder="Enter your email" id="bulkEmail" required aria-label="Email">
+            <span>Phone</span>
+            <input type="tel" class="box" placeholder="Enter your phone number" id="bulkPhone" required aria-label="Phone">
+           
+            <span>Additional Message</span>
+            <textarea class="box" placeholder="Any Custom Message" id="bulkNotes" aria-label="Additional Notes"></textarea>
+            <input type="submit" value="Submit Request" class="btn" aria-label="Submit">
+        </form>
+    </div>
+
+    <script>
+        const books = [
+   {
+    "id": 1,
+    "name": "Portable Neck Rechargeable Cooling Fan",
+    "image": "https://m.media-amazon.com/images/I/61I6Fh7rftS.jpg",
+    "price": 799.00,
+    "class": null,
+    "description": "Stay cool with this portable neck fan featuring a hands-free design with 22 air outlets for full-face cooling. It offers a long-lasting rechargeable battery, three adjustable speed settings, and is ultra-lightweight. Safe for children and the elderly, it’s perfect for on-the-go use.",
+    "category": "Electronics",
+    "author": "Trendshop",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Weight: 110 g",
+      "Features: Hands-free, 22 air outlets, adjustable airflow",
+      "Battery: Long-lasting rechargeable",
+      "Safety: Wingless design"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Mini Ice Cooler Portable Cooler",
+    "image": "https://i5.walmartimages.com/seo/YiBai-Small-Cooler-Chiller-5-Quart-Portable-Cooler-Outdoor-Mini-Refrigerated-Container-Ice-Bucket-for-Camping-Blue_b65eef37-c169-47ee-a634-9026c5482b16.a39cca96aba361527eef92c03e74f0fd.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF",
+    "price": 799.00,
+    "class": null,
+    "isNew": true,
+    "description": "A portable cooling solution for home or office use. This mini ice cooler is designed for personal cooling, offering efficient air circulation in small spaces. Compact and easy to use, it’s ideal for personal comfort.",
+    "category": "Home Appliances",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: Unknown",
+      "Use: Home and office",
+      "Type: Portable cooler"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Portable Air Conditioner Mini Cooler",
+    "image": "https://i5.walmartimages.com/seo/Wamans-Air-Conditioner-Portable-Usb-Rechargeable-Mini-Cooling-Fan-Water-Air-Conditioning-Fan-Mini-Fan-Usb-Fan-Desktop-Turbo-Spray-Humidifica_332e18f2-c05a-4498-acb0-35affd4bb347.80c1ed80233d59681500d85e8988d5f0.jpeg",
+    "price": 1250.00,
+    "class": null,
+    "isNew": true,
+    "description": "India’s top-selling 3-in-1 portable air cooler, humidifier, and purifier. Features a replaceable filter, three wind speeds, and an easy-fill water tank that runs up to 8 hours. Compact, eco-friendly, and ultra-quiet, it’s perfect for home, office, or travel.",
+    "category": "Home Appliances",
+    "author": "Trensz",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: 800 g",
+      "Dimensions: 17 x 16.4 x 14.9 cm",
+      "Features: 3-in-1, eco-friendly, ultra-quiet",
+      "Runtime: Up to 8 hours"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Bedtime Fun Kids Slide Projector Torch",
+    "image": "https://m.media-amazon.com/images/I/81TzIvbtp1L._AC_UL320_.jpg",
+    "price": 550.00,
+    "isNew": true,
+    "class": null,
+    "description": "A versatile toy combining learning and entertainment, this projector torch uses premium ABS materials and interchangeable slides to spark creativity. It doubles as a flashlight for nighttime safety, making it a perfect sleep companion for children aged 8 months to 8 years.",
+    "category": "Kids Styling",
+    "author": "Trensz",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: 40 g",
+      "Dimensions: 7 x 4 x 3 cm",
+      "Material: Eco-friendly rubber button, polymer plastic",
+      "Age Range: 8 months - 8 years"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Portable High Power Car Vacuum Cleaner",
+    "image": "https://m.media-amazon.com/images/I/61YOMLX2qbL._AC_UL320_.jpg",
+    "price": 799.00,
+    "class": null,
+    "description": "A compact, handheld car vacuum cleaner with a HEPA filter, powered by a 3.7V battery for up to 40 minutes of runtime. Features strong suction for cleaning dust, dirt, and hair, with a washable filter and included nozzle and brush. Lightweight and portable for travel or camping.",
+    "category": "Automotive",
+    "author": null,
+    "rating": null,
+    "additionalInfo": [
+      "Weight: Unknown",
+      "Dimensions: 8 x 5 x 10 cm",
+      "Features: Portable, lightweight, HEPA filter",
+      "Runtime: 40 minutes"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Portable Desk Fan with USB Charging",
+    "image": "https://m.media-amazon.com/images/I/51QXlIuRLTL._AC_UL320_.jpg",
+    "price": 599.00,
+    "class": null,
+    "description": "A compact desk fan with USB charging, perfect for home or office use. Features three speed settings and a quiet motor for efficient cooling. Lightweight and portable, it’s ideal for small spaces or travel.",
+    "category": "Electronics",
+    "author": "Trendshop",
+    "rating": 4.0,
+    "additionalInfo": [
+      "Weight: 200 g",
+      "Features: USB charging, three speed settings",
+      "Noise Level: Low",
+      "Use: Desk or travel"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Kids Interactive Storybook Projector",
+    "image": "https://m.media-amazon.com/images/I/81TzIvbtp1L._AC_UL320_.jpg",
+    "price": 650.00,
+    "class": null,
+    "description": "An engaging storybook projector for kids, featuring colorful slides and audio narration. Made from safe ABS materials, it promotes creativity and learning. Suitable for ages 3-10, it also functions as a nightlight.",
+    "category": "Toys & Games",
+    "author": "Trensz",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: 50 g",
+      "Material: ABS plastic",
+      "Age Range: 3-10 years",
+      "Features: Nightlight function"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Mini Portable Blender for Smoothies",
+    "image": "https://m.media-amazon.com/images/I/71e+QllPFrL.jpg",
+    "price": 899.00,
+    "class": null,
+    "description": "A compact blender for smoothies and shakes, featuring a USB-rechargeable battery and stainless steel blades. Perfect for home, gym, or travel, it’s easy to clean and lightweight.",
+    "category": "Home Appliances",
+    "author": "Trensz",
+    "rating": 4.2,
+    "additionalInfo": [
+      "Weight: 300 g",
+      "Material: Stainless steel blades",
+      "Features: USB-rechargeable",
+      "Use: Smoothies, shakes"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Wireless Car Air Purifier",
+    "image": "https://m.media-amazon.com/images/I/7141Bc9dC7L._AC_UF1000,1000_QL80_.jpg",
+    "price": 999.00,
+    "class": null,
+    "description": "A portable car air purifier with a HEPA filter, powered by USB. Removes dust, allergens, and odors, ensuring a fresh interior. Compact design fits in any vehicle, ideal for daily commutes.",
+    "category": "Automotive",
+    "author": "Trendshop",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: 150 g",
+      "Filter: HEPA",
+      "Power: USB",
+      "Use: Car interior"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Portable Electric Kettle 1L",
+    "image": "https://m.media-amazon.com/images/I/51dVaMrCq9L._UF894,1000_QL80_.jpg",
+    "price": 699.00,
+    "class": null,
+    "description": "A 1-liter portable electric kettle with a stainless steel body and auto shut-off feature. Compact and lightweight, it’s perfect for home, office, or travel. Boils water in minutes.",
+    "category": "Home Appliances",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: 500 g",
+      "Capacity: 1 liter",
+      "Material: Stainless steel",
+      "Features: Auto shut-off"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Rechargeable LED Camping Lantern",
+    "image": "https://m.media-amazon.com/images/I/61+H07XRuyL._AC_UL320_.jpg",
+    "price": 499.00,
+    "class": null,
+    "description": "A bright LED camping lantern with a rechargeable battery and three brightness modes. Compact and durable, it’s perfect for camping, hiking, or emergency use.",
+    "category": "Sports & Outdoors",
+    "author": "Trendshop",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Weight: 250 g",
+      "Battery: Rechargeable",
+      "Modes: Three brightness levels",
+      "Use: Camping, hiking"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Portable Wireless Speaker",
+    "image": "https://m.media-amazon.com/images/I/71PvIY11X2L.jpg",
+    "price": 799.00,
+    "class": null,
+    "description": "A compact wireless speaker with Bluetooth connectivity and up to 6 hours of playtime. Waterproof and durable, it’s ideal for outdoor adventures or home use.",
+    "category": "Electronics",
+    "author": "Trendshop",
+    "rating": 4.1,
+    "additionalInfo": [
+      "Weight: 200 g",
+      "Battery: Up to 6 hours",
+      "Features: Waterproof, Bluetooth",
+      "Use: Indoor/outdoor"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Portable Handheld Steam Iron",
+    "image": "https://m.media-amazon.com/images/I/61YwgVrudBL.jpg",
+    "price": 999.00,
+    "class": null,
+    "description": "A compact handheld steam iron for quick wrinkle removal. Features a ceramic soleplate and dual voltage for travel. Lightweight and easy to use for home or on-the-go.",
+    "category": "Home & Garden > Household Appliances",
+    "author": "Trensz",
+    "rating": 4.0,
+    "additionalInfo": [
+      "Weight: 400 g",
+      "Material: Ceramic soleplate",
+      "Features: Dual voltage",
+      "Use: Home, travel"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Kids Remote Control Car",
+    "image": "https://m.media-amazon.com/images/I/81ap+We87nL.jpg",
+    "price": 699.00,
+    "class": null,
+    "description": "A durable remote control car for kids, featuring a rechargeable battery and rugged wheels for indoor/outdoor play. Suitable for ages 5-12, promotes motor skills.",
+    "category": "Kids Styling",
+    "author": "Trensz",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: 500 g",
+      "Battery: Rechargeable",
+      "Age Range: 5-12 years",
+      "Use: Indoor/outdoor"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Mini LED Projector for Home",
+    "image": "https://m.media-amazon.com/images/I/51TF2ZxwFEL.jpg",
+    "price": 2999.00,
+    "class": null,
+    "description": "A compact LED projector for home entertainment, supporting 1080p resolution and multiple inputs (HDMI, USB). Portable and easy to set up, perfect for movie nights.",
+    "category": "Electronics",
+    "author": "Trendshop",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Weight: 1 kg",
+      "Resolution: 1080p",
+      "Inputs: HDMI, USB",
+      "Use: Home entertainment"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Portable Car Tire Inflator",
+    "image": "https://m.media-amazon.com/images/I/61+H07XRuyL._AC_UL320_.jpg",
+    "price": 899.00,
+    "class": null,
+    "description": "A compact car tire inflator with a digital display and auto shut-off. Powered by a 12V car adapter, it’s perfect for roadside emergencies or regular maintenance.",
+    "category": "Automotive",
+    "author": "Trendshop",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: 600 g",
+      "Power: 12V car adapter",
+      "Features: Digital display, auto shut-off",
+      "Use: Tire inflation"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Rechargeable Electric Mosquito Swatter",
+    "image": "https://m.media-amazon.com/images/I/71yHmGpkOuL._AC_UF894,1000_QL80_.jpg",
+    "price": 399.00,
+    "class": null,
+    "description": "An electric mosquito swatter with a rechargeable battery and LED light. Safe and effective for indoor/outdoor use, it eliminates pests without chemicals.",
+    "category": "Home & Garden > Pest Control",
+    "author": "Trensz",
+    "rating": 4.0,
+    "additionalInfo": [
+      "Weight: 200 g",
+      "Battery: Rechargeable",
+      "Features: LED light",
+      "Use: Indoor/outdoor"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Portable Digital Luggage Scale",
+    "image": "https://m.media-amazon.com/images/I/61YOMLX2qbL._AC_UL320_.jpg",
+    "price": 299.00,
+    "class": null,
+    "description": "A compact digital luggage scale with a clear LCD display. Measures up to 50 kg, perfect for travel to avoid excess baggage fees. Lightweight and easy to carry.",
+    "category": "Travel Accessories",
+    "author": "Trendshop",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Weight: 100 g",
+      "Capacity: Up to 50 kg",
+      "Display: LCD",
+      "Use: Travel"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Anker Nano Power Bank 10000mAh",
+    "image": "https://m.media-amazon.com/images/I/51QXlIuRLTL._AC_UL320_.jpg",
+    "price": 1499.00,
+    "class": null,
+    "isNew": true,
+    "description": "Compact and high-capacity power bank with fast charging capabilities. Ideal for charging smartphones, tablets, and other devices on the go. Supports PD and QC fast charging.",
+    "category": "Electronics",
+    "author": "Anker",
+    "rating": 4.6,
+    "additionalInfo": [
+      "Capacity: 10000mAh",
+      "Ports: USB-C, USB-A",
+      "Features: Fast charging, compact design",
+      "Weight: 180g"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Sony WH-1000XM6 Noise-Cancelling Headphones",
+    "image": "https://m.media-amazon.com/images/I/61nGlYFDZNL._AC_UF894,1000_QL80_.jpg",
+    "price": 2999.00,
+    "class": null,
+    "description": "Premium wireless headphones with advanced noise cancellation, high-quality sound, and up to 30 hours of battery life. Perfect for travel and daily use.",
+    "category": "Electronics",
+    "author": "Sony",
+    "rating": 4.7,
+    "additionalInfo": [
+      "Battery Life: 30 hours",
+      "Features: ANC, touch controls, app support",
+      "Weight: 254g",
+      "Connectivity: Bluetooth 5.2"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Nebula Mars 3 Air Portable Projector",
+    "image": "https://m.media-amazon.com/images/I/61PyErA3hqL.jpg",
+    "price": 4999.00,
+    "class": null,
+    "isNew": true,
+    "description": "Portable projector with built-in battery for up to 2.5 hours of playback. Delivers 1080p resolution and 400 ANSI lumens brightness for outdoor movie nights.",
+    "category": "Electronics",
+    "author": "Nebula",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Resolution: 1080p",
+      "Battery: 2.5 hours",
+      "Features: Android TV, auto focus",
+      "Weight: 1.5kg"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "JBL Go 4 Portable Bluetooth Speaker",
+    "image": "https://m.media-amazon.com/images/I/51QXlIuRLTL._AC_UL320_.jpg",
+    "price": 999.00,
+    "class": null,
+    "description": "Ultra-portable waterproof speaker with powerful sound and 7 hours of playtime. Ideal for travel and outdoor activities.",
+    "category": "Electronics",
+    "author": "JBL",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Battery: 7 hours",
+      "Features: Waterproof IP67, Bluetooth",
+      "Weight: 190g",
+      "Sound: 4.2W output"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Bowers & Wilkins Px8 S2 Headphones",
+    "image": "https://m.media-amazon.com/images/I/61s3HPY+RML._UF1000,1000_QL80_.jpg",
+    "price": 5999.00,
+    "class": null,
+    "isNew": true,
+    "description": "Flagship noise-cancelling headphones with premium audio quality and luxurious design. Up to 30 hours battery life.",
+    "category": "Electronics",
+    "author": "Bowers & Wilkins",
+    "rating": 4.8,
+    "additionalInfo": [
+      "Battery: 30 hours",
+      "Features: ANC, aptX Adaptive",
+      "Weight: 320g",
+      "Build: Leather and aluminum"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "KEF Muo Portable Bluetooth Speaker",
+    "image": "https://cdn.mos.cms.futurecdn.net/ZqgPPSqCKrJjZXcvNxZ6mg.jpg",
+    "price": 1999.00,
+    "class": null,
+    "description": "Sculptural portable speaker with high-fidelity sound and up to 12 hours battery. Designed for audiophiles on the move.",
+    "category": "Electronics",
+    "author": "KEF",
+    "rating": 4.6,
+    "additionalInfo": [
+      "Battery: 12 hours",
+      "Features: Bluetooth 5.0, IPX5 water resistant",
+      "Weight: 600g",
+      "Drivers: Dual 40mm"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Fujifilm Instax Mini Link 3 Printer",
+    "image": "https://m.media-amazon.com/images/I/61+H07XRuyL._AC_UL320_.jpg",
+    "price": 1099.00,
+    "class": null,
+    "isNew": true,
+    "description": "Portable instant photo printer that connects to your smartphone. Prints credit-card sized photos quickly and easily.",
+    "category": "Electronics",
+    "author": "Fujifilm",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Print Size: Mini",
+      "Features: Bluetooth, app integration",
+      "Battery: 100 prints per charge",
+      "Weight: 205g"
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Belkin BoostCharge Plus 10K Power Bank",
+    "image": "https://m.media-amazon.com/images/I/51dVaMrCq9L._AC_UL320_.jpg",
+    "price": 1299.00,
+    "class": null,
+    "description": "Slim portable charger with 10,000mAh capacity and pass-through charging. Charges up to three devices simultaneously.",
+    "category": "Electronics",
+    "author": "Belkin",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Capacity: 10000mAh",
+      "Ports: USB-C PD, USB-A",
+      "Features: Built-in cables",
+      "Weight: 227g"
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Anker Soundcore Motion X600 Speaker",
+    "image": "https://m.media-amazon.com/images/I/61pjv-70W+L._UF1000,1000_QL80_.jpg",
+    "price": 1499.00,
+    "class": null,
+    "isNew": true,
+    "description": "Spatial audio speaker with 50W output and five drivers for immersive sound. Portable with 12-hour battery life.",
+    "category": "Electronics",
+    "author": "Anker",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Battery: 12 hours",
+      "Features: Spatial audio, IPX7 waterproof",
+      "Weight: 2kg",
+      "Output: 50W"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Jackery Explorer 1000 Power Station",
+    "image": "https://m.media-amazon.com/images/I/71o3jY4fJZL._AC_UL320_.jpg",
+    "price": 7999.00,
+    "class": null,
+    "description": "Portable power station with 1002Wh capacity for charging multiple devices. Solar compatible for off-grid use.",
+    "category": "Electronics",
+    "author": "Jackery",
+    "rating": 4.7,
+    "additionalInfo": [
+      "Capacity: 1002Wh",
+      "Ports: AC, USB, DC",
+      "Features: Solar input, fast charging",
+      "Weight: 10.6kg"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "DJI Pocket 3 Mini Camera",
+    "image": "https://m.media-amazon.com/images/I/61tukvVUMiL.jpg",
+    "price": 4999.00,
+    "class": null,
+    "isNew": true,
+    "description": "Pocket-sized 4K camera with gimbal stabilization. Perfect for vlogging and capturing adventures on the go.",
+    "category": "Electronics",
+    "author": "DJI",
+    "rating": 4.6,
+    "additionalInfo": [
+      "Resolution: 4K",
+      "Features: Gimbal, 1-inch sensor",
+      "Battery: 166 minutes",
+      "Weight: 179g"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Sharge Retractable 3-in-1 Power Bank",
+    "image": "https://m.media-amazon.com/images/I/51QXlIuRLTL._AC_UL320_.jpg",
+    "price": 2499.00,
+    "class": null,
+    "description": "Versatile 10,000mAh power bank that doubles as a 30W wall charger. Foldable prongs for direct wall charging.",
+    "category": "Electronics",
+    "author": "Sharge",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Capacity: 10000mAh",
+      "Features: 3-in-1, transparent design",
+      "Weight: 250g",
+      "Output: 30W"
+    ]
+  },
+  {
+    "id": 31,
+    "name": "LG WM4000H Washing Machine",
+    "image": "https://m.media-amazon.com/images/I/61+H07XRuyL._AC_UL320_.jpg",
+    "price": 59999.00,
+    "class": null,
+    "isNew": true,
+    "description": "High-efficiency front-load washer with AI-driven cycles and steam technology. Energy Star certified for efficient cleaning.",
+    "category": "Home Appliances",
+    "author": "LG",
+    "rating": 4.6,
+    "additionalInfo": [
+      "Capacity: 4.5 cu ft",
+      "Features: TurboWash, allergen cycle",
+      "Energy: Energy Star",
+      "Dimensions: 27 x 39 x 30.25 in"
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Breville Smart Oven Air Fryer Pro",
+    "image": "https://m.media-amazon.com/images/I/51jCxzgxYwL._AC_UF894,1000_QL80_.jpg",
+    "price": 3499.00,
+    "class": null,
+    "description": "Versatile countertop oven with air frying, baking, and dehydrating functions. Precise temperature control for perfect results.",
+    "category": "Home Appliances",
+    "author": "Breville",
+    "rating": 4.7,
+    "additionalInfo": [
+      "Capacity: 1 cu ft",
+      "Features: 13 functions, Element IQ",
+      "Temperature: Up to 480°F",
+      "Weight: 38.9 lbs"
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Cuisinart Custom 14-Cup Food Processor",
+    "image": "https://m.media-amazon.com/images/I/51dVaMrCq9L._AC_UL320_.jpg",
+    "price": 1999.00,
+    "class": null,
+    "isNew": true,
+    "description": "Durable food processor for chopping, slicing, and pureeing. Powerful motor handles tough ingredients with ease.",
+    "category": "Home Appliances",
+    "author": "Cuisinart",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Capacity: 14 cups",
+      "Features: 3-in-1 disc, shredding/slicing",
+      "Motor: 720 watts",
+      "Weight: 18.5 lbs"
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Cosori Smart Air Fryer",
+    "image": "https://images-cdn.ubuy.co.in/65287337c0785d0691031987-cosori-pro-ii-5-8-quart-smart-air-fryer.jpg",
+    "price": 999.00,
+    "class": null,
+    "description": "Compact air fryer with app control for easy cooking. 5.5L capacity for family meals with minimal oil.",
+    "category": "Home Appliances",
+    "author": "Cosori",
+    "rating": 4.6,
+    "additionalInfo": [
+      "Capacity: 5.5L",
+      "Features: WiFi, 11 presets",
+      "Temperature: 95-450°F",
+      "Weight: 11 lbs"
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Tovala Smart Oven",
+    "image": "https://cdn.tovala.com/landing-pages/tovala-smart-oven/hero.webp",
+    "price": 2999.00,
+    "class": null,
+    "isNew": true,
+    "description": "Smart countertop oven with scan-to-cook technology. Prepares meals from fresh or frozen ingredients effortlessly.",
+    "category": "Home Appliances",
+    "author": "Tovala",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Functions: Bake, broil, steam",
+      "Features: QR code scanning, app",
+      "Capacity: Fits 12\" pizza",
+      "Weight: 34 lbs"
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Ecouzy Smart Nugget Ice Maker",
+    "image": "https://m.media-amazon.com/images/I/51QXlIuRLTL._AC_UL320_.jpg",
+    "price": 2499.00,
+    "class": null,
+    "description": "WiFi-enabled ice maker producing chewable nugget ice. Compact design for home or office use.",
+    "category": "Home Appliances",
+    "author": "Ecouzy",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Daily Output: 24 lbs",
+      "Features: WiFi, self-cleaning",
+      "Reservoir: 2L",
+      "Dimensions: 13.4 x 10.2 x 17.5 in"
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Instant Pot Pro Plus",
+    "image": "https://m.media-amazon.com/images/I/61+H07XRuyL._AC_UL320_.jpg",
+    "price": 1799.00,
+    "class": null,
+    "isNew": true,
+    "description": "Multi-cooker with 10 functions and smart app control. Pressure cook, slow cook, and more in one pot.",
+    "category": "Home Appliances",
+    "author": "Instant Pot",
+    "rating": 4.6,
+    "additionalInfo": [
+      "Capacity: 6 qt",
+      "Features: 10 functions, WiFi",
+      "Pressure: High/low",
+      "Weight: 11.8 lbs"
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Bosch 800 Series Dishwasher",
+    "image": "https://mobileimages.lowes.com/productimages/18090352-49a0-4166-8efa-88c095c197f8/67270242.jpeg",
+    "price": 12999.00,
+    "class": null,
+    "description": "Quiet and efficient dishwasher with PrecisionWash technology. CrystalDry for spotless results.",
+    "category": "Home Appliances",
+    "author": "Bosch",
+    "rating": 4.7,
+    "additionalInfo": [
+      "Capacity: 16 place settings",
+      "Noise: 42 dBA",
+      "Features: Home Connect app",
+      "Cycles: 5"
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Samsung Bespoke Refrigerator",
+    "image": "https://images.samsung.com/is/image/samsung/p6pim/in/rt34dg5a4dslhl/gallery/in-top-mount-freezer-twin-cooling-plus-529470-rt34dg5a4dslhl-548848807?$684_547_PNG$",
+    "price": 89999.00,
+    "class": null,
+    "isNew": true,
+    "description": "Smart French-door fridge with customizable panels and AI Family Hub. Beverage center and large capacity.",
+    "category": "Home Appliances",
+    "author": "Samsung",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Capacity: 23 cu ft",
+      "Features: AI Vision Inside, WiFi",
+      "Dimensions: 35.8 x 70 x 28.1 in",
+      "Ice: Dual dispenser"
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Whirlpool Over-the-Range Microwave",
+    "image": "https://m.media-amazon.com/images/I/51dVaMrCq9L._AC_UL320_.jpg",
+    "price": 15999.00,
+    "class": null,
+    "description": "1.9 cu ft microwave with sensor cooking and ventilation. Easy to install above the range.",
+    "category": "Home Appliances",
+    "author": "Whirlpool",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Capacity: 1.9 cu ft",
+      "Power: 1000W",
+      "Features: Sensor cooking, hood combo",
+      "Vent CFM: 300"
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Fanttik X8 Apex Tire Inflator",
+    "image": "https://fanttik.com/cdn/shop/files/X8APEX_a1cc1bb3-16dd-457c-8dcf-77e69b53ced7.jpg?crop=center&height=1200&v=1709627130&width=1200",
+    "price": 2999.00,
+    "class": null,
+    "isNew": true,
+    "description": "Portable tire inflator with digital pressure gauge and auto shut-off. Works for cars, bikes, and balls.",
+    "category": "Automotive",
+    "author": "Fanttik",
+    "rating": 4.6,
+    "additionalInfo": [
+      "PSI: Up to 150",
+      "Power: DC 12V",
+      "Features: LED light, preset modes",
+      "Weight: 1kg"
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Carly OBD Diagnostic Scanner",
+    "image": "https://www.mycarly.com/wp-content/uploads/2023/01/Carly_Shopping_010.png",
+    "price": 4999.00,
+    "class": null,
+    "description": "Bluetooth OBD-II scanner for vehicle diagnostics. App provides real-time data and coding options.",
+    "category": "Automotive",
+    "author": "Carly",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Compatibility: OBD-II vehicles",
+      "Features: App, coding, live data",
+      "Connectivity: Bluetooth",
+      "Weight: 50g"
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Tile Mate Key Finder",
+    "image": "https://m.media-amazon.com/images/I/51QXlIuRLTL._AC_UL320_.jpg",
+    "price": 999.00,
+    "class": null,
+    "isNew": true,
+    "description": "Bluetooth tracker for keys and items. Locate via app with separation alerts and community find network.",
+    "category": "Automotive",
+    "author": "Tile",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Battery: 3 years",
+      "Range: 250 ft",
+      "Features: Water-resistant, loud ring",
+      "Size: 1.1 x 1.1 x 0.3 in"
+    ]
+  },
+  {
+    "id": 44,
+    "name": "VANMASS Car Phone Mount",
+    "image": "https://m.media-amazon.com/images/I/61+H07XRuyL._AC_UL320_.jpg",
+    "price": 1499.00,
+    "class": null,
+    "description": "Strong suction dashboard mount for secure phone holding. Fits all smartphones with adjustable arms.",
+    "category": "Automotive",
+    "author": "VANMASS",
+    "rating": 4.7,
+    "additionalInfo": [
+      "Compatibility: All phones",
+      "Features: 85lbs suction, one-hand operation",
+      "Mount: Dashboard/windshield",
+      "Weight: 200g"
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Teeran Wireless CarPlay Adapter",
+    "image": "https://m.media-amazon.com/images/I/51r-ZC0XZBL._UF894,1000_QL80_.jpg",
+    "price": 3999.00,
+    "class": null,
+    "isNew": true,
+    "description": "Converts wired CarPlay to wireless. Plug-and-play for seamless iPhone integration in your car.",
+    "category": "Automotive",
+    "author": "Teeran",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Compatibility: iPhone 6+",
+      "Features: Low latency, auto connect",
+      "Size: Mini USB",
+      "Weight: 30g"
+    ]
+  },
+  {
+    "id": 46,
+    "name": "GlowShift Turbo Boost Gauge Kit",
+    "image": "https://m.media-amazon.com/images/I/615AOk7fk7L.jpg",
+    "price": 3499.00,
+    "class": null,
+    "description": "Digital gauge for monitoring turbo pressure up to 30 PSI. Includes sensors for easy installation.",
+    "category": "Automotive",
+    "author": "GlowShift",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Range: 0-30 PSI",
+      "Features: Stepper motor, electrical sender",
+      "Display: 52mm",
+      "Warranty: Lifetime"
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Piper Computer Kit",
+    "image": "https://m.media-amazon.com/images/I/51dVaMrCq9L._AC_UL320_.jpg",
+    "price": 4999.00,
+    "class": null,
+    "isNew": true,
+    "description": "Build-your-own computer kit teaching coding and electronics. Includes Raspberry Pi and guided projects.",
+    "category": "Toys & Games",
+    "author": "Piper",
+    "rating": 4.6,
+    "additionalInfo": [
+      "Age: 8-12",
+      "Features: Minecraft mods, circuits",
+      "Components: Raspberry Pi, sensors",
+      "Weight: 1kg"
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Osmo Little Genius Starter Kit",
+    "image": "https://m.media-amazon.com/images/I/81B4HrwxeDL.jpg",
+    "price": 2999.00,
+    "class": null,
+    "description": "Interactive iPad learning kit for preschoolers. Teaches letters, numbers, and shapes through play.",
+    "category": "Kids Styling",
+    "author": "Osmo",
+    "rating": 4.7,
+    "additionalInfo": [
+      "Age: 3-5",
+      "Features: 6 games, physical pieces",
+      "Compatibility: iPad",
+      "Weight: 1.5kg"
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Nintendo Switch 2 with Mario Kart",
+    "image": "https://target.scene7.com/is/image/Target/GUEST_fb66135b-140a-4712-aad3-44b0bacf8ec4",
+    "price": 34999.00,
+    "class": null,
+    "isNew": true,
+    "description": "Hybrid gaming console with enhanced graphics and included Mario Kart game. Perfect for family play.",
+    "category": "Electronics",
+    "author": "Nintendo",
+    "rating": 4.8,
+    "additionalInfo": [
+      "Storage: 256GB",
+      "Features: 8\" screen, Joy-Con controllers",
+      "Battery: 4-9 hours",
+      "Weight: 0.4kg"
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Contixo 7\" Kids Tablet",
+    "image": "https://m.media-amazon.com/images/I/61+H07XRuyL._AC_UL320_.jpg",
+    "price": 9999.00,
+    "class": null,
+    "description": "Educational Android tablet with parental controls and 50 Disney eBooks. Safe screen time for kids.",
+    "category": "Kids Styling",
+    "author": "Contixo",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Storage: 32GB",
+      "Screen: 7\"",
+      "Features: Kid-proof case, WiFi",
+      "Battery: 6 hours"
+    ]
+  },
+
+  
+  {
+    "id": 51,
+    "name": "Ruffpad 8.5E Re-Writable LCD Writing Pad",
+    "image": "https://m.media-amazon.com/images/I/51nzIs6jTCL.jpg",
+    "price": 349.00,
+    "class": null,
+    "description": "An 8.5-inch LCD writing pad for drawing and writing, featuring pressure-sensitive technology and a lock function to save creations. Environmentally friendly and reusable, suitable for kids and adults.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.2,
+    "additionalInfo": [
+      "Screen Size: 8.5 inches",
+      "Features: Stylus, Anti-Erase Lock, Reusable",
+      "Uses: Drawing, Writing, Notes",
+      "App Support: Save doodles on iOS/Android"
+    ]
+  },
+  {
+    "id": 52,
+    "name": "Multifunction Rechargeable Solar Lamp",
+    "image": "https://m.media-amazon.com/images/I/71j69XhRhWL.jpg",
+    "price": 999.00,
+    "class": null,
+    "description": "A portable LED camping lantern with 1500 lumens, rechargeable via solar or USB, and a mobile charger function. Features adjustable brightness and IPX4 waterproofing for outdoor use.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Material: Metal, ABS",
+      "Power Source: Battery Powered, Solar",
+      "Features: 1500 lumens, IPX4 waterproof, Foldable hooks",
+      "Brightness Modes: Cool white, Warm light"
+    ]
+  },
+  {
+    "id": 53,
+    "name": "CROME 7 LED Bluetooth Speaker + Wireless Charger",
+    "image": "https://m.media-amazon.com/images/I/51-JaartjrL._UF1000,1000_QL80_.jpg",
+    "price": 2399.00,
+    "class": null,
+    "description": "A multifunctional 4-in-1 device combining a Bluetooth speaker, wireless charger, night light, and FM radio. Features RGB music sync lighting and app-based smart control.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.1,
+    "additionalInfo": [
+      "Material: ABS, PC",
+      "Color: Wireless Charger G-Lamp",
+      "Features: Energy Efficient, Dimmable, Timer, Colour Changing, Adjustable",
+      "Compatibility: iPhone, Samsung Galaxy"
+    ]
+  },
+  {
+    "id": 54,
+    "name": "Portable Electric Kettle",
+    "image": "https://m.media-amazon.com/images/I/61+XzTLZFPL._AC_SL1500_.jpg",
+    "price": 599.00,
+    "class": null,
+    "description": "A compact 1.2-liter electric kettle with fast boiling and auto shut-off. Perfect for home, office, or travel, made with stainless steel for durability.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.0,
+    "additionalInfo": [
+      "Material: Stainless Steel, Plastic",
+      "Capacity: 1.2 Liters",
+      "Features: Auto Shut-off, Cordless",
+      "Power: 1500W"
+    ]
+  },
+  {
+    "id": 55,
+    "name": "Wireless Earbuds with Charging Case",
+    "image": "https://m.media-amazon.com/images/I/51wAPUt8SKL._UF1000,1000_QL80_.jpg",
+    "price": 1499.00,
+    "class": null,
+    "description": "High-quality wireless earbuds with noise cancellation and up to 20 hours of battery life. Includes a compact charging case for on-the-go use.",
+    "category": "Electronics > Audio",
+    "author": "GVM Store",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Material: Plastic",
+      "Battery Life: 20 hours",
+      "Features: Noise Cancellation, Bluetooth 5.0",
+      "Compatibility: iOS, Android"
+    ]
+  },
+  {
+    "id": 56,
+    "name": "LED Desk Lamp with USB Port",
+    "image": "https://m.media-amazon.com/images/I/712v184omCL._AC_SL1500_.jpg",
+    "price": 799.00,
+    "class": null,
+    "description": "A modern LED desk lamp with adjustable brightness and a USB charging port. Ideal for studying, working, or reading, with energy-efficient lighting.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.2,
+    "additionalInfo": [
+      "Material: Plastic, Metal",
+      "Features: Adjustable Brightness, USB Port",
+      "Light Type: LED",
+      "Power Source: USB Powered"
+    ]
+  },
+  {
+    "id": 57,
+    "name": "Portable Car Vacuum Cleaner",
+    "image": "https://m.media-amazon.com/images/I/61YOMLX2qbL._AC_SL1500_.jpg",
+    "price": 1299.00,
+    "class": null,
+    "description": "A compact car vacuum cleaner with strong suction and multiple attachments. Powered by a car's 12V outlet, perfect for quick cleanups.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.1,
+    "additionalInfo": [
+      "Material: Plastic",
+      "Power: 120W",
+      "Features: HEPA Filter, Multiple Attachments",
+      "Cord Length: 4 meters"
+    ]
+  },
+  {
+    "id": 58,
+    "name": "Adjustable Laptop Stand",
+    "image": "https://m.media-amazon.com/images/I/71cOnHXOg9L.jpg",
+    "price": 699.00,
+    "class": null,
+    "description": "A foldable aluminum laptop stand with adjustable height and angle. Improves ergonomics and cooling, suitable for laptops up to 15 inches.",
+    "category": "Electronics > Computer Accessories",
+    "author": "GVM Store",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Material: Aluminum",
+      "Compatibility: Laptops up to 15 inches",
+      "Features: Adjustable, Foldable, Non-slip",
+      "Weight: 300g"
+    ]
+  },
+  {
+    "id": 59,
+    "name": "Mini USB Humidifier",
+    "image": "https://m.media-amazon.com/images/I/61hvvWP7TbL._AC_UF894,1000_QL80_.jpg",
+    "price": 349.00,
+    "class": null,
+    "description": "A compact USB-powered humidifier with mist control and LED night light. Perfect for office desks or travel to maintain air moisture.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.0,
+    "additionalInfo": [
+      "Material: Plastic",
+      "Capacity: 200ml",
+      "Features: USB Powered, LED Light",
+      "Mist Modes: Continuous, Intermittent"
+    ]
+  },
+  {
+    "id": 60,
+    "name": "Portable Bluetooth Projector",
+    "image": "https://m.media-amazon.com/images/I/61wnDkE1Z3L.jpg",
+    "price": 2999.00,
+    "class": null,
+    "description": "A compact Bluetooth projector with 1080p resolution and built-in speakers. Supports HDMI and USB inputs for home entertainment.",
+    "category": "Electronics > Video",
+    "author": "GVM Store",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Resolution: 1080p",
+      "Connectivity: HDMI, USB, Bluetooth",
+      "Features: Built-in Speakers, Portable",
+      "Projection Distance: 1-5 meters"
+    ]
+  },
+  {
+    "id": 61,
+    "name": "Electric Hand Mixer",
+    "image": "https://m.media-amazon.com/images/I/61hhidLHaDL._AC_SL1500_.jpg",
+    "price": 799.00,
+    "class": null,
+    "description": "A 5-speed electric hand mixer with stainless steel beaters and dough hooks. Perfect for baking and cooking, with easy storage.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.1,
+    "additionalInfo": [
+      "Material: Plastic, Stainless Steel",
+      "Speeds: 5",
+      "Features: Beaters, Dough Hooks",
+      "Power: 300W"
+    ]
+  },
+  {
+    "id": 62,
+    "name": "Portable Power Bank 10000mAh",
+    "image": "https://m.media-amazon.com/images/I/61YOMLX2qbL._AC_SL1500_.jpg",
+    "price": 999.00,
+    "class": null,
+    "description": "A slim 10000mAh power bank with dual USB ports for fast charging. Compact design, ideal for travel and daily use.",
+    "category": "Electronics > Phone Accessories",
+    "author": "GVM Store",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Capacity: 10000mAh",
+      "Ports: Dual USB",
+      "Features: Fast Charging, LED Indicator",
+      "Weight: 200g"
+    ]
+  },
+  {
+    "id": 63,
+    "name": "Wireless Charging Mouse Pad",
+    "image": "https://m.media-amazon.com/images/I/812ciMZCfHL.jpg",
+    "price": 699.00,
+    "class": null,
+    "description": "A mouse pad with built-in wireless charging for compatible devices. Non-slip base and smooth surface for precise mouse control.",
+    "category": "Electronics > Computer Accessories",
+    "author": "GVM Store",
+    "rating": 4.2,
+    "additionalInfo": [
+      "Material: Rubber, Fabric",
+      "Features: Wireless Charging, Non-slip",
+      "Compatibility: Qi-enabled Devices",
+      "Size: 30 x 20 cm"
+    ]
+  },
+  {
+    "id": 64,
+    "name": "Mini LED Flashlight",
+    "image": "https://m.media-amazon.com/images/I/71CtylJkqtL._AC_SL1500_.jpg",
+    "price": 249.00,
+    "class": null,
+    "description": "A compact LED flashlight with adjustable focus and 3 light modes. Waterproof and durable, perfect for camping or emergencies.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Material: Aluminum",
+      "Features: Adjustable Focus, Waterproof",
+      "Modes: High, Low, Strobe",
+      "Power: Battery Operated"
+    ]
+  },
+  {
+    "id": 65,
+    "name": "Smart Digital Bathroom Scale",
+    "image": "https://i.ebayimg.com/images/g/sUMAAOSwTWdmKM17/s-l1200.jpg",
+    "price": 899.00,
+    "class": null,
+    "description": "A digital bathroom scale with body composition analysis, including weight, BMI, and fat percentage. Syncs with mobile apps for tracking.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.1,
+    "additionalInfo": [
+      "Material: Tempered Glass",
+      "Features: Bluetooth, App Sync",
+      "Capacity: Up to 180kg",
+      "Power: Battery Operated"
+    ]
+  },
+  {
+    "id": 66,
+    "name": "Electric Toothbrush with Timer",
+    "image": "https://i5.walmartimages.com/asr/03d46cdf-dd6c-4d55-8fc7-4c2acb8a0f2e.b607c71827fad45485411abec155d532.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF",
+    "price": 599.00,
+    "class": null,
+    "description": "A rechargeable electric toothbrush with a 2-minute timer and multiple brushing modes. Includes 3 replacement heads.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Material: Plastic",
+      "Features: Rechargeable, 2-minute Timer",
+      "Modes: Clean, Sensitive, Massage",
+      "Includes: 3 Brush Heads"
+    ]
+  },
+  {
+    "id": 67,
+    "name": "Mini Electric Screwdriver Set",
+    "image": "https://m.media-amazon.com/images/I/817uOYDey6L._AC_SL1500_.jpg",
+    "price": 799.00,
+    "class": null,
+    "description": "A rechargeable electric screwdriver with 10 bits for home repairs. Compact and lightweight, with LED light for precision.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.2,
+    "additionalInfo": [
+      "Material: Plastic, Metal",
+      "Features: Rechargeable, LED Light",
+      "Bits Included: 10",
+      "Power: USB Rechargeable"
+    ]
+  },
+  {
+    "id": 68,
+    "name": "Digital Kitchen Timer",
+    "image": "https://m.media-amazon.com/images/I/61aG8Zgd-gL.jpg",
+    "price": 299.00,
+    "class": null,
+    "description": "A digital kitchen timer with a magnetic back and loud alarm. Perfect for cooking, baking, or time management tasks.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.0,
+    "additionalInfo": [
+      "Material: Plastic",
+      "Features: Magnetic Back, Loud Alarm",
+      "Power: Battery Operated",
+      "Display: LCD"
+    ]
+  },
+  {
+    "id": 69,
+    "name": "Portable Smoothie Blender",
+    "image": "https://m.media-amazon.com/images/I/81skhWMDoPL.jpg",
+    "price": 799.00,
+    "class": null,
+    "description": "A 300ml portable blender for smoothies and shakes, USB rechargeable. Compact and easy to clean, ideal for travel or home use.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Material: Plastic, Stainless Steel",
+      "Capacity: 300ml",
+      "Features: USB Rechargeable, Easy to Clean",
+      "Power: 150W"
+    ]
+  },
+  {
+    "id": 70,
+    "name": "Anker Nano Power Bank 10000mAh",
+    "image": "https://m.media-amazon.com/images/I/51QXlIuRLTL._AC_SL1500_.jpg",
+    "price": 1499.00,
+    "class": null,
+    "description": "Compact and high-capacity power bank with fast charging capabilities. Ideal for charging smartphones, tablets, and other devices on the go. Supports PD and QC fast charging.",
+    "category": "Electronics",
+    "author": "Anker",
+    "rating": 4.6,
+    "additionalInfo": [
+      "Capacity: 10000mAh",
+      "Ports: USB-C, USB-A",
+      "Features: Fast charging, compact design",
+      "Weight: 180g"
+    ]
+  },
+  {
+    "id": 71,
+    "name": "Sony WH-1000XM6 Noise-Cancelling Headphones",
+    "image": "https://m.media-amazon.com/images/I/61nGlYFDZNL._AC_UF894,1000_QL80_.jpg",
+    "price": 2999.00,
+    "class": null,
+    "description": "Premium wireless headphones with advanced noise cancellation, high-quality sound, and up to 30 hours of battery life. Perfect for travel and daily use.",
+    "category": "Electronics",
+    "author": "Sony",
+    "rating": 4.7,
+    "additionalInfo": [
+      "Battery Life: 30 hours",
+      "Features: ANC, touch controls, app support",
+      "Weight: 254g",
+      "Connectivity: Bluetooth 5.2"
+    ]
+  },
+  {
+    "id": 72,
+    "name": "Nebula Mars 3 Air Portable Projector",
+    "image": "https://m.media-amazon.com/images/I/61PyErA3hqL.jpg",
+    "price": 4999.00,
+    "class": null,
+    "description": "Portable projector with built-in battery for up to 2.5 hours of playback. Delivers 1080p resolution and 400 ANSI lumens brightness for outdoor movie nights.",
+    "category": "Electronics",
+    "author": "Nebula",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Resolution: 1080p",
+      "Battery: 2.5 hours",
+      "Features: Android TV, auto focus",
+      "Weight: 1.5kg"
+    ]
+  },
+  {
+    "id": 73,
+    "name": "JBL Go 4 Portable Bluetooth Speaker",
+    "image": "https://m.media-amazon.com/images/I/51QXlIuRLTL._AC_SL1500_.jpg",
+    "price": 999.00,
+    "class": null,
+    "description": "Ultra-portable waterproof speaker with powerful sound and 7 hours of playtime. Ideal for travel and outdoor activities.",
+    "category": "Electronics",
+    "author": "JBL",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Battery: 7 hours",
+      "Features: Waterproof IP67, Bluetooth",
+      "Weight: 190g",
+      "Sound: 4.2W output"
+    ]
+  },
+  {
+    "id": 74,
+    "name": "Bowers & Wilkins Px8 S2 Headphones",
+    "image": "https://content.abt.com/image.php/Bowers-Wilkins-PX8-S2-Tan-NC-Headphones-PX8TAN-Front-Left.jpg?image=/images/products/BDP_Images/Bowers-Wilkins-PX8-S2-Tan-NC-Headphones-PX8TAN-Front-Left.jpg&canvas=1&width=750&height=550",
+    "price": 5999.00,
+    "class": null,
+    "description": "Flagship noise-cancelling headphones with premium audio quality and luxurious design. Up to 30 hours battery life.",
+    "category": "Electronics",
+    "author": "Bowers & Wilkins",
+    "rating": 4.8,
+    "additionalInfo": [
+      "Battery: 30 hours",
+      "Features: ANC, aptX Adaptive",
+      "Weight: 320g",
+      "Build: Leather and aluminum"
+    ]
+  },
+  {
+    "id": 75,
+    "name": "KEF Muo Portable Bluetooth Speaker",
+    "image": "https://cdn.mos.cms.futurecdn.net/ZqgPPSqCKrJjZXcvNxZ6mg.jpg",
+    "price": 1999.00,
+    "class": null,
+    "description": "Sculptural portable speaker with high-fidelity sound and up to 12 hours battery. Designed for audiophiles on the move.",
+    "category": "Electronics",
+    "author": "KEF",
+    "rating": 4.6,
+    "additionalInfo": [
+      "Battery: 12 hours",
+      "Features: Bluetooth 5.0, IPX5 water resistant",
+      "Weight: 600g",
+      "Drivers: Dual 40mm"
+    ]
+  },
+  {
+    "id": 76,
+    "name": "Fujifilm Instax Mini Link 3 Printer",
+    "image": "https://m.media-amazon.com/images/I/61+H07XRuyL._AC_SL1500_.jpg",
+    "price": 1099.00,
+    "class": null,
+    "description": "Portable instant photo printer that connects to your smartphone. Prints credit-card sized photos quickly and easily.",
+    "category": "Electronics",
+    "author": "Fujifilm",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Print Size: Mini",
+      "Features: Bluetooth, app integration",
+      "Battery: 100 prints per charge",
+      "Weight: 205g"
+    ]
+  },
+  {
+    "id": 77,
+    "name": "Belkin BoostCharge Plus 10K Power Bank",
+    "image": "https://m.media-amazon.com/images/I/51dVaMrCq9L._AC_SL1500_.jpg",
+    "price": 1299.00,
+    "class": null,
+    "description": "Slim portable charger with 10,000mAh capacity and pass-through charging. Charges up to three devices simultaneously.",
+    "category": "Electronics",
+    "author": "Belkin",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Capacity: 10000mAh",
+      "Ports: USB-C PD, USB-A",
+      "Features: Built-in cables",
+      "Weight: 227g"
+    ]
+  },
+  {
+    "id": 78,
+    "name": "Anker Soundcore Motion X600 Speaker",
+    "image": "https://m.media-amazon.com/images/I/61pjv-70W+L._UF1000,1000_QL80_.jpg",
+    "price": 1499.00,
+    "class": null,
+    "description": "Spatial audio speaker with 50W output and five drivers for immersive sound. Portable with 12-hour battery life.",
+    "category": "Electronics",
+    "author": "Anker",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Battery: 12 hours",
+      "Features: Spatial audio, IPX7 waterproof",
+      "Weight: 2kg",
+      "Output: 50W"
+    ]
+  },
+  {
+    "id": 79,
+    "name": "Jackery Explorer 1000 Power Station",
+    "image": "https://m.media-amazon.com/images/I/71o3jY4fJZL._AC_SL1500_.jpg",
+    "price": 7999.00,
+    "class": null,
+    "description": "Portable power station with 1002Wh capacity for charging multiple devices. Solar compatible for off-grid use.",
+    "category": "Electronics",
+    "author": "Jackery",
+    "rating": 4.7,
+    "additionalInfo": [
+      "Capacity: 1002Wh",
+      "Ports: AC, USB, DC",
+      "Features: Solar input, fast charging",
+      "Weight: 10.6kg"
+    ]
+  },
+  {
+    "id": 80,
+    "name": "DJI Pocket 3 Mini Camera",
+    "image": "https://m.media-amazon.com/images/I/61tukvVUMiL.jpg",
+    "price": 4999.00,
+    "class": null,
+    "description": "Pocket-sized 4K camera with gimbal stabilization. Perfect for vlogging and capturing adventures on the go.",
+    "category": "Electronics",
+    "author": "DJI",
+    "rating": 4.6,
+    "additionalInfo": [
+      "Resolution: 4K",
+      "Features: Gimbal, 1-inch sensor",
+      "Battery: 166 minutes",
+      "Weight: 179g"
+    ]
+  },
+  {
+    "id": 81,
+    "name": "Sharge Retractable 3-in-1 Power Bank",
+    "image": "https://m.media-amazon.com/images/I/51QXlIuRLTL._AC_SL1500_.jpg",
+    "price": 2499.00,
+    "class": null,
+    "description": "Versatile 10,000mAh power bank that doubles as a 30W wall charger. Foldable prongs for direct wall charging.",
+    "category": "Electronics",
+    "author": "Sharge",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Capacity: 10000mAh",
+      "Features: 3-in-1, transparent design",
+      "Weight: 250g",
+      "Output: 30W"
+    ]
+  },
+  {
+    "id": 82,
+    "name": "Nintendo Switch 2 with Mario Kart",
+    "image": "https://target.scene7.com/is/image/Target/GUEST_fb66135b-140a-4712-aad3-44b0bacf8ec4",
+    "price": 34999.00,
+    "class": null,
+    "description": "Hybrid gaming console with enhanced graphics and included Mario Kart game. Perfect for family play.",
+    "category": "Electronics",
+    "author": "Nintendo",
+    "rating": 4.8,
+    "additionalInfo": [
+      "Storage: 256GB",
+      "Features: 8\" screen, Joy-Con controllers",
+      "Battery: 4-9 hours",
+      "Weight: 0.4kg"
+    ]
+  },
+  {
+    "id": 83,
+    "name": "Contixo 7\" Kids Tablet",
+    "image": "https://m.media-amazon.com/images/I/61+H07XRuyL._AC_SL1500_.jpg",
+    "price": 9999.00,
+    "class": null,
+    "description": "Educational Android tablet with parental controls and 50 Disney eBooks. Safe screen time for kids.",
+    "category": "Electronics",
+    "author": "Contixo",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Storage: 32GB",
+      "Screen: 7\"",
+      "Features: Kid-proof case, WiFi",
+      "Battery: 6 hours"
+    ]
+  },
+  {
+    "id": 84,
+    "name": "Mini LED Projector for Home",
+    "image": "https://m.media-amazon.com/images/I/51TF2ZxwFEL.jpg",
+    "price": 2999.00,
+    "class": null,
+    "description": "A compact LED projector for home entertainment, supporting 1080p resolution and multiple inputs (HDMI, USB). Portable and easy to set up, perfect for movie nights.",
+    "category": "Electronics",
+    "author": "Trendshop",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Weight: 1 kg",
+      "Resolution: 1080p",
+      "Inputs: HDMI, USB",
+      "Use: Home entertainment"
+    ]
+  },
+  {
+    "id": 85,
+    "name": "Portable Wireless Speaker",
+    "image": "https://m.media-amazon.com/images/I/71PvIY11X2L.jpg",
+    "price": 799.00,
+    "class": null,
+    "description": "A compact wireless speaker with Bluetooth connectivity and up to 6 hours of playtime. Waterproof and durable, it’s ideal for outdoor adventures or home use.",
+    "category": "Electronics",
+    "author": "Trendshop",
+    "rating": 4.1,
+    "additionalInfo": [
+      "Weight: 200 g",
+      "Battery: Up to 6 hours",
+      "Features: Waterproof, Bluetooth",
+      "Use: Indoor/outdoor"
+    ]
+  },
+  {
+    "id": 86,
+    "name": "Wireless Car Air Purifier",
+    "image": "https://m.media-amazon.com/images/I/7141Bc9dC7L._AC_UF1000,1000_QL80_.jpg",
+    "price": 999.00,
+    "class": null,
+    "description": "A portable car air purifier with a HEPA filter, powered by USB. Removes dust, allergens, and odors, ensuring a fresh interior. Compact design fits in any vehicle.",
+    "category": "Electronics",
+    "author": "Trendshop",
+    "rating": 4.2,
+    "additionalInfo": [
+      "Weight: 150 g",
+      "Filter: HEPA",
+      "Power: USB",
+      "Use: Car interior"
+    ]
+  },
+  {
+    "id": 87,
+    "name": "Rechargeable LED Camping Lantern",
+    "image": "https://m.media-amazon.com/images/I/61+H07XRuyL._AC_SL1500_.jpg",
+    "price": 499.00,
+    "class": null,
+    "description": "A bright LED camping lantern with a rechargeable battery and three brightness modes. Compact and durable, it’s perfect for camping, hiking, or emergency use.",
+    "category": "Electronics",
+    "author": "Trendshop",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Weight: 250 g",
+      "Battery: Rechargeable",
+      "Modes: Three brightness levels",
+      "Use: Camping, hiking"
+    ]
+  },
+  {
+    "id": 88,
+    "name": "Portable High Power Car Vacuum Cleaner",
+    "image": "https://m.media-amazon.com/images/I/61YOMLX2qbL._AC_SL1500_.jpg",
+    "price": 799.00,
+    "class": null,
+    "description": "A compact, handheld car vacuum cleaner with a HEPA filter, powered by a 3.7V battery for up to 40 minutes of runtime. Features strong suction for cleaning dust, dirt, and hair.",
+    "category": "Electronics",
+    "author": "Trendshop",
+    "rating": 4.0,
+    "additionalInfo": [
+      "Weight: Unknown",
+      "Dimensions: 8 x 5 x 10 cm",
+      "Features: Portable, lightweight, HEPA filter",
+      "Runtime: 40 minutes"
+    ]
+  },
+  {
+    "id": 89,
+    "name": "Smart Wi-Fi LED Bulb",
+    "image": "https://m.media-amazon.com/images/I/51QXlIuRLTL._AC_SL1500_.jpg",
+    "price": 499.00,
+    "class": null,
+    "description": "A smart LED bulb with Wi-Fi connectivity, compatible with Alexa and Google Home. Adjustable brightness and color temperature for home lighting.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Wattage: 9W",
+      "Features: Wi-Fi, Voice Control, Dimmable",
+      "Compatibility: Alexa, Google Home",
+      "Color: Warm White to Cool White"
+    ]
+  },
+  {
+    "id": 90,
+    "name": "USB-C Hub Adapter",
+    "image": "https://m.media-amazon.com/images/I/71LR5VorKEL.jpg",
+    "price": 1299.00,
+    "class": null,
+    "description": "A multi-port USB-C hub with HDMI, USB 3.0, and SD card slots. Compact design for laptops and tablets, ideal for work or travel.",
+    "category": "Electronics > Computer Accessories",
+    "author": "GVM Store",
+    "rating": 4.2,
+    "additionalInfo": [
+      "Ports: HDMI, USB 3.0, SD, USB-C",
+      "Features: Plug-and-Play, Compact",
+      "Compatibility: USB-C Devices",
+      "Material: Aluminum"
+    ]
+  },
+  {
+    "id": 91,
+    "name": "Wireless Gaming Mouse",
+    "image": "https://m.media-amazon.com/images/I/51TF2ZxwFEL.jpg",
+    "price": 999.00,
+    "class": null,
+    "description": "A rechargeable wireless gaming mouse with adjustable DPI and RGB lighting. Ergonomic design for prolonged gaming sessions.",
+    "category": "Electronics > Computer Accessories",
+    "author": "GVM Store",
+    "rating": 4.4,
+    "additionalInfo": [
+      "DPI: Up to 16000",
+      "Features: RGB Lighting, Rechargeable",
+      "Connectivity: 2.4GHz Wireless, USB",
+      "Weight: 120g"
+    ]
+  },
+  {
+    "id": 92,
+    "name": "Portable Mini Air Purifier",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPlToljLSXU5rAcy3nLugMMDrKet0P6vAYzQ&s",
+    "price": 699.00,
+    "class": null,
+    "description": "A compact air purifier with HEPA filter for personal use. USB-powered, ideal for desks, cars, or travel.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.1,
+    "additionalInfo": [
+      "Filter: HEPA",
+      "Power: USB",
+      "Features: Portable, Quiet Operation",
+      "Weight: 150g"
+    ]
+  },
+  {
+    "id": 93,
+    "name": "Smart Plug with Wi-Fi",
+    "image": "https://m.media-amazon.com/images/I/61+H07XRuyL._AC_SL1500_.jpg",
+    "price": 599.00,
+    "class": null,
+    "description": "A Wi-Fi-enabled smart plug for controlling devices remotely via app or voice assistants like Alexa and Google Home. Energy monitoring included.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Compatibility: Alexa, Google Home",
+      "Features: Energy Monitoring, Remote Control",
+      "Power: 10A, 120V",
+      "Connectivity: Wi-Fi"
+    ]
+  },
+  {
+    "id": 94,
+    "name": "Mini Wireless Keyboard",
+    "image": "https://m.media-amazon.com/images/I/61YOMLX2qbL._AC_SL1500_.jpg",
+    "price": 799.00,
+    "class": null,
+    "description": "A compact wireless keyboard with touchpad for smart TVs, laptops, and gaming consoles. Rechargeable and lightweight for easy use.",
+    "category": "Electronics > Computer Accessories",
+    "author": "GVM Store",
+    "rating": 4.2,
+    "additionalInfo": [
+      "Connectivity: 2.4GHz Wireless",
+      "Features: Touchpad, Rechargeable",
+      "Compatibility: Smart TVs, Laptops",
+      "Weight: 100g"
+    ]
+  },
+  {
+    "id": 95,
+    "name": "Portable Document Scanner",
+    "image": "https://m.media-amazon.com/images/I/51QXlIuRLTL._AC_SL1500_.jpg",
+    "price": 1999.00,
+    "class": null,
+    "description": "A handheld document scanner with 1200 DPI resolution. USB-powered, ideal for scanning documents, photos, or books on the go.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.1,
+    "additionalInfo": [
+      "Resolution: Up to 1200 DPI",
+      "Features: Portable, USB-Powered",
+      "Compatibility: Windows, Mac",
+      "Weight: 200g"
+    ]
+  },
+  {
+    "id": 96,
+    "name": "Bluetooth FM Transmitter",
+    "image": "https://m.media-amazon.com/images/I/71o3jY4fJZL._AC_SL1500_.jpg",
+    "price": 499.00,
+    "class": null,
+    "description": "A car Bluetooth FM transmitter with dual USB ports for charging and music streaming. Supports hands-free calling and TF card playback.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Connectivity: Bluetooth, FM",
+      "Features: Hands-free Calling, Dual USB",
+      "Compatibility: iOS, Android",
+      "Power: 12-24V"
+    ]
+  },
+  {
+    "id": 97,
+    "name": "Portable Hard Drive 1TB",
+    "image": "https://m.media-amazon.com/images/I/61z3z3z3z3L._AC_SL1500_.jpg",
+    "price": 3999.00,
+    "class": null,
+    "description": "A 1TB portable hard drive with USB 3.0 for fast data transfer. Compact and durable, ideal for backups and file storage.",
+    "category": "Electronics > Computer Accessories",
+    "author": "GVM Store",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Capacity: 1TB",
+      "Connectivity: USB 3.0",
+      "Features: Shock-resistant, Compact",
+      "Weight: 150g"
+    ]
+  },
+  {
+    "id": 98,
+    "name": "Smart Doorbell Camera",
+    "image": "https://images.ctfassets.net/fltupc9ltp8m/1XdBCuSgoQN8YCdKbdClSs/8090a63002cd7ece6825150ce613ca75/doorbell-hero_2x.png?fm=webp&w=1900&q=80",
+    "price": 2499.00,
+    "class": null,
+    "description": "A Wi-Fi-enabled doorbell camera with 1080p HD video and motion detection. Supports two-way audio and night vision for home security.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Resolution: 1080p",
+      "Features: Motion Detection, Two-way Audio",
+      "Connectivity: Wi-Fi",
+      "Night Vision: Yes"
+    ]
+  },
+  {
+    "id": 99,
+    "name": "Wireless Earphones with Mic",
+    "image": "https://m.media-amazon.com/images/I/61+H07XRuyL._AC_SL1500_.jpg",
+    "price": 1199.00,
+    "class": null,
+    "description": "Wireless earphones with a built-in mic and up to 15 hours of battery life. Sweat-resistant, ideal for workouts and daily use.",
+    "category": "Electronics > Audio",
+    "author": "GVM Store",
+    "rating": 4.2,
+    "additionalInfo": [
+      "Battery Life: 15 hours",
+      "Features: Sweat-resistant, Built-in Mic",
+      "Connectivity: Bluetooth 5.0",
+      "Weight: 20g"
+    ]
+  },
+  {
+    "id": 100,
+    "name": "Mini Action Camera",
+    "image": "https://m.media-amazon.com/images/I/61YOMLX2qbL._AC_SL1500_.jpg",
+    "price": 1999.00,
+    "class": null,
+    "description": "A compact action camera with 4K video recording and waterproof housing. Perfect for capturing outdoor adventures and sports.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Resolution: 4K",
+      "Features: Waterproof, Wide-angle Lens",
+      "Battery: 90 minutes",
+      "Weight: 60g"
+    ]
+  },      ];
+
+      let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+let selectedBook = JSON.parse(localStorage.getItem('selectedBook')) || {};
+
+const elements = {
+    navbarToggle: document.getElementById('navbar-toggle'),
+    navbar: document.getElementById('navbar'),
+    searchBtn: document.getElementById('search-btn'),
+    searchForm: document.querySelector('.search-form'),
+    bulkOrderModal: document.getElementById('bulkOrderModal'),
+    productDetails: document.getElementById('productDetails'),
+    productImage: document.getElementById('productImage'),
+    productName: document.getElementById('productName'),
+    productCategory: document.getElementById('productCategory'),
+    productAuthor: document.getElementById('productAuthor'),
+    productClass: document.getElementById('productClass'),
+    productPrice: document.getElementById('productPrice'),
+    productStars: document.getElementById('productStars'),
+    productDescription: document.getElementById('productDescription'),
+    additionalInfo: document.getElementById('additionalInfo'),
+    quantityInput: document.getElementById('quantity'),
+    pincodeInput: document.getElementById('pincodeInput'),
+    pincodeResult: document.getElementById('pincodeResult'),
+    wishlistCount: document.getElementById('wishlistCount'),
+    relatedBooks: document.getElementById('relatedBooks')
+};
+
+function initializePage() {
+    if (!elements.navbarToggle || !elements.navbar || !elements.searchBtn || !elements.searchForm) {
+        console.error('Critical DOM elements missing.');
+        return;
+    }
+    elements.navbarToggle.addEventListener('click', () => elements.navbar.classList.toggle('active'));
+    elements.searchBtn.addEventListener('click', () => elements.searchForm.classList.toggle('active'));
+    document.getElementById('bulk-order-btn').addEventListener('click', e => {
+        e.preventDefault();
+        elements.bulkOrderModal.classList.add('active');
+    });
+    document.getElementById('bulk-order-footer-btn').addEventListener('click', e => {
+        e.preventDefault();
+        elements.bulkOrderModal.classList.add('active');
+    });
+    document.querySelectorAll('.close-modal-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            elements.bulkOrderModal.classList.remove('active');
+        });
+    });
+    document.getElementById('bulkOrderForm').addEventListener('submit', handleBulkOrder);
+    document.getElementById('searchForm').addEventListener('submit', handleSearch);
+    displayProductDetails();
+    displayRelatedBooks();
+    updateCounts();
+    addWhatsAppButton();
+}
+
+function updateCounts() {
+    elements.wishlistCount.textContent = wishlist.length;
+}
+
+function restrictQuantity() {
+    if (elements.quantityInput.value < 1 || isNaN(elements.quantityInput.value)) {
+        elements.quantityInput.value = 1;
+    }
+}
+
+function updateQuantity(change) {
+    let value = parseInt(elements.quantityInput.value) || 1;
+    value = Math.max(1, value + change);
+    elements.quantityInput.value = value;
+}
+
+function displayProductDetails() {
+    if (!selectedBook.id) {
+        elements.productDetails.innerHTML = '<p>Product not found.</p>';
+        return;
+    }
+    elements.productImage.src = selectedBook.image || 'https://i.ibb.co/0jW5XqL/book-placeholder.jpg';
+    elements.productName.textContent = selectedBook.name || 'Unknown';
+    elements.productCategory.textContent = `Category: ${selectedBook.category || 'N/A'}`;
+    elements.productAuthor.textContent = `Author: ${selectedBook.author || 'Unknown'}`;
+    elements.productClass.textContent = `Class: ${selectedBook.class || 'N/A'}`;
+    elements.productPrice.innerHTML = `₹${(selectedBook.price || 0).toFixed(2)} <span>₹${((selectedBook.price || 0) * 1.2).toFixed(2)}</span>`;
+    const stars = Math.floor(selectedBook.rating || 0);
+    const hasHalfStar = (selectedBook.rating || 0) % 1 >= 0.5;
+    elements.productStars.innerHTML = `
+        ${'<i class="fas fa-star"></i>'.repeat(stars)}
+        ${hasHalfStar ? '<i class="fas fa-star-half-alt"></i>' : ''}
+    `;
+    elements.productDescription.textContent = selectedBook.description || 'No description available';
+    elements.additionalInfo.innerHTML = '';
+    (selectedBook.additionalInfo || []).forEach(info => {
+        const li = document.createElement('li');
+        li.textContent = info;
+        elements.additionalInfo.appendChild(li);
+    });
+}
+
+window.addToWishlist = function() {
+    if (!selectedBook.id) {
+        alert('Error: No book selected.');
+        return;
+    }
+    if (!wishlist.find(item => item.id === selectedBook.id)) {
+        wishlist.push(selectedBook);
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        updateCounts();
+        alert(`${selectedBook.name} added to wishlist!`);
+    } else {
+        alert('Already in wishlist.');
+    }
+};
+function calculateShipping(pincode) {
+    // Validate 6-digit pin code
+    if (!/^\d{6}$/.test(pincode)) {
+        return { cost: 0, days: 0, zone: '' };
+    }
+
+    const pincodeNum = parseInt(pincode);
+    const pickupPin = 110001; // Pickup from Delhi
+    const weight = 0.5; // 500g in kg (standard book weight)
+
+    // Comprehensive pin code to state/city mapping with proximity consideration
+    const pinCodeRanges = [
+        // Delhi
+        { range: [110000, 110999], state: 'Delhi', city: 'Delhi', isMetro: true },
+        // Uttar Pradesh
+        { range: [201000, 201999], state: 'Uttar Pradesh', city: 'Noida', isMetro: false, near: 'Delhi' },
+        { range: [201300, 201399], state: 'Uttar Pradesh', city: 'Ghaziabad', isMetro: false, near: 'Delhi' },
+        { range: [200000, 209999], state: 'Uttar Pradesh', city: 'Lucknow', isMetro: false },
+        { range: [226000, 229999], state: 'Uttar Pradesh', city: 'Kanpur', isMetro: false },
+        { range: [282000, 285999], state: 'Uttar Pradesh', city: 'Agra', isMetro: false },
+        { range: [221000, 221999], state: 'Uttar Pradesh', city: 'Varanasi', isMetro: false },
+        { range: [211000, 211999], state: 'Uttar Pradesh', city: 'Allahabad', isMetro: false },
+        { range: [250000, 250999], state: 'Uttar Pradesh', city: 'Meerut', isMetro: false, near: 'Delhi' },
+        // Haryana
+        { range: [121000, 135999], state: 'Haryana', city: 'Gurgaon', isMetro: false, near: 'Delhi' },
+        { range: [136000, 139999], state: 'Haryana', city: 'Faridabad', isMetro: false, near: 'Delhi' },
+        { range: [132000, 132999], state: 'Haryana', city: 'Karnal', isMetro: false },
+        { range: [134000, 134999], state: 'Haryana', city: 'Panipat', isMetro: false },
+        // Maharashtra
+        { range: [400000, 410999], state: 'Maharashtra', city: 'Mumbai', isMetro: true },
+        { range: [411000, 419999], state: 'Maharashtra', city: 'Pune', isMetro: true },
+        { range: [400600, 400699], state: 'Maharashtra', city: 'Thane', isMetro: false, near: 'Mumbai' },
+        { range: [400700, 400799], state: 'Maharashtra', city: 'Navi Mumbai', isMetro: false, near: 'Mumbai' },
+        { range: [440000, 449999], state: 'Maharashtra', city: 'Nagpur', isMetro: false },
+        { range: [431000, 431999], state: 'Maharashtra', city: 'Aurangabad', isMetro: false },
+        { range: [422000, 422999], state: 'Maharashtra', city: 'Nashik', isMetro: false },
+        // Tamil Nadu
+        { range: [600000, 600999], state: 'Tamil Nadu', city: 'Chennai', isMetro: true },
+        { range: [641000, 649999], state: 'Tamil Nadu', city: 'Coimbatore', isMetro: false },
+        { range: [625000, 625999], state: 'Tamil Nadu', city: 'Madurai', isMetro: false },
+        { range: [620000, 620999], state: 'Tamil Nadu', city: 'Tiruchirappalli', isMetro: false },
+        { range: [636000, 636999], state: 'Tamil Nadu', city: 'Salem', isMetro: false },
+        // West Bengal
+        { range: [700000, 600999], state: 'West Bengal', city: 'Kolkata', isMetro: true },
+        { range: [711000, 711999], state: 'West Bengal', city: 'Howrah', isMetro: false, near: 'Kolkata' },
+        { range: [734000, 736999], state: 'West Bengal', city: 'Siliguri', isMetro: false },
+        { range: [713000, 713999], state: 'West Bengal', city: 'Durgapur', isMetro: false },
+        { range: [741000, 741999], state: 'West Bengal', city: 'Asansol', isMetro: false },
+        // Karnataka
+        { range: [560000, 569999], state: 'Karnataka', city: 'Bangalore', isMetro: true },
+        { range: [570000, 579999], state: 'Karnataka', city: 'Mysore', isMetro: false },
+        { range: [580000, 580999], state: 'Karnataka', city: 'Mangalore', isMetro: false },
+        { range: [581000, 581999], state: 'Karnataka', city: 'Hubli', isMetro: false },
+        // Telangana
+        { range: [500000, 509999], state: 'Telangana', city: 'Hyderabad', isMetro: true },
+        { range: [506000, 508999], state: 'Telangana', city: 'Warangal', isMetro: false },
+        { range: [503000, 503999], state: 'Telangana', city: 'Nizamabad', isMetro: false },
+        // Gujarat
+        { range: [380000, 389999], state: 'Gujarat', city: 'Ahmedabad', isMetro: true },
+        { range: [360000, 369999], state: 'Gujarat', city: 'Surat', isMetro: false },
+        { range: [390000, 399999], state: 'Gujarat', city: 'Vadodara', isMetro: false },
+        { range: [370000, 370999], state: 'Gujarat', city: 'Rajkot', isMetro: false },
+        // Rajasthan
+        { range: [302000, 329999], state: 'Rajasthan', city: 'Jaipur', isMetro: false },
+        { range: [342000, 349999], state: 'Rajasthan', city: 'Jodhpur', isMetro: false },
+        { range: [313000, 313999], state: 'Rajasthan', city: 'Udaipur', isMetro: false },
+        { range: [324000, 324999], state: 'Rajasthan', city: 'Kota', isMetro: false },
+        // Bihar
+        { range: [800000, 829999], state: 'Bihar', city: 'Patna', isMetro: false },
+        { range: [842000, 849999], state: 'Bihar', city: 'Muzaffarpur', isMetro: false },
+        { range: [823000, 823999], state: 'Bihar', city: 'Gaya', isMetro: false },
+        { range: [812000, 851999], state: 'Bihar', city: 'Bhagalpur', isMetro: false },
+        // Odisha
+        { range: [751000, 759999], state: 'Odisha', city: 'Bhubaneswar', isMetro: false },
+        { range: [760000, 769999], state: 'Odisha', city: 'Cuttack', isMetro: false },
+        { range: [768000, 768999], state: 'Odisha', city: 'Rourkela', isMetro: false },
+        // Chhattisgarh
+        { range: [492000, 497999], state: 'Chhattisgarh', city: 'Raipur', isMetro: false },
+        { range: [495000, 496999], state: 'Chhattisgarh', city: 'Bhilai', isMetro: false },
+        { range: [491000, 491999], state: 'Chhattisgarh', city: 'Durg', isMetro: false },
+        // Madhya Pradesh
+        { range: [452000, 459999], state: 'Madhya Pradesh', city: 'Indore', isMetro: false },
+        { range: [462000, 469999], state: 'Madhya Pradesh', city: 'Bhopal', isMetro: false },
+        { range: [474000, 474999], state: 'Madhya Pradesh', city: 'Gwalior', isMetro: false },
+        { range: [482000, 482999], state: 'Madhya Pradesh', city: 'Jabalpur', isMetro: false },
+        // Andhra Pradesh
+        { range: [530000, 539999], state: 'Andhra Pradesh', city: 'Visakhapatnam', isMetro: false },
+        { range: [520000, 529999], state: 'Andhra Pradesh', city: 'Vijayawada', isMetro: false },
+        { range: [517000, 517999], state: 'Andhra Pradesh', city: 'Tirupati', isMetro: false },
+        // Uttarakhand
+        { range: [248000, 249999], state: 'Uttarakhand', city: 'Dehradun', isMetro: false },
+        { range: [263000, 263999], state: 'Uttarakhand', city: 'Haridwar', isMetro: false },
+        { range: [249400, 249499], state: 'Uttarakhand', city: 'Rishikesh', isMetro: false },
+        // Jharkhand
+        { range: [831000, 839999], state: 'Jharkhand', city: 'Ranchi', isMetro: false },
+        { range: [826000, 829999], state: 'Jharkhand', city: 'Dhanbad', isMetro: false },
+        { range: [833000, 833999], state: 'Jharkhand', city: 'Jamshedpur', isMetro: false },
+        // Punjab
+        { range: [141000, 149999], state: 'Punjab', city: 'Ludhiana', isMetro: false },
+        { range: [143000, 147999], state: 'Punjab', city: 'Amritsar', isMetro: false },
+        { range: [144000, 144999], state: 'Punjab', city: 'Jalandhar', isMetro: false },
+        // Goa
+        { range: [403000, 403999], state: 'Goa', city: 'Panaji', isMetro: false },
+        { range: [404000, 404999], state: 'Goa', city: 'Margao', isMetro: false },
+        // Chandigarh
+        { range: [160000, 169999], state: 'Chandigarh', city: 'Chandigarh', isMetro: true },
+        // Puducherry
+        { range: [605000, 609999], state: 'Puducherry', city: 'Puducherry', isMetro: false },
+        // Assam
+        { range: [781000, 781999], state: 'Assam', city: 'Guwahati', isMetro: false, isRemote: true },
+        { range: [783000, 786999], state: 'Assam', city: 'Dibrugarh', isMetro: false, isRemote: true },
+        { range: [785000, 785999], state: 'Assam', city: 'Jorhat', isMetro: false, isRemote: true },
+        // Jammu & Kashmir
+        { range: [180000, 189999], state: 'Jammu & Kashmir', city: 'Srinagar', isMetro: false, isRemote: true },
+        { range: [190000, 199999], state: 'Jammmu & Kashmir', city: 'Jammu', isMetro: false, isRemote: true },
+        // Himachal Pradesh
+        { range: [171000, 179999], state: 'Himachal Pradesh', city: 'Shimla', isMetro: false, isRemote: true },
+        { range: [175000, 175999], state: 'Himachal Pradesh', city: 'Manali', isMetro: false, isRemote: true },
+        // Kerala
+        { range: [670000, 679999], state: 'Kerala', city: 'Kochi', isMetro: false, isRemote: false },
+        { range: [680000, 689999], state: 'Kerala', city: 'Thiruvananthapuram', isMetro: true },
+        { range: [673000, 673999], state: 'Kerala', city: 'Kozhikode', isMetro: false },
+        // Andaman & Nicobar Islands
+        { range: [744000, 744999], state: 'Andaman & Nicobar Islands', city: 'Port Blair', isMetro: false, isRemote: true },
+        // Sikkim
+        { range: [737000, 737999], state: 'Sikkim', city: 'Gangtok', isMetro: false, isRemote: true },
+        // Meghalaya
+        { range: [793000, 793999], state: 'Meghalaya', city: 'Shillong', isMetro: false, isRemote: true },
+        // Manipur
+        { range: [795000, 795999], state: 'Manipur', city: 'Imphal', isMetro: false, isRemote: true },
+        // Nagaland
+        { range: [797000, 797999], state: 'Nagaland', city: 'Kohima', isMetro: false, isRemote: true },
+        // Tripura
+        { range: [799000, 799999], state: 'Tripura', city: 'Agartala', isMetro: false, isRemote: true },
+        // Arunachal Pradesh
+        { range: [790000, 791999], state: 'Arunachal Pradesh', city: 'Itanagar', isMetro: false, isRemote: true },
+        // Mizoram
+        { range: [796000, 796999], state: 'Mizoram', city: 'Aizawl', isMetro: false, isRemote: true },
+        // Lakshadweep
+        { range: [682000, 682999], state: 'Lakshadweep', city: 'Kavaratti', isMetro: false, isRemote: true },
+        // Dadra & Nagar Haveli and Daman & Diu
+        { range: [396000, 396999], state: 'Dadra & Nagar Haveli and Daman & Diu', city: 'Daman', isMetro: false },
+        // Ladakh
+        { range: [194000, 194999], state: 'Ladakh', city: 'Leh', isMetro: false, isRemote: true },
+        // Fallback
+        { range: [100000, 999999], state: 'Other', city: 'City', isMetro: false }
+    ];
+
+    // Find delivery pin code range
+    const deliveryArea = pinCodeRanges.find(
+        r => pincodeNum >= r.range[0] && pincodeNum <= r.range[1]
+    ) || pinCodeRanges[pinCodeRanges.length - 1];
+
+    // Get pickup area
+    const pickupArea = pinCodeRanges.find(r => pickupPin >= r.range[0] && pickupPin <= r.range[1]);
+
+    // Determine shipping zone, cost, and delivery days
+    let zone = 'D';
+    let shippingCost = 80;
+    let deliveryDays = '4–6 days';
+
+    if (deliveryArea.isRemote) {
+        // Zone E: Remote areas
+        zone = 'E';
+        shippingCost = 120;
+        deliveryDays = '6–10 days';
+        // Non-serviceable restricted areas
+        if (deliveryArea.state === 'Jammu & Kashmir' && pincodeNum >= 190000 && pincodeNum <= 199999) {
+            return { cost: 0, days: 0, zone: '' };
+        }
+        if (deliveryArea.state === 'Lakshadweep' || deliveryArea.state === 'Ladakh') {
+            return { cost: 0, days: 0, zone: '' };
+        }
+    } else if (pickupArea.city === deliveryArea.city) {
+        // Zone A: Within city
+        zone = 'A';
+        shippingCost = 25;
+        deliveryDays = '1–2 days';
+    } else if (pickupArea.state === deliveryArea.state || (deliveryArea.near && deliveryArea.near === pickupArea.city)) {
+        // Zone B: Within state or near pickup city
+        zone = 'B';
+        shippingCost = 40;
+        deliveryDays = '2–3 days';
+    } else if (pickupArea.isMetro && deliveryArea.isMetro) {
+        // Zone C: Metro to metro
+        zone = 'C';
+        shippingCost = 60;
+        deliveryDays = '3–4 days';
+    }
+
+    // Adjust cost based on weight
+    shippingCost *= (weight / 0.5);
+
+    return { cost: shippingCost, days: deliveryDays, zone };
+}
+
+window.checkPincode = function() {
+    const pincode = elements.pincodeInput.value.trim();
+    if (!/^\d{6}$/.test(pincode)) {
+        alert('Invalid pincode. Please enter a valid 6-digit pin code.');
+        elements.pincodeResult.textContent = 'Invalid pincode. Please enter a valid 6-digit pincode.';
+        elements.pincodeResult.style.color = '#e33';
+        return;
+    }
+    const { cost } = calculateShipping(pincode);
+    if (cost > 0) {
+        elements.pincodeResult.textContent = 'Delivery available in your pincode';
+        elements.pincodeResult.style.color = '#f97316';
+    } else {
+        alert('Pincode not serviceable. Please enter a valid serviceable pin code.');
+        elements.pincodeResult.textContent = 'Pincode not serviceable.';
+        elements.pincodeResult.style.color = '#e33';
+    }
+};
+
+window.openCheckoutPage = function(bookId) {
+    const bookToBuy = bookId ? books.find(b => b.id === bookId) : selectedBook;
+    if (!bookToBuy) {
+        alert('Error: Please select a book.');
+        return;
+    }
+    localStorage.setItem('selectedBook', JSON.stringify(bookToBuy));
+    localStorage.setItem('quantity', elements.quantityInput.value);
+    window.location.href = 'checkoutt.html';
+};
+
+function displayRelatedBooks() {
+    const relatedBooks = books.filter(b => b.category === selectedBook.category && b.id !== selectedBook.id).slice(0, 3);
+    elements.relatedBooks.innerHTML = '';
+    relatedBooks.forEach(book => {
+        const stars = Math.floor(book.rating);
+        const hasHalfStar = book.rating % 1 >= 0.5;
+        const bookDiv = document.createElement('div');
+        bookDiv.className = 'book-card';
+        bookDiv.innerHTML = `
+            <div class="image">
+                <img src="${book.image}" alt="${book.name}">
+            </div>
+            <div class="content">
+                <h3>${book.name}</h3>
+                <p class="category">Category: ${book.category}</p>
+                <p class="author">By: ${book.author}</p>
+                <p class="class">Class: ${book.class}</p>
+                <div class="price">₹${book.price.toFixed(2)} <span>₹${(book.price * 1.2).toFixed(2)}</span></div>
+                <div class="stars">
+                    ${'<i class="fas fa-star"></i>'.repeat(stars)}
+                    ${hasHalfStar ? '<i class="fas fa-star-half-alt"></i>' : ''}
+                </div>
+                <div class="actions">
+                    <button class="btn buy-now" onclick="openCheckoutPage(${book.id})">Buy Now</button>
+                </div>
+            </div>
+        `;
+        bookDiv.addEventListener('click', e => {
+            if (!e.target.classList.contains('btn')) {
+                localStorage.setItem('selectedBook', JSON.stringify(book));
+                window.location.reload();
+            }
+        });
+        elements.relatedBooks.appendChild(bookDiv);
+    });
+}
+
+async function handleBulkOrder(e) {
+    e.preventDefault();
+    const formData = {
+        access_key: '8f814c56-3e30-4f2f-9764-41f6fd39eeaa',
+        subject: 'Bulk Order Request',
+        name: document.getElementById('bulkName').value,
+        email: document.getElementById('bulkEmail').value,
+        phone: document.getElementById('bulkPhone').value,
+        organization: document.getElementById('bulkOrganization').value || 'N/A',
+        books: document.getElementById('bulkBooks').value,
+        address: document.getElementById('bulkAddress').value,
+        notes: document.getElementById('bulkNotes').value || 'None'
+    };
+    try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        });
+        if ((await response.json()).success) {
+            alert('Bulk order request submitted!');
+            elements.bulkOrderModal.classList.remove('active');
+            document.getElementById('bulkOrderForm').reset();
+        }
+    } catch (error) {
+        alert('Error submitting request: ' + error.message);
+    }
+}
+
+function handleSearch(e) {
+    e.preventDefault();
+    const query = document.getElementById('search-box').value.trim();
+    if (query) {
+        window.location.href = `index.html?q=${encodeURIComponent(query)}`;
+    }
+}
+
+function addWhatsAppButton() {
+    const button = document.createElement('div');
+    const img = document.createElement('img');
+    img.src = 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg';
+    img.alt = 'WhatsApp';
+    img.style.width = '40px';
+    img.style.height = '40px';
+    Object.assign(button.style, {
+        position: 'fixed',
+        bottom: '30px',
+        left: '30px',
+        width: '7rem',
+        height: '7rem',
+        background: '#25D366',
+        borderRadius: '50%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        cursor: 'pointer',
+        boxShadow: '0 6px 10px rgba(0,0,0,.25)',
+        transition: 'transform .3s ease-in-out',
+        zIndex: '9999'
+    });
+    button.appendChild(img);
+    document.body.appendChild(button);
+    button.addEventListener('click', () => {
+        button.style.transform = 'scale(1.2) rotate(45deg)';
+        setTimeout(() => window.location.href = 'https://wa.me/+919821586944', 300);
+    });
+}
+
+window.onload = initializePage;
+</script>
+</body>
+</html>

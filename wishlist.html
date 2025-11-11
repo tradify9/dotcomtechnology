@@ -1,0 +1,2216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist - dotcomtechnologies</title>
+    <link rel="icon" type="image/png" href="https://i.ibb.co/Hp1GRfRz/Untitled-1-HUY.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Verdana', sans-serif;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: all .2s linear;
+        }
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        body {
+            background: #f7f7f7;
+        }
+        .header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: #fff;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+            display: flex;
+            flex-direction: column;
+        }
+        .header-1 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem 9%;
+        }
+        .header .logo {
+            height: 10rem;
+        }
+        .header .search-form {
+            width: 45rem;
+            height: 4.5rem;
+            border: .1rem solid rgba(0, 0, 0, .1);
+            background: #f9f9f9;
+            display: flex;
+            align-items: center;
+            border-radius: .5rem;
+        }
+        .header .search-form input {
+            width: 100%;
+            padding: 0 1.5rem;
+            font-size: 1.6rem;
+            color: #333;
+            text-transform: none;
+        }
+        .header .search-form label {
+            font-size: 2rem;
+            padding-right: 1.5rem;
+            color: #666;
+            cursor: pointer;
+        }
+        .header .search-form label:hover {
+            color: #ec4899;
+        }
+        .header .icons div, .header .icons a {
+            font-size: 2.5rem;
+            margin-left: 2rem;
+            color: #130f40;
+            cursor: pointer;
+            position: relative;
+        }
+        .header .icons .count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #ec4899;
+            color: #fff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+        .header .icons div:hover, .header .icons a:hover {
+            color: #ec4899;
+        }
+       
+/* Navigation */
+.header-2 {
+    background: linear-gradient(135deg, #4caf50, #4caf50);
+    padding: 1rem 5%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.navbar a,
+.dropbtn {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.6rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 6px;
+    background: transparent;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.navbar a:hover,
+.dropbtn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background-color: #fff;
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 0.8rem 1rem;
+    display: block;
+    font-size: 1.5rem;
+}
+
+.dropdown-content a:hover {
+    background-color: #f3e8f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.navbar-toggle {
+    display: none;
+    font-size: 2.8rem;
+    color: #1a1a1a;
+    cursor: pointer;
+    margin-left: 2.5rem;
+}
+
+        .btn {
+            display: inline-block;
+            margin-top: 1rem;
+            border-radius: .5rem;
+            border: .2rem solid #130f40;
+            font-weight: 500;
+            font-size: 1.7rem;
+            cursor: pointer;
+            color: #130f40;
+            background: #fff;
+            padding: .8rem 3rem;
+            text-align: center;
+        }
+        .btn:hover {
+            background: #ec4899;
+            color: #fff;
+            border-color: #ec4899;
+        }
+        .wishlist {
+            padding: 2rem 9%;
+        }
+        .wishlist h1 {
+            text-align: center;
+            font-size: 4rem;
+            color: #333;
+            padding: 1rem;
+            margin: 2rem 0;
+            background: rgba(255, 51, 153, .05);
+        }
+        .wishlist h1 span {
+            color: #ec4899;
+        }
+        .wishlist .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 2rem;
+        }
+        .wishlist .book-card {
+            background: #fff;
+            border: .1rem solid rgba(0, 0, 0, .1);
+            border-radius: .5rem;
+            padding: 2rem;
+            text-align: center;
+            height: 48rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform .3s, box-shadow .3s;
+        }
+        .wishlist .book-card:hover {
+            transform: translateY(-.5rem);
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+        }
+        .wishlist .book-card .image img {
+            height: 20rem;
+            max-width: 100%;
+            object-fit: contain;
+        }
+        .wishlist .book-card .content h3 {
+            font-size: 1.8rem;
+            color: #130f40;
+            height: 5rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        .wishlist .book-card .content .category, .wishlist .book-card .content .author {
+            font-size: 1.4rem;
+            color: #666;
+            margin: .5rem 0;
+        }
+        .wishlist .book-card .content .price {
+            font-size: 2rem;
+            color: #ec4899;
+            font-weight: bold;
+        }
+        .wishlist .book-card .content .price span {
+            font-size: 1.5rem;
+            color: #666;
+            text-decoration: line-through;
+        }
+        .wishlist .book-card .content .stars i {
+            font-size: 1.5rem;
+            color: #ec4899;
+        }
+        .wishlist .book-card .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        .footer {
+            background: #fff;
+            padding: 4rem 9%;
+        }
+        .footer .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+            gap: 2rem;
+        }
+        .footer .box h3 {
+            font-size: 2.5rem;
+            color: #130f40;
+            padding: 1rem 0;
+        }
+        .footer .box a {
+            display: block;
+            font-size: 1.5rem;
+            color: #666;
+            padding: 1rem 0;
+        }
+        .footer .box a i {
+            color: #ec4899;
+            padding-right: .5rem;
+        }
+        .footer .box a:hover i {
+            padding-right: 2rem;
+        }
+        .footer .share {
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .footer .share a {
+            height: 5rem;
+            width: 5rem;
+            line-height: 5rem;
+            font-size: 2rem;
+            color: #fff;
+            background: #ec4899;
+            margin: 0 .3rem;
+            border-radius: .5rem;
+        }
+        .footer .share a:hover {
+            background: #130f40;
+        }
+        .footer .credit {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #666;
+            padding: 2rem 0;
+            border-top: .1rem solid rgba(0, 0, 0, .1);
+        }
+        .footer .credit span {
+            color: #ec4899;
+        }
+        @media (max-width: 991px) {
+            html { font-size: 55%; }
+            .wishlist { padding: 2rem; }
+            .header-1 { padding: 2rem; }
+            .header .search-form { width: 35rem; }
+        }
+        @media (max-width: 768px) {
+            #search-btn { display: none; }
+            .header .search-form {
+                position: absolute;
+                top: 115%;
+                right: 2rem;
+                width: 90%;
+                box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+            }
+            .header .search-form.active { top: 100%; }
+            .header .navbar a {
+                display: block;
+                padding: 1.5rem;
+                font-size: 2rem;
+            }
+        }
+        @media (max-width: 450px) {
+            html { font-size: 50%; }
+            .wishlist h1 { font-size: 3rem; }
+            .header .search-form { width: 95%; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-1">
+            <a href="index.html"><img src="https://i.ibb.co/YBN3svcb/LOGO-logo-dot.png" alt="Book Point Logo" class="logo"></a>
+            <form class="searchc-form" id="searchForm">
+                <!-- <input type="search" name="search" placeholder="search books..." id="search-box" aria-label="Search books"> -->
+                <!-- <label for="search-box" class="fas fa-search" aria-label="Submit search"></label> -->
+            </form>
+            <div class="icons">
+                <div id="search-btn" class="fas fa-search" aria-label="Toggle search"></div>
+                <a href="wishlist.html" class="fas fa-heart" id="wishlist" aria-label="View wishlist"><span class="count" id="wishlistCount">0</span></a>
+                <a href="cart.html" class="fas fa-shopping-cart" id="cart-btn" aria-label="View cart"><span class="count" id="cartCount">0</span></a>
+            </div>
+        </div>
+            
+            <!-- HTML -->
+<div class="header-2">
+  <nav class="navbar" id="navbar">
+    <a href="index.html">Home</a>
+
+    
+
+    <div class="dropdown">
+      <button class="dropbtn">Shop By Category</button>
+      <div class="dropdown-content">
+         <a href="index.html#classbook">Electronic</a>
+        <!-- <a href="index.html#classbook">Men fashion</a>
+        <a href="index.html#classbook">Women fashion</a>
+         <a href="index.html#classbook">Home Fashion</a>
+          <a href="index.html#classbook">Copper COllection</a> -->
+      </div>
+    </div>
+
+   
+ <div class="dropdown">
+      <button class="dropbtn">More</button>
+      <div class="dropdown-content">
+        <a href="Aboutus.html">About us</a>
+        <a href="contact.html">Contact Us</a>
+       
+      </div>
+    </div>
+    <!-- <a href="shop.html">Shop Now</a> -->
+    <a href="bulkorder.html" id="bulk-order-btn">Support</a>
+    <!-- <a href="contact.html">Contact</a> -->
+  </nav>
+</div>
+    </header>
+
+    <section class="wishlist">
+        <h1>Wishlist</h1>
+        <div class="book-grid" id="wishlistBooks"></div>
+    </section>
+
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>Our Locations</h3>
+                <a href="index.html">
+                    <img src="https://i.ibb.co/YBN3svcb/LOGO-logo-dot.png" alt="Company Logo" style="width: 100px;">
+                </a>
+                <a href="#"><i class="fas fa-map-marker-alt"></i> India </a>
+            </div>
+            <div class="box">
+                <h3>Quick Links</h3>
+                <a href="index.html"><i class="fas fa-arrow-right"></i> Home </a>
+                <a href="index.html#classbook" class="d-flex align-items-center mb-2"><i class="fas fa-arrow-right me-2"></i> All category</a>
+                        <!-- <a href="index.html#allclass" class="d-flex align-items-center mb-2"><i class="fas fa-arrow-right me-2"></i> Classes </a> -->
+                    
+                <!-- <a href="#reviews"><i class="fas fa-arrow-right"></i> Reviews </a> -->
+                <a href="bulkorder.html" id="bulk-order-footer-btn"><i class="fas fa-arrow-right"></i>Support </a>
+                <a href="contact.html"><i class="fas fa-arrow-right"></i> Contact </a>
+                                        <a href="Aboutus.html" class="d-flex align-items-center mb-2"><i class="fas fa-arrow-right me-2"></i> About Us</a>
+
+            </div>
+            <div class="box">
+                <h3>Extra Links</h3>
+                <a href="privacy-policy.html"><i class="fas fa-arrow-right"></i> Privacy Policy </a>
+                <a href="refund.html"><i class="fas fa-arrow-right"></i> Refund & Returns </a>
+                <a href="shipping-policy.html"><i class="fas fa-arrow-right"></i> Shipping Policy </a>
+                <a href="Terms.html"><i class="fas fa-arrow-right"></i> Terms & Conditions </a>
+                <a href="https://www.shiprocket.in/shipment-tracking/"><i class="fas fa-arrow-right"></i> Track Order </a>
+            </div>
+            <div class="box">
+                <h3>Contact Info</h3>
+                <a href="tel:+919105118956"><i class="fas fa-phone"></i> +91 9105118956 </a>
+                <a href="#"><i class="fas fa-clock"></i> Everyday: 10:00 AM - 7:30 PM </a>
+                 <a href="#" class="d-flex align-items-center mb-2"><i class="fas fa-city me-2"></i> Plot No. 9, Block-D, Sector 3, Noida, Uttar Pradesh 201301</a>
+                <a href="mailto:support@dotcomtechnologies.com"><i class="fas fa-envelope"></i> support@dotcomtechnologies.com </a>
+                <img src="https://i.ibb.co/mFXb5R4G/Blue-Grey-Minimalist-Modern-Business-Card.png" class="map" alt="Contact Card" height="100">
+            </div>
+        </div>
+        <div class="share">
+            <a href="#" class="fab fa-facebook-f" aria-label="Facebook"></a>
+            <a href="#" class="fab fa-whatsapp" aria-label="WhatsApp"></a>
+            <a href="#" class="fab fa-instagram" aria-label="Instagram"></a>
+            <a href="#" class="fab fa-linkedin" aria-label="LinkedIn"></a>
+        </div>
+        <div class="credit"> created by <span>dotcomtechnologies</span> | all rights reserved! </div>
+    </section>
+
+    <script>
+        const books = [
+          {
+    "id": 1,
+    "name": "Printed White Marble Roti Maker with Wooden Belan Enamel Print Red Colourfull",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/WhatsAppImage2024-04-22at16.19.50.jpg?v=1740563374",
+    "price": 1299.00,
+    "class": null,
+    "description": "This is a highly rated and recommended marble chakla/roti maker, essential for any kitchen. Carved from a single piece of white Makrana marble with a ring base for added rigidity, it features an enamel-printed surface that should be cleaned with a wet cloth, not a scrub. It is dishwasher safe, does not collect odors or stains, and is handcrafted in India by expert artisans.",
+    "category": "Home & Garden > Kitchen & Dining > Kitchen Appliances",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Mirror finish White Makrana Marble",
+      "Cleaning: Use wet cloth, avoid scrub",
+      "Dishwasher safe",
+      "Handcrafted in India"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Printed White Marble Roti Maker with Wooden Belan Enamel Square Blocks Design",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/WhatsAppImage2024-04-22at16.19.51_1.jpg?v=1740563378",
+    "price": 1299.00,
+    isNew:true,
+    "class": null,
+    "description": "A top-rated marble chakla/roti maker, vital for every kitchen. Made from a single piece of white Makrana marble with a ring base for stability, it features an enamel square blocks design. Clean with a wet cloth to protect the enamel surface. Dishwasher safe, odor and stain-resistant, and handcrafted in India by skilled artisans.",
+    "category": "Home & Garden > Kitchen & Dining > Kitchen Appliances",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Mirror finish White Makrana Marble",
+      "Cleaning: Use wet cloth, avoid scrub",
+      "Dishwasher safe",
+      "Handcrafted in India"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Printed Enamel White Marble Roti Maker with Wooden Belan Blue Emperor",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/WhatsAppImage2024-04-22at16.19.53.jpg?v=1740563384",
+    "price": 1299.00,
+    isNew:true,
+    "class": null,
+    "description": "This highly recommended marble chakla/roti maker is a kitchen essential. Crafted from a single piece of white Makrana marble with a ring base for rigidity, it features a blue emperor enamel print. Clean with a wet cloth to preserve the enamel. Dishwasher safe, resistant to odors and stains, and handcrafted in India.",
+    "category": "Home & Garden > Kitchen & Dining > Kitchen Appliances",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Mirror finish White Makrana Marble",
+      "Cleaning: Use wet cloth, avoid scrub",
+      "Dishwasher safe",
+      "Handcrafted in India"
+    ]
+  },
+  {
+    "id": 4,
+    isNew:true,
+    "name": "Portable Neck Rechargeable Cooling Fan",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/54cbcec2ae7de977b070b1d970b5e65f_1080x_4804bba0-0e29-401d-a97a-989501e68dc2_1.webp?v=1740563393",
+    "price": 799.00,
+    "class": null,
+    "description": "Stay cool with this portable neck fan featuring a hands-free design with 22 air outlets for full-face cooling. It offers a long-lasting rechargeable battery, three adjustable speed settings, and is ultra-lightweight. Safe for children and the elderly, it’s perfect for on-the-go use.",
+    "category": "Electronics",
+    "author": "Trendshop",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Weight: 110 g",
+      "Features: Hands-free, 22 air outlets, adjustable airflow",
+      "Battery: Long-lasting rechargeable",
+      "Safety: Wingless design"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Mini Ice Cooler Portable Cooler",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/WhatsAppImage2024-04-26at16.13.12.jpg?v=1740563401",
+    isNew:true,
+    "price": 799.00,
+    "class": null,
+    "description": "A portable cooling solution for home or office use. This mini ice cooler is designed for personal cooling, offering efficient air circulation in small spaces. Compact and easy to use, it’s ideal for personal comfort.",
+    "category": "Electronics",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: Unknown",
+      "Use: Home and office",
+      "Type: Portable cooler"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Portable Air Conditioner Mini Cooler",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/4670859256.webp?v=1740563408",
+    "price": 1250.00,
+    "class": null,
+    isNew:true,
+    "description": "India’s top-selling 3-in-1 portable air cooler, humidifier, and purifier. Features a replaceable filter, three wind speeds, and an easy-fill water tank that runs up to 8 hours. Compact, eco-friendly, and ultra-quiet, it’s perfect for home, office, or travel.",
+    "category": "Home & Garden > Household Appliances > Climate Control Appliances",
+    "author": "Trensz",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: 800 g",
+      "Dimensions: 17 x 16.4 x 14.9 cm",
+      "Features: 3-in-1, eco-friendly, ultra-quiet",
+      "Runtime: Up to 8 hours"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Bedtime Fun Kids Slide Projector Torch",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/WhatsAppImage2024-04-29at21.57.21.jpg?v=1740563419",
+    "price": 550.00,
+    isNew:true,
+    "class": null,
+    "description": "A versatile toy combining learning and entertainment, this projector torch uses premium ABS materials and interchangeable slides to spark creativity. It doubles as a flashlight for nighttime safety, making it a perfect sleep companion for children aged 8 months to 8 years.",
+    "category": "Toys & Games",
+    "author": "Trensz",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: 40 g",
+      "Dimensions: 7 x 4 x 3 cm",
+      "Material: Eco-friendly rubber button, polymer plastic",
+      "Age Range: 8 months - 8 years"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Portable High Power Car Vacuum Cleaner",
+    "image": null,
+    "price": 799.00,
+    "class": null,
+    "description": "A compact, handheld car vacuum cleaner with a HEPA filter, powered by a 3.7V battery for up to 40 minutes of runtime. Features strong suction for cleaning dust, dirt, and hair, with a washable filter and included nozzle and brush. Lightweight and portable for travel or camping.",
+    "category": "Automotive",
+    "author": null,
+    "rating": null,
+    "additionalInfo": [
+      "Weight: Unknown",
+      "Dimensions: 8 x 5 x 10 cm",
+      "Features: Portable, lightweight, HEPA filter",
+      "Runtime: 40 minutes"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Crocs Unisex LiteRide Slide Flip-Flops",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/71M8sxX3XUL._UL1500.jpg?v=1740661929",
+    "price": 999.00,
+    "class": null,
+    "description": "Lightweight and comfortable Crocs LiteRide slide flip-flops with a foam sole, available in sizes 6-12. Designed for a regular fit with a medium shoe width, these unisex flip-flops are easy to clean but should not be exposed to extreme heat to avoid warping.",
+    "category": "Apparel & Accessories > Shoes",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Foam sole",
+      "Fit: Regular, medium width",
+      "Sizes: 6-12",
+      "Care: Avoid extreme heat"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Crocs Men's Baya Slipper",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/51Vsy_dwcEL._SY695__2.jpg?v=1740661935",
+    "price": 999.00,
+    "class": null,
+    "description": "Comfortable and lightweight Crocs Baya slippers for men with a foam sole and slip-on closure. Available in sizes 6-12 with a regular fit and medium width. Avoid extreme heat to prevent warping. Ideal for casual indoor and outdoor use.",
+    "category": "Apparel & Accessories > Shoes",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Foam sole",
+      "Fit: Regular, medium width",
+      "Sizes: 6-12",
+      "Care: Avoid extreme heat"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Crocs Unisex-Adult Classic Slide Slipper",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/61PrpEJME0L._UL1500.jpg?v=1740661939",
+    "price": 999.00,
+    "class": null,
+    "description": "Durable Crocs unisex classic slide slippers with a Croslite sole and slip-on closure. Designed for a regular fit with medium width, available in sizes 6-12. Easy to clean with a dry cloth, these slippers come in elegant packaging, making them a great gifting option.",
+    "category": "Apparel & Accessories > Shoes",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Croslite sole",
+      "Fit: Regular, medium width",
+      "Sizes: 6-12",
+      "Care: Wipe with dry cloth"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Crocs Unisex-Adult Clsspracamosld Slipper",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/71EAutQrLgL._UL1500.jpg?v=1740661944",
+    "price": 999.00,
+    "class": null,
+    "description": "Lightweight Crocs unisex slippers with a foam sole and slip-on closure, offering iconic Croslite foam cushioning. Available in sizes 6-12 with a regular fit and medium width. Easy to clean and quick-drying, ideal for casual wear.",
+    "category": "Apparel & Accessories > Shoes",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Foam sole",
+      "Fit: Regular, medium width",
+      "Sizes: 6-12",
+      "Features: Quick-drying"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Crocs Unisex-Adult Bayaband Flip Flip-Flop",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/41wozsFD-oL._AC_CR0_0_0_0_SX615_SY462.jpg?v=1740661949",
+    "price": 999.00,
+    "class": null,
+    "description": "Casual Crocs unisex Bayaband flip-flops with an Ethylene Vinyl Acetate sole and slip-on closure. Available in sizes 6-12 with a regular fit and medium width. Lightweight, easy to clean, and backed by a manufacturer warranty.",
+    "category": "Apparel & Accessories > Shoes",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Ethylene Vinyl Acetate sole",
+      "Fit: Regular, medium width",
+      "Sizes: 6-12",
+      "Warranty: Manufacturer"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Crocs Men Bayaband Slide (Navy and Pepper Color)",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/51Ik7g_pPqL._UL1100.jpg?v=1740661953",
+    "price": 999.00,
+    "class": null,
+    "description": "Comfortable Crocs men’s Bayaband slides in navy and pepper color with a rubber sole. Available in sizes 6-12 with a regular fit and medium width. Features slip-resistant outsoles and lightweight Croslite material, easy to clean with a damp cloth.",
+    "category": "Apparel & Accessories > Shoes",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Rubber sole, Croslite",
+      "Fit: Regular, medium width",
+      "Sizes: 6-12",
+      "Features: Slip-resistant"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Crocs Unisex-Adult Classic Sandal",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/71Yl6AEHGhL._UL1500.jpg?v=1740661957",
+    "price": 999.00,
+    "class": null,
+    "description": "Durable Crocs unisex classic sandals with a Croslite sole and slip-on closure. Available in sizes 6-12 with a regular fit and medium width. Easy to clean with a dry cloth, these sandals are elegantly packaged, making them a perfect gift.",
+    "category": "Apparel & Accessories > Shoes",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Croslite sole",
+      "Fit: Regular, medium width",
+      "Sizes: 6-12",
+      "Care: Wipe with dry cloth"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Crocs Unisex-Adult Bayaband Clog",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/712Brp0hwfL._SX695.jpg?v=1740661961",
+    "price": 1149.00,
+    "class": null,
+    "description": "A stylish combination of Baya and Crocband designs, these unisex Crocs Bayaband clogs feature an Ethylene Vinyl Acetate sole and pull-on closure. Available in sizes 6-12 with a roomy fit. Water-resistant and customizable with Jibbitz charms.",
+    "category": "Apparel & Accessories > Shoes > Slippers",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Ethylene Vinyl Acetate sole",
+      "Fit: Roomy",
+      "Sizes: 6-12",
+      "Features: Water-resistant, customizable"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Crocs Unisex-Adult Classic",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/61dCQwsqbHL._SX695.jpg?v=1740661965",
+    "price": 1149.00,
+    "class": null,
+    "description": "Classic Crocs unisex shoes with a Croslite sole and pull-on closure, designed for a roomy fit. Available in sizes 6-12, these sneakers are easy to clean with a dry cloth and come in elegant packaging, ideal for gifting.",
+    "category": "Apparel & Accessories > Shoes",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Croslite sole",
+      "Fit: Roomy",
+      "Sizes: 6-12",
+      "Care: Wipe with dry cloth"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Crocs Classic Brown Unisex Adult Clog",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/71EDEMa4u1L._SX695.jpg?v=1740661970",
+    "price": 1149.00,
+    "class": null,
+    "description": "Water-resistant Crocs unisex brown clogs with a Croslite upper and Ethylene Vinyl Acetate sole. Available in sizes 6-12 with a roomy fit. Features a hook-and-loop closure and customizable Jibbitz charms. Easy to clean with soap and water.",
+    "category": "Apparel & Accessories > Shoes > Slippers",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Croslite, Ethylene Vinyl Acetate sole",
+      "Fit: Roomy",
+      "Sizes: 6-12",
+      "Features: Water-resistant, customizable"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Crocs Mens Duet Max Super",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/71e5ETnaUuL._SX695.jpg?v=1740661972",
+    "price": 1149.00,
+    "class": null,
+    "description": "Sport-inspired Crocs men’s Duet Max clogs with a waterproof Thermoplastic Polyurethane upper and Croslite sole. Available in sizes 6-12 with a roomy fit. Features reflective treatment, adjustable straps, and customizable Jibbitz charms for a secure, stylish fit.",
+    "category": "Apparel & Accessories > Shoes > Slippers",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Thermoplastic Polyurethane, Croslite sole",
+      "Fit: Roomy",
+      "Sizes: 6-12",
+      "Features: Waterproof, reflective, customizable"
+    ]
+  },
+  
+  {
+    "id": 21,
+    "name": "Marble Roti Maker with Floral Enamel Design",
+    "image": null,
+    "price": 1399.00,
+    "class": null,
+    "description": "A premium marble chakla/roti maker with a vibrant floral enamel design. Carved from high-quality Makrana marble, it ensures durability and stability with a sturdy ring base. Easy to clean with a wet cloth, dishwasher safe, and handcrafted by Indian artisans.",
+    "category": "Home & Garden > Kitchen & Dining > Kitchen Appliances",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Makrana Marble",
+      "Cleaning: Wet cloth, dishwasher safe",
+      "Design: Floral enamel",
+      "Handcrafted in India"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Portable Desk Fan with USB Charging",
+    "image": null,
+    "price": 599.00,
+    "class": null,
+    "description": "A compact desk fan with USB charging, perfect for home or office use. Features three speed settings and a quiet motor for efficient cooling. Lightweight and portable, it’s ideal for small spaces or travel.",
+    "category": "Electronics",
+    "author": "Trendshop",
+    "rating": 4.0,
+    "additionalInfo": [
+      "Weight: 200 g",
+      "Features: USB charging, three speed settings",
+      "Noise Level: Low",
+      "Use: Desk or travel"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Kids Interactive Storybook Projector",
+    "image": null,
+    "price": 650.00,
+    "class": null,
+    "description": "An engaging storybook projector for kids, featuring colorful slides and audio narration. Made from safe ABS materials, it promotes creativity and learning. Suitable for ages 3-10, it also functions as a nightlight.",
+    "category": "Toys & Games",
+    "author": "Trensz",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: 50 g",
+      "Material: ABS plastic",
+      "Age Range: 3-10 years",
+      "Features: Nightlight function"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Crocs Unisex Coastal Blue Slide Sandal",
+    "image": null,
+    "price": 999.00,
+    "class": null,
+    "description": "Stylish Crocs unisex slide sandals in coastal blue with a Croslite sole. Available in sizes 6-12 with a regular fit. Lightweight and easy to clean, perfect for casual outings or beach trips.",
+    "category": "Apparel & Accessories > Shoes",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Croslite sole",
+      "Fit: Regular, medium width",
+      "Sizes: 6-12",
+      "Care: Wipe with dry cloth"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Mini Portable Blender for Smoothies",
+    "image": null,
+    "price": 899.00,
+    "class": null,
+    "description": "A compact blender for smoothies and shakes, featuring a USB-rechargeable battery and stainless steel blades. Perfect for home, gym, or travel, it’s easy to clean and lightweight.",
+    "category": "Home & Garden > Kitchen & Dining > Kitchen Appliances",
+    "author": "Trensz",
+    "rating": 4.2,
+    "additionalInfo": [
+      "Weight: 300 g",
+      "Material: Stainless steel blades",
+      "Features: USB-rechargeable",
+      "Use: Smoothies, shakes"
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Wireless Car Air Purifier",
+    "image": null,
+    "price": 999.00,
+    "class": null,
+    "description": "A portable car air purifier with a HEPA filter, powered by USB. Removes dust, allergens, and odors, ensuring a fresh interior. Compact design fits in any vehicle, ideal for daily commutes.",
+    "category": "Automotive",
+    "author": "Trendshop",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: 150 g",
+      "Filter: HEPA",
+      "Power: USB",
+      "Use: Car interior"
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Crocs Women’s Floral Clog",
+    "image": null,
+    "price": 1149.00,
+    "class": null,
+    "description": "Elegant Crocs women’s clogs with a floral pattern and Croslite sole. Available in sizes 6-12 with a roomy fit. Water-resistant and customizable with Jibbitz charms, perfect for casual wear.",
+    "category": "Apparel & Accessories > Shoes > Slippers",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Croslite sole",
+      "Fit: Roomy",
+      "Sizes: 6-12",
+      "Features: Water-resistant, customizable"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Kids Magnetic Building Blocks Set",
+    "image": null,
+    "price": 799.00,
+    "class": null,
+    "description": "A 50-piece magnetic building blocks set for kids, fostering creativity and STEM learning. Made from safe ABS plastic, suitable for ages 3-12. Durable and easy to store.",
+    "category": "Toys & Games",
+    "author": "Trensz",
+    "rating": 4.5,
+    "additionalInfo": [
+      "Weight: 600 g",
+      "Material: ABS plastic",
+      "Age Range: 3-12 years",
+      "Pieces: 50"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Portable Electric Kettle 1L",
+    "image": null,
+    "price": 699.00,
+    "class": null,
+    "description": "A 1-liter portable electric kettle with a stainless steel body and auto shut-off feature. Compact and lightweight, it’s perfect for home, office, or travel. Boils water in minutes.",
+    "category": "Home & Garden > Kitchen & Dining > Kitchen Appliances",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: 500 g",
+      "Capacity: 1 liter",
+      "Material: Stainless steel",
+      "Features: Auto shut-off"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Crocs Unisex Black Sport Sneaker",
+    "image": null,
+    "price": 1199.00,
+    "class": null,
+    "description": "Athletic Crocs unisex sneakers in black with a Croslite sole. Available in sizes 6-12 with a regular fit. Lightweight and breathable, ideal for active lifestyles.",
+    "category": "Apparel & Accessories > Shoes",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Croslite sole",
+      "Fit: Regular, medium width",
+      "Sizes: 6-12",
+      "Features: Breathable"
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Rechargeable LED Camping Lantern",
+    "image": "https://cdn-product.avrondirect.com/eyJidWNrZXQiOiJhdnJvbi5tZWRpYS5wcm9kdWN0cyIsImtleSI6IkRUNTA2NjNcL0RUNTA2NjN+Ni5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjEwMDAsImhlaWdodCI6MTAwMCwiZml0IjoiaW5zaWRlIiwiYmFja2dyb3VuZCI6eyJyIjoyNTUsImciOjI1NSwiYiI6MjU1LCJhbHBoYSI6MX19fX0=",
+    "price": 499.00,
+    "class": null,
+    "description": "A bright LED camping lantern with a rechargeable battery and three brightness modes. Compact and durable, it’s perfect for camping, hiking, or emergency use.",
+    "category": "Sports & Outdoors",
+    "author": "Trendshop",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Weight: 250 g",
+      "Battery: Rechargeable",
+      "Modes: Three brightness levels",
+      "Use: Camping, hiking"
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Kids Educational Puzzle Board",
+    "image": "https://m.media-amazon.com/images/I/A1hb5q5rCWL.jpg",
+    "price": 399.00,
+    "class": null,
+    "description": "A wooden puzzle board for kids, featuring shapes, numbers, and colors to promote learning. Safe and non-toxic, suitable for ages 2-6. Enhances cognitive skills.",
+    "category": "Toys & Games",
+    "author": "Trensz",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: 300 g",
+      "Material: Wood",
+      "Age Range: 2-6 years",
+      "Features: Non-toxic"
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Crocs Unisex Green Flip-Flop",
+    "image": null,
+    "price": 999.00,
+    "class": null,
+    "description": "Vibrant green Crocs unisex flip-flops with an Ethylene Vinyl Acetate sole. Available in sizes 6-12 with a regular fit. Lightweight and easy to clean, perfect for casual wear.",
+    "category": "Apparel & Accessories > Shoes",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Ethylene Vinyl Acetate sole",
+      "Fit: Regular, medium width",
+      "Sizes: 6-12",
+      "Care: Easy to clean"
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Portable Wireless Speaker",
+    "image": null,
+    "price": 799.00,
+    "class": null,
+    "description": "A compact wireless speaker with Bluetooth connectivity and up to 6 hours of playtime. Waterproof and durable, it’s ideal for outdoor adventures or home use.",
+    "category": "Electronics",
+    "author": "Trendshop",
+    "rating": 4.1,
+    "additionalInfo": [
+      "Weight: 200 g",
+      "Battery: Up to 6 hours",
+      "Features: Waterproof, Bluetooth",
+      "Use: Indoor/outdoor"
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Non-Stick Marble Coated Frying Pan",
+    "image": null,
+    "price": 799.00,
+    "class": null,
+    "description": "A 24 cm non-stick frying pan with a marble coating for easy cooking and cleaning. Suitable for all stovetops, including induction. Ergonomic handle for comfortable use.",
+    "category": "Home & Garden > Kitchen & Dining > Cookware",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Size: 24 cm",
+      "Material: Marble coated",
+      "Compatibility: All stovetops",
+      "Features: Non-stick"
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Crocs Kids Classic Clog Blue",
+    "image": null,
+    "price": 899.00,
+    "class": null,
+    "description": "Comfortable Crocs kids’ clogs in blue with a Croslite sole. Available in sizes 6-12 with a roomy fit. Water-resistant and easy to clean, perfect for active children.",
+    "category": "Apparel & Accessories > Shoes > Slippers",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Croslite sole",
+      "Fit: Roomy",
+      "Sizes: 6-12",
+      "Features: Water-resistant"
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Portable Handheld Steam Iron",
+    "image": null,
+    "price": 999.00,
+    "class": null,
+    "description": "A compact handheld steam iron for quick wrinkle removal. Features a ceramic soleplate and dual voltage for travel. Lightweight and easy to use for home or on-the-go.",
+    "category": "Home & Garden > Household Appliances",
+    "author": "Trensz",
+    "rating": 4.0,
+    "additionalInfo": [
+      "Weight: 400 g",
+      "Material: Ceramic soleplate",
+      "Features: Dual voltage",
+      "Use: Home, travel"
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Kids Remote Control Car",
+    "image": null,
+    "price": 699.00,
+    "class": null,
+    "description": "A durable remote control car for kids, featuring a rechargeable battery and rugged wheels for indoor/outdoor play. Suitable for ages 5-12, promotes motor skills.",
+    "category": "Toys & Games",
+    "author": "Trensz",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: 500 g",
+      "Battery: Rechargeable",
+      "Age Range: 5-12 years",
+      "Use: Indoor/outdoor"
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Crocs Unisex Red Slide Slipper",
+    "image": null,
+    "price": 999.00,
+    "class": null,
+    "description": "Bold red Crocs unisex slide slippers with a Croslite sole. Available in sizes 6-12 with a regular fit. Easy to clean and lightweight, ideal for casual wear.",
+    "category": "Apparel & Accessories > Shoes",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Croslite sole",
+      "Fit: Regular, medium width",
+      "Sizes: 6-12",
+      "Care: Easy to clean"
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Mini LED Projector for Home",
+    "image": null,
+    "price": 2999.00,
+    "class": null,
+    "description": "A compact LED projector for home entertainment, supporting 1080p resolution and multiple inputs (HDMI, USB). Portable and easy to set up, perfect for movie nights.",
+    "category": "Electronics",
+    "author": "Trendshop",
+    "rating": 4.4,
+    "additionalInfo": [
+      "Weight: 1 kg",
+      "Resolution: 1080p",
+      "Inputs: HDMI, USB",
+      "Use: Home entertainment"
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Marble Coated Induction Cookware Set",
+    "image": null,
+    "price": 1999.00,
+    "class": null,
+    "description": "A 3-piece marble-coated cookware set, including a frying pan, saucepan, and casserole. Non-stick and induction-compatible, it’s easy to clean and durable for daily use.",
+    "category": "Home & Garden > Kitchen & Dining > Cookware",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Pieces: 3",
+      "Material: Marble coated",
+      "Compatibility: Induction",
+      "Features: Non-stick"
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Crocs Unisex White Sport Clog",
+    "image": null,
+    "price": 1149.00,
+    "class": null,
+    "description": "Sporty Crocs unisex white clogs with a Croslite sole. Available in sizes 6-12 with a roomy fit. Water-resistant and breathable, perfect for active lifestyles.",
+    "category": "Apparel & Accessories > Shoes > Slippers",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Croslite sole",
+      "Fit: Roomy",
+      "Sizes: 6-12",
+      "Features: Water-resistant, breathable"
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Kids Art and Craft Kit",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJXpStrgs3aVJgLEhHfaVMdEqOaCaMYjKcQRpNIaTHRpKJ_4yOjXp8ORPvrS2qUU2BUGw&usqp=CAU",
+    "price": 499.00,
+    "class": null,
+    "description": "A comprehensive art and craft kit for kids, including paints, brushes, and paper. Safe and non-toxic, suitable for ages 4-10. Encourages creativity and fine motor skills.",
+    "category": "Toys & Games",
+    "author": "Trensz",
+    "rating": 4.2,
+    "additionalInfo": [
+      "Weight: 400 g",
+      "Material: Non-toxic",
+      "Age Range: 4-10 years",
+      "Includes: Paints, brushes, paper"
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Portable Car Tire Inflator",
+    "image": null,
+    "price": 899.00,
+    "class": null,
+    "description": "A compact car tire inflator with a digital display and auto shut-off. Powered by a 12V car adapter, it’s perfect for roadside emergencies or regular maintenance.",
+    "category": "Automotive",
+    "author": "Trendshop",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: 600 g",
+      "Power: 12V car adapter",
+      "Features: Digital display, auto shut-off",
+      "Use: Tire inflation"
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Crocs Unisex Grey Classic Sneaker",
+    "image": null,
+    "price": 1199.00,
+    "class": null,
+    "description": "Sleek grey Crocs unisex sneakers with a Croslite sole. Available in sizes 6-12 with a regular fit. Lightweight and durable, ideal for everyday wear.",
+    "category": "Apparel & Accessories > Shoes",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Croslite sole",
+      "Fit: Regular, medium width",
+      "Sizes: 6-12",
+      "Features: Lightweight"
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Rechargeable Electric Mosquito Swatter",
+    "image": "https://5.imimg.com/data5/SELLER/Default/2024/12/470492065/EX/MN/KK/226787642/71mza9leiul-sl1500-500x500.jpg",
+    "price": 399.00,
+    "class": null,
+    "description": "An electric mosquito swatter with a rechargeable battery and LED light. Safe and effective for indoor/outdoor use, it eliminates pests without chemicals.",
+    "category": "Home & Garden > Pest Control",
+    "author": "Trensz",
+    "rating": 4.0,
+    "additionalInfo": [
+      "Weight: 200 g",
+      "Battery: Rechargeable",
+      "Features: LED light",
+      "Use: Indoor/outdoor"
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Kids Science Experiment Kit",
+    "image": null,
+    "price": 599.00,
+    "class": null,
+    "description": "A science experiment kit for kids with 20+ activities to explore physics and chemistry. Safe and educational, suitable for ages 8-14. Includes detailed instructions.",
+    "category": "Toys & Games",
+    "author": "Trensz",
+    "rating": null,
+    "additionalInfo": [
+      "Weight: 700 g",
+      "Age Range: 8-14 years",
+      "Activities: 20+",
+      "Features: Safe materials"
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Crocs Unisex Yellow Slide Sandal",
+    "image": null,
+    "price": 999.00,
+    "class": null,
+    "description": "Bright yellow Crocs unisex slide sandals with a Croslite sole. Available in sizes 6-12 with a regular fit. Easy to clean and lightweight, perfect for casual outings.",
+    "category": "Apparel & Accessories > Shoes",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Croslite sole",
+      "Fit: Regular, medium width",
+      "Sizes: 6-12",
+      "Care: Easy to clean"
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Portable Digital Luggage Scale",
+    "image": "https://m.media-amazon.com/images/I/61YOMLX2qbL.jpg",
+    "price": 299.00,
+    "class": null,
+    "description": "A compact digital luggage scale with a clear LCD display. Measures up to 50 kg, perfect for travel to avoid excess baggage fees. Lightweight and easy to carry.",
+    "category": "Travel Accessories",
+    "author": "Trendshop",
+    "rating": 4.3,
+    "additionalInfo": [
+      "Weight: 100 g",
+      "Capacity: Up to 50 kg",
+      "Display: LCD",
+      "Use: Travel"
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Marble Coated Pressure Cooker 3L",
+    "image": null,
+    "price": 1499.00,
+    "class": null,
+    "description": "A 3-liter pressure cooker with a marble coating for fast and even cooking. Induction-compatible and equipped with safety features, it’s ideal for small families.",
+    "category": "Home & Garden > Kitchen & Dining > Cookware",
+    "author": "My Store",
+    "rating": null,
+    "additionalInfo": [
+      "Capacity: 3 liters",
+      "Material: Marble coated",
+      "Compatibility: Induction",
+      "Features: Safety valve"
+    
+    ]
+  },
+   {
+    "id": 51,
+    "name": "EMS Butterfly Massager",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/NWvskdI2bkbVYEtMJFP.jpg?v=1740563148",
+    "price": 299.00,
+    "class": null,
+    "description": "A compact, rechargeable EMS massager designed for cervical pain relief and full-body relaxation. Ideal for adults seeking relief for shoulders and neck.",
+    "category": "Uncategorized",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Not specified",
+      "Usage: Shoulder, Full Body",
+      "Features: Rechargeable, Portable"
+    ]
+  },
+  {
+    "id": 52,
+    "name": "Leakage Repair Waterproof Tape",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/product-jpeg-500x500.webp?v=1740563156",
+    "price": 349.00,
+    "class": null,
+    "description": "A durable butyl rubber tape with aluminum foil for waterproofing and sealing. Suitable for roofing, pipes, and various surfaces, offering high-temperature resistance and easy installation.",
+    "category": "Uncategorized",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Aluminium, Rubber",
+      "Color: Silver",
+      "Features: Waterproof, High temperature resistant (-40℃ to 120℃), UV resistant",
+      "Recommended Use: Roof, pipes, walls"
+    ]
+  },
+  {
+    "id": 53,
+    "name": "Mini Compact Fancy Umbrella",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/cu1.jpg?v=1740563161",
+    "price": 799.00,
+    "class": null,
+    "description": "A compact umbrella with a sturdy plastic capsule case, designed for women and kids. Features UV protection and a slip-resistant handle, ideal for travel and rain or sun protection.",
+    "category": "Home & Garden > Parasols & Rain Umbrellas",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: 190T Nylon Fabric UV Coated, Fiber Alloy Frame",
+      "Color: Red, Yellow, Green, Blue",
+      "Features: UV Coat 50+, Slip-resistant handle, Wrist strap",
+      "Care Instructions: Hand Wash Only"
+    ]
+  },
+  {
+    "id": 54,
+    "name": "Premium Neck Pillow Eye Mask Combo",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/np1.jpg?v=1740563167",
+    "price": 399.00,
+    "class": null,
+    "description": "A travel-friendly neck pillow and eye mask combo, made with comfortable velvet and polyester-cotton filling. Ideal for travel, camping, or office use, with a 30-year warranty.",
+    "category": "Uncategorized",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Polyester, Cotton, Velvet",
+      "Color: Black, Blue, Red, Grey",
+      "Features: Portable, Semicircular shape, Elastic band for eye mask",
+      "Warranty: 30 years"
+    ]
+  },
+  {
+    "id": 55,
+    "name": "Ruffpad 8.5E Re-Writable LCD Writing Pad",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/rp1.webp?v=1740563173",
+    "price": 349.00,
+    "class": null,
+    "description": "An 8.5-inch LCD writing pad for drawing and writing, featuring pressure-sensitive technology and a lock function to save creations. Environmentally friendly and reusable, suitable for kids and adults.",
+    "category": "Uncategorized",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Screen Size: 8.5 inches",
+      "Features: Stylus, Anti-Erase Lock, Reusable",
+      "Uses: Drawing, Writing, Notes",
+      "App Support: Save doodles on iOS/Android"
+    ]
+  },
+  {
+    "id": 56,
+    "name": "Multilayer Stylish Gadget Organizer",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/go1.jpg?v=1740563175",
+    "price": 999.00,
+    "class": null,
+    "description": "A compact, water-resistant gadget organizer with multiple compartments for cables, power banks, and other accessories. Features a durable EVA exterior and soft lining for protection.",
+    "category": "Apparel & Accessories",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: EVA, Rubber zipper",
+      "Dimensions: 24.5 x 15.3 x 5.3 cm",
+      "Features: Water-resistant, Shock-absorbing, Multiple compartments",
+      "Uses: Travel, Organization"
+    ]
+  },
+  {
+    "id": 57,
+    "name": "Multifunction Rechargeable Solar Lamp",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/lantern.jpg?v=1740563179",
+    "price": 999.00,
+    "class": null,
+    "description": "A portable LED camping lantern with 1500 lumens, rechargeable via solar or USB, and a mobile charger function. Features adjustable brightness and IPX4 waterproofing for outdoor use.",
+    "category": "Home & Garden > Lighting",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Metal, ABS",
+      "Power Source: Battery Powered, Solar",
+      "Features: 1500 lumens, IPX4 waterproof, Foldable hooks",
+      "Brightness Modes: Cool white, Warm light"
+    ]
+  },
+  {
+    "id": 58,
+    "name": "Metal Key Ring Bottle",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/NQLYhBbCXFgKgtzvkxC.jpg?v=1740563184",
+    "price": 349.00,
+    "class": null,
+    "description": "A 750ml aluminum water bottle with a brushed metal finish, carabiner clip, and leak-proof lid. Ideal for camping, hiking, and sports, offering durability and portability.",
+    "category": "Home & Garden > Kitchen & Dining > Food & Beverage Carriers > Water Bottles",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Aluminum",
+      "Capacity: 750 Milliliters",
+      "Color: Grey",
+      "Features: Leak Proof, BPA free, Carabiner clip"
+    ]
+  },
+  {
+    "id": 59,
+    "name": "Copper Charge 1000ml Water Bottle",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/kuvi1.jpg?v=1740563309",
+    "price": 999.00,
+    "class": null,
+    "description": "A 1000ml pure copper water bottle with a stylish diamond design, offering antimicrobial properties and leak-proof construction. Perfect for home, school, or office use.",
+    "category": "Home & Garden > Kitchen & Dining > Food & Beverage Carriers > Water Bottles",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: 100% Pure Copper",
+      "Capacity: 1000 Milliliters",
+      "Color: Diamond Design",
+      "Care Instructions: Clean with pitambari powder, avoid acidic beverages"
+    ]
+  },
+  {
+    "id": 60,
+    "name": "Gym Gallon 1.0 Liter Shaker Water Bottle",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/gym1.jpg?v=1740563319",
+    "price": 299.00,
+    "class": null,
+    "description": "A 1-liter BPA-free plastic shaker bottle with a mixer ball and anti-slip handle. Designed for gym, sports, and travel, ensuring convenient hydration.",
+    "category": "Food, Beverages & Tobacco > Beverages > Water",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Plastic",
+      "Capacity: 1 Liter",
+      "Color: Transparent with White Shade",
+      "Features: BPA free, Anti-slip handle, Mixer ball"
+    ]
+  },
+  {
+    "id": 61,
+    "name": "CROME 7 LED Bluetooth Speaker + Wireless Charger",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/Najkqi-VGdgGUCQZ2MW.png?v=1740563325",
+    "price": 2399.00,
+    "class": null,
+    "description": "A multifunctional 4-in-1 device combining a Bluetooth speaker, wireless charger, night light, and FM radio. Features RGB music sync lighting and app-based smart control.",
+    "category": "Electronics",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: ABS, PC",
+      "Color: Wireless Charger G-Lamp",
+      "Features: Energy Efficient, Dimmable, Timer, Colour Changing, Adjustable",
+      "Compatibility: iPhone, Samsung Galaxy"
+    ]
+  },
+  {
+    "id": 62,
+    "name": "36 Strip Women Fashion Tape",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/Nab3BA5Z16dMKdMnURZ.png?v=1740563334",
+    "price": 199.00,
+    "class": null,
+    "description": "A set of 36 double-sided, transparent fashion tapes for securing clothing. Skin-friendly and residue-free, ideal for wardrobe repairs and low-cut garments.",
+    "category": "Uncategorized",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Not specified",
+      "Color: Grey",
+      "Features: Double Sided, Transparent, No Residue",
+      "Quantity: 36 strips"
+    ]
+  },
+  {
+    "id": 63,
+    "name": "Hammer Food Chopper",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/NThCY2rhR3W7Cypvj4p.jpg?v=1740563341",
+    "price": 899.00,
+    "class": null,
+    "description": "A versatile, manual food chopper with metallic fiber blades for slicing, mincing, and peeling. Ergonomic design, dishwasher safe, and includes a 1-year replacement warranty.",
+    "category": "Home & Garden > Kitchen & Dining > Kitchen Appliances",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Metallic Fiber",
+      "Color: Multicolor",
+      "Features: Multipurpose, Dishwasher Safe",
+      "Warranty: 1 Year Replacement"
+    ]
+  },
+  {
+    "id": 64,
+    "name": "Double Cylinder Footpump Air Tyre Inflator",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/NHDnchOJNv9u23XaArM.jpg?v=1740563346",
+    "price": 1599.00,
+    "class": null,
+    "description": "A manual double-cylinder foot pump for inflating car, bike, and cycle tires. Features a high-pressure gauge and durable metal construction, with a maximum pressure of 160 PSI.",
+    "category": "Vehicles & Parts > Vehicle Parts & Accessories > Motor Vehicle Parts > Motor Vehicle Wheel Systems > Motor Vehicle Tires > Automotive Tires",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Metal",
+      "Color: Multicolour",
+      "Weight: 1.9 kg",
+      "Features: High-Pressure Gauge, 3 Nozzle Attachments"
+    ]
+  },
+  {
+    "id": 65,
+    "name": "3D Flower Sticker (Set4) 30x30cm",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/Nb3t4In8YgaNVLuZpol.jpg?v=1740563352",
+    "price": 399.00,
+    "class": null,
+    "description": "A set of 3D flower wall stickers measuring 30x30cm, designed for smooth surfaces. Adds a botanical touch to home decor, suitable for multiple spaces.",
+    "category": "Home & Garden > Decor",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Not specified",
+      "Color: Multicolor",
+      "Dimensions: 30x30cm",
+      "Theme: Botanical"
+    ]
+  },
+  {
+    "id": 66,
+    "name": "Fine Quality Dolphin Bubble Gun",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/N5iV5uZbYqysMxneljr.jpg?v=1740563358",
+    "price": 299.00,
+    "class": null,
+    "description": "A 10-hole electric bubble gun shaped like a dolphin, perfect for summer indoor and outdoor activities. Includes bubble solution and is designed for kids.",
+    "category": "Toys & Games > Toys > Activity Toys > Bubble Blowing Toys",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Plastic",
+      "Color: Multicolour",
+      "Style: Gun",
+      "Theme: Animal"
+    ]
+  },
+  {
+    "id": 67,
+    "name": "Marble Chakla with Belan Blue Rose",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/WhatsAppImage2024-04-22at16.19.45_1.jpg?v=1740563362",
+    "price": 1299.00,
+    "class": null,
+    "description": "A premium marble chakla with a blue rose enamel design, paired with a wooden belan. Handcrafted from Makrana marble, it’s durable, dishwasher safe, and ideal for roti making.",
+    "category": "Home & Garden > Kitchen & Dining > Kitchen Appliances",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Makrana Marble, Wooden Belan",
+      "Design: Blue Rose Enamel",
+      "Cleaning: Wet cloth, Dishwasher safe",
+      "Handcrafted in India"
+    ]
+  },
+  {
+    "id": 68,
+    "name": "Printed Enamel White Marble Roti Maker with Wooden Belan Red Rose",
+    "image": "https://cdn.shopify.com/s/files/1/0590/9115/7071/files/WhatsAppImage2024-04-22at16.19.49_1.jpg?v=1740563370",
+    "price": 1299.00,
+    "class": null,
+    "description": "A high-quality white Makrana marble roti maker with a red rose enamel design, paired with a wooden belan. Handcrafted in India, it’s easy to clean and dishwasher safe.",
+    "category": "Home & Garden > Kitchen & Dining > Kitchen Appliances",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: White Makrana Marble, Wooden Belan",
+      "Design: Red Rose Enamel",
+      "Cleaning: Wet cloth, Dishwasher safe",
+      "Handcrafted in India"
+    ]
+  },
+  {
+    "id": 69,
+    "name": "Portable Electric Kettle",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 599.00,
+    "class": null,
+    "description": "A compact 1.2-liter electric kettle with fast boiling and auto shut-off. Perfect for home, office, or travel, made with stainless steel for durability.",
+    "category": "Home & Garden > Kitchen & Dining > Kitchen Appliances",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Stainless Steel, Plastic",
+      "Capacity: 1.2 Liters",
+      "Features: Auto Shut-off, Cordless",
+      "Power: 1500W"
+    ]
+  },
+  {
+    "id": 70,
+    "name": "Foldable Travel Yoga Mat",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 799.00,
+    "class": null,
+    "description": "A lightweight, non-slip yoga mat that folds easily for travel. Made with eco-friendly materials, ideal for yoga, pilates, or home workouts.",
+    "category": "Sporting Goods > Exercise & Fitness",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Eco-friendly PVC",
+      "Thickness: 6mm",
+      "Features: Non-slip, Foldable, Carry Strap",
+      "Dimensions: 183 x 61 cm"
+    ]
+  },
+  {
+    "id": 71,
+    "name": "Wireless Earbuds with Charging Case",
+    "image": "https://images.unsplash.com/photo-1590658006821-04f54d9d854c",
+    "price": 1499.00,
+    "class": null,
+    "description": "High-quality wireless earbuds with noise cancellation and up to 20 hours of battery life. Includes a compact charging case for on-the-go use.",
+    "category": "Electronics > Audio",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Plastic",
+      "Battery Life: 20 hours",
+      "Features: Noise Cancellation, Bluetooth 5.0",
+      "Compatibility: iOS, Android"
+    ]
+  },
+  {
+    "id": 72,
+    "name": "Ceramic Non-Stick Frying Pan",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 999.00,
+    "class": null,
+    "description": "A 10-inch ceramic non-stick frying pan for healthy cooking. Heat-resistant handle and dishwasher safe, perfect for everyday kitchen use.",
+    "category": "Home & Garden > Kitchen & Dining > Cookware",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Ceramic, Aluminum",
+      "Size: 10 inches",
+      "Features: Non-stick, Dishwasher Safe",
+      "Handle: Heat-resistant"
+    ]
+  },
+  {
+    "id": 73,
+    "name": "LED Desk Lamp with USB Port",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 799.00,
+    "class": null,
+    "description": "A modern LED desk lamp with adjustable brightness and a USB charging port. Ideal for studying, working, or reading, with energy-efficient lighting.",
+    "category": "Home & Garden > Lighting",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Plastic, Metal",
+      "Features: Adjustable Brightness, USB Port",
+      "Light Type: LED",
+      "Power Source: USB Powered"
+    ]
+  },
+  {
+    "id": 74,
+    "name": "Insulated Lunch Box",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 499.00,
+    "class": null,
+    "description": "A 3-compartment insulated lunch box to keep food hot or cold for hours. BPA-free and leak-proof, ideal for office or school use.",
+    "category": "Home & Garden > Kitchen & Dining > Food & Beverage Carriers",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Stainless Steel, Plastic",
+      "Capacity: 1.5 Liters",
+      "Features: Leak-proof, Insulated",
+      "Compartments: 3"
+    ]
+  },
+  {
+    "id": 75,
+    "name": "Portable Car Vacuum Cleaner",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 1299.00,
+    "class": null,
+    "description": "A compact car vacuum cleaner with strong suction and multiple attachments. Powered by a car’s 12V outlet, perfect for quick cleanups.",
+    "category": "Vehicles & Parts > Vehicle Parts & Accessories",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Plastic",
+      "Power: 120W",
+      "Features: HEPA Filter, Multiple Attachments",
+      "Cord Length: 4 meters"
+    ]
+  },
+  {
+    "id": 76,
+    "name": "Adjustable Laptop Stand",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 699.00,
+    "class": null,
+    "description": "A foldable aluminum laptop stand with adjustable height and angle. Improves ergonomics and cooling, suitable for laptops up to 15 inches.",
+    "category": "Electronics > Computer Accessories",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Aluminum",
+      "Compatibility: Laptops up to 15 inches",
+      "Features: Adjustable, Foldable, Non-slip",
+      "Weight: 300g"
+    ]
+  },
+  {
+    "id": 77,
+    "name": "Reusable Silicone Food Storage Bags",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 399.00,
+    "class": null,
+    "description": "A set of 4 reusable silicone food storage bags, perfect for storing snacks, leftovers, or meal prep. Leak-proof and freezer-safe.",
+    "category": "Home & Garden > Kitchen & Dining > Food Storage",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Silicone",
+      "Quantity: 4 bags",
+      "Features: Leak-proof, Freezer-safe",
+      "Capacity: 500ml to 1000ml"
+    ]
+  },
+  {
+    "id": 78,
+    "name": "Smart Digital Bathroom Scale",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 899.00,
+    "class": null,
+    "description": "A digital bathroom scale with body composition analysis, including weight, BMI, and fat percentage. Syncs with mobile apps for tracking.",
+    "category": "Health & Personal Care",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Tempered Glass",
+      "Features: Bluetooth, App Sync",
+      "Capacity: Up to 180kg",
+      "Power: Battery Operated"
+    ]
+  },
+  {
+    "id": 79,
+    "name": "Foldable Travel Duffel Bag",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 599.00,
+    "class": null,
+    "description": "A lightweight, foldable duffel bag with a 40-liter capacity. Water-resistant and durable, ideal for travel, gym, or outdoor adventures.",
+    "category": "Apparel & Accessories > Luggage",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Nylon",
+      "Capacity: 40 Liters",
+      "Features: Water-resistant, Foldable",
+      "Color: Black, Blue"
+    ]
+  },
+  {
+    "id": 80,
+    "name": "Mini USB Humidifier",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 349.00,
+    "class": null,
+    "description": "A compact USB-powered humidifier with mist control and LED night light. Perfect for office desks or travel to maintain air moisture.",
+    "category": "Home & Garden > Household Appliances",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Plastic",
+      "Capacity: 200ml",
+      "Features: USB Powered, LED Light",
+      "Mist Modes: Continuous, Intermittent"
+    ]
+  },
+  {
+    "id": 81,
+    "name": "Stainless Steel Cutlery Set",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 499.00,
+    "class": null,
+    "description": "A 24-piece stainless steel cutlery set for 6 people, including forks, knives, and spoons. Dishwasher safe and rust-resistant.",
+    "category": "Home & Garden > Kitchen & Dining > Flatware",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Stainless Steel",
+      "Quantity: 24 pieces",
+      "Features: Dishwasher Safe, Rust-resistant",
+      "Set Includes: 6 Forks, 6 Knives, 12 Spoons"
+    ]
+  },
+  {
+    "id": 82,
+    "name": "Portable Bluetooth Projector",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 2999.00,
+    "class": null,
+    "description": "A compact Bluetooth projector with 1080p resolution and built-in speakers. Supports HDMI and USB inputs for home entertainment.",
+    "category": "Electronics > Video",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Resolution: 1080p",
+      "Connectivity: HDMI, USB, Bluetooth",
+      "Features: Built-in Speakers, Portable",
+      "Projection Distance: 1-5 meters"
+    ]
+  },
+  {
+    "id": 83,
+    "name": "Collapsible Silicone Water Bottle",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 449.00,
+    "class": null,
+    "description": "A 500ml collapsible silicone water bottle, BPA-free and leak-proof. Ideal for hiking, camping, or daily use with a compact design.",
+    "category": "Home & Garden > Kitchen & Dining > Food & Beverage Carriers > Water Bottles",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Silicone",
+      "Capacity: 500ml",
+      "Features: BPA-free, Collapsible, Leak-proof",
+      "Color: Blue, Green"
+    ]
+  },
+  {
+    "id": 84,
+    "name": "Electric Hand Mixer",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 799.00,
+    "class": null,
+    "description": "A 5-speed electric hand mixer with stainless steel beaters and dough hooks. Perfect for baking and cooking, with easy storage.",
+    "category": "Home & Garden > Kitchen & Dining > Kitchen Appliances",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Plastic, Stainless Steel",
+      "Speeds: 5",
+      "Features: Beaters, Dough Hooks",
+      "Power: 300W"
+    ]
+  },
+  {
+    "id": 85,
+    "name": "Waterproof Phone Pouch",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 299.00,
+    "class": null,
+    "description": "A universal waterproof phone pouch for smartphones up to 7 inches. Ideal for swimming, beach trips, or rainy conditions.",
+    "category": "Electronics > Phone Accessories",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: PVC",
+      "Compatibility: Phones up to 7 inches",
+      "Features: Waterproof, Touch-sensitive",
+      "Color: Clear, Black"
+    ]
+  },
+  {
+    "id": 86,
+    "name": "Bamboo Cutting Board Set",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 599.00,
+    "class": null,
+    "description": "A set of 3 bamboo cutting boards in different sizes. Eco-friendly, durable, and easy to clean, perfect for kitchen prep.",
+    "category": "Home & Garden > Kitchen & Dining > Kitchen Tools",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Bamboo",
+      "Quantity: 3 boards",
+      "Features: Eco-friendly, Easy to Clean",
+      "Sizes: Small, Medium, Large"
+    ]
+  },
+  {
+    "id": 87,
+    "name": "Portable Power Bank 10000mAh",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 999.00,
+    "class": null,
+    "description": "A slim 10000mAh power bank with dual USB ports for fast charging. Compact design, ideal for travel and daily use.",
+    "category": "Electronics > Phone Accessories",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Capacity: 10000mAh",
+      "Ports: Dual USB",
+      "Features: Fast Charging, LED Indicator",
+      "Weight: 200g"
+    ]
+  },
+  {
+    "id": 88,
+    "name": "Adjustable Dumbbell Set",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 1999.00,
+    "class": null,
+    "description": "A pair of adjustable dumbbells with weights from 2.5kg to 24kg. Perfect for home workouts, with a space-saving design.",
+    "category": "Sporting Goods > Exercise & Fitness",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Steel, Plastic",
+      "Weight Range: 2.5kg to 24kg",
+      "Features: Adjustable, Non-slip Grip",
+      "Set Includes: 2 Dumbbells"
+    ]
+  },
+  {
+    "id": 89,
+    "name": "Ceramic Coffee Mug Set",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 399.00,
+    "class": null,
+    "description": "A set of 4 ceramic coffee mugs, each with a 350ml capacity. Microwave and dishwasher safe, ideal for daily use.",
+    "category": "Home & Garden > Kitchen & Dining > Drinkware",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Ceramic",
+      "Capacity: 350ml",
+      "Quantity: 4 mugs",
+      "Features: Microwave Safe, Dishwasher Safe"
+    ]
+  },
+  {
+    "id": 90,
+    "name": "LED Fairy String Lights",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 499.00,
+    "class": null,
+    "description": "10-meter LED fairy string lights with 100 warm white LEDs. Waterproof and battery-operated, perfect for home or event decor.",
+    "category": "Home & Garden > Decor > Lighting",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Length: 10 meters",
+      "LED Count: 100",
+      "Features: Waterproof, Battery Operated",
+      "Color: Warm White"
+    ]
+  },
+  {
+    "id": 91,
+    "name": "Travel Neck Wallet",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 349.00,
+    "class": null,
+    "description": "A secure neck wallet with RFID-blocking technology for passports and cards. Lightweight and adjustable, ideal for travel.",
+    "category": "Apparel & Accessories > Wallets",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Nylon",
+      "Features: RFID-blocking, Adjustable Strap",
+      "Compartments: Multiple",
+      "Color: Black, Grey"
+    ]
+  },
+  {
+    "id": 92,
+    "name": "Mini Electric Screwdriver Set",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 799.00,
+    "class": null,
+    "description": "A rechargeable electric screwdriver with 10 bits for home repairs. Compact and lightweight, with LED light for precision.",
+    "category": "Hardware > Tools",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Plastic, Metal",
+      "Features: Rechargeable, LED Light",
+      "Bits Included: 10",
+      "Power: USB Rechargeable"
+    ]
+  },
+  {
+    "id": 93,
+    "name": "Foldable Camping Chair",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 999.00,
+    "class": null,
+    "description": "A lightweight, foldable camping chair with a sturdy steel frame. Includes a carry bag, ideal for outdoor activities.",
+    "category": "Sporting Goods > Outdoor Recreation",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Steel, Polyester",
+      "Weight Capacity: 120kg",
+      "Features: Foldable, Carry Bag",
+      "Color: Green, Blue"
+    ]
+  },
+  {
+    "id": 94,
+    "name": "Digital Kitchen Timer",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 299.00,
+    "class": null,
+    "description": "A digital kitchen timer with a magnetic back and loud alarm. Perfect for cooking, baking, or time management tasks.",
+    "category": "Home & Garden > Kitchen & Dining > Kitchen Tools",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Plastic",
+      "Features: Magnetic Back, Loud Alarm",
+      "Power: Battery Operated",
+      "Display: LCD"
+    ]
+  },
+  {
+    "id": 95,
+    "name": "Portable Smoothie Blender",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 799.00,
+    "class": null,
+    "description": "A 300ml portable blender for smoothies and shakes, USB rechargeable. Compact and easy to clean, ideal for travel or home use.",
+    "category": "Home & Garden > Kitchen & Dining > Kitchen Appliances",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Plastic, Stainless Steel",
+      "Capacity: 300ml",
+      "Features: USB Rechargeable, Easy to Clean",
+      "Power: 150W"
+    ]
+  },
+  {
+    "id": 96,
+    "name": "Waterproof Outdoor Backpack",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 1299.00,
+    "class": null,
+    "description": "A 30-liter waterproof backpack for hiking and camping. Features padded straps and multiple compartments for organization.",
+    "category": "Sporting Goods > Outdoor Recreation",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Nylon",
+      "Capacity: 30 Liters",
+      "Features: Waterproof, Padded Straps",
+      "Color: Black, Green"
+    ]
+  },
+  {
+    "id": 97,
+    "name": "Electric Toothbrush with Timer",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 599.00,
+    "class": null,
+    "description": "A rechargeable electric toothbrush with a 2-minute timer and multiple brushing modes. Includes 3 replacement heads.",
+    "category": "Health & Personal Care",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Plastic",
+      "Features: Rechargeable, 2-minute Timer",
+      "Modes: Clean, Sensitive, Massage",
+      "Includes: 3 Brush Heads"
+    ]
+  },
+  {
+    "id": 98,
+    "name": "Foldable Storage Ottoman",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 899.00,
+    "class": null,
+    "description": "A foldable storage ottoman with a cushioned top for seating. Stores blankets, toys, or other items, ideal for small spaces.",
+    "category": "Home & Garden > Furniture",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Fabric, Wood",
+      "Capacity: 40 Liters",
+      "Features: Foldable, Cushioned Top",
+      "Color: Grey, Beige"
+    ]
+  },
+  {
+    "id": 99,
+    "name": "Wireless Charging Mouse Pad",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 699.00,
+    "class": null,
+    "description": "A mouse pad with built-in wireless charging for compatible devices. Non-slip base and smooth surface for precise mouse control.",
+    "category": "Electronics > Computer Accessories",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Rubber, Fabric",
+      "Features: Wireless Charging, Non-slip",
+      "Compatibility: Qi-enabled Devices",
+      "Size: 30 x 20 cm"
+    ]
+  },
+  {
+    "id": 100,
+    "name": "Mini LED Flashlight",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "price": 249.00,
+    "class": null,
+    "description": "A compact LED flashlight with adjustable focus and 3 light modes. Waterproof and durable, perfect for camping or emergencies.",
+    "category": "Sporting Goods > Outdoor Recreation",
+    "author": "GVM Store",
+    "rating": null,
+    "additionalInfo": [
+      "Material: Aluminum",
+      "Features: Adjustable Focus, Waterproof",
+      "Modes: High, Low, Strobe",
+      "Power: Battery Operated"
+    ]
+  }
+];
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+        function updateCounts() {
+            document.getElementById('cartCount').textContent = cart.length;
+            document.getElementById('wishlistCount').textContent = wishlist.length;
+        }
+
+        function addToCart(bookId) {
+            const book = books.find(b => b.id === bookId);
+            if (!cart.some(item => item.id === bookId)) {
+                cart.push(book);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCounts();
+                alert(`${book.name} added to cart!`);
+            } else {
+                alert('This book is already in the cart.');
+            }
+        }
+
+        function removeFromWishlist(bookId) {
+            wishlist = wishlist.filter(item => item.id !== bookId);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            updateCounts();
+            displayWishlistBooks();
+        }
+
+        function displayWishlistBooks() {
+            const container = document.getElementById('wishlistBooks');
+            container.innerHTML = '';
+            if (wishlist.length === 0) {
+                container.innerHTML = '<p style="font-size: 1.6rem; color: #666; text-align: center;">Your wishlist is empty.</p>';
+                return;
+            }
+            wishlist.forEach(book => {
+                const stars = Math.floor(book.rating);
+                const hasHalfStar = book.rating % 1 >= 0.5;
+                const bookDiv = document.createElement('div');
+                bookDiv.classList.add('book-card');
+                bookDiv.innerHTML = `
+                    <div class="image">
+                        <img src="${book.image}" alt="${book.name}">
+                    </div>
+                    <div class="content">
+                        <h3>${book.name}</h3>
+                        <p class="category">Category: ${book.category}</p>
+                        <p class="author">By ${book.author}</p>
+                        <div class="price">₹${book.price.toFixed(2)} <span>₹${(book.price * 1.2).toFixed(2)}</span></div>
+                        <div class="stars">
+                            ${'<i class="fas fa-star"></i>'.repeat(stars)}
+                            ${hasHalfStar ? '<i class="fas fa-star-half-alt"></i>' : ''}
+                        </div>
+                        <div class="actions">
+                            <button class="btn" onclick="addToCart(${book.id})">Add to Cart</button>
+                            <button class="btn" onclick="removeFromWishlist(${book.id})">Remove</button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(bookDiv);
+            });
+        }
+
+        document.getElementById('search-btn').addEventListener('click', () => {
+            document.querySelector('.search-form').classList.toggle('active');
+        });
+
+        document.getElementById('searchForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            window.location.href = `index.html?search=${encodeURIComponent(document.getElementById('search-box').value)}`;
+        });
+
+        displayWishlistBooks();
+        updateCounts();
+    </script>
+</body>
+</html>

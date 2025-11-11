@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Policy - dotcomtechnologies</title>
+    <link rel="icon" type="image/png" href="https://i.ibb.co/YBN3svcb/LOGO-logo-dot.png">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Verdana', sans-serif;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: all .2s linear;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f0f7f4;
+        }
+
+        section {
+            padding: 2rem 9%;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 4rem;
+            color: #1a3c34;
+            padding: 1rem;
+            margin: 2rem 0;
+            background: rgba(255, 105, 180, .1);
+        }
+
+        .heading span {
+            color: #ff69b4;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 1rem;
+            border-radius: .5rem;
+            border: .2rem solid #1a3c34;
+            font-weight: 500;
+            font-size: 1.7rem;
+            cursor: pointer;
+            color: #1a3c34;
+            background: #fff;
+            padding: .8rem 3rem;
+        }
+
+        .btn:hover {
+            background: #ff69b4;
+            color: #fff;
+            border-color: #ff69b4;
+        }
+
+        .header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: #fff;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-1 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem 9%;
+        }
+
+        .header .logo {
+            font-size: 2.5rem;
+            font-weight: bolder;
+            color: #1a3c34;
+        }
+
+        .header .logo img {
+            height: 10rem;
+        }
+
+        .header .search-form {
+            width: 50rem;
+            height: 5rem;
+            border: .1rem solid rgba(0, 0, 0, .1);
+            background: #f9f9f9;
+            display: flex;
+            align-items: center;
+            border-radius: .5rem;
+        }
+
+        .header .search-form input {
+            width: 100%;
+            padding: 0 1.5rem;
+            font-size: 1.6rem;
+            color: #333;
+            text-transform: none;
+        }
+
+        .header .search-form label {
+            font-size: 2rem;
+            padding-right: 1.5rem;
+            color: #666;
+            cursor: pointer;
+        }
+
+        .header .search-form label:hover {
+            color: #ff69b4;
+        }
+
+        .header .icons div,
+        .header .icons a {
+            font-size: 2.5rem;
+            margin-left: 2rem;
+            color: #1a3c34;
+            cursor: pointer;
+        }
+
+        .header .icons div:hover,
+        .header .icons a:hover {
+            color: #ff69b4;
+        }
+
+        .head {
+            background: linear-gradient(135deg, #ec9c09, #ec9c09);
+            padding: 1rem 5%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .navbar a,
+        .dropbtn {
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.6rem;
+            padding: 0.8rem 1.2rem;
+            border-radius: 6px;
+            background: transparent;
+            cursor: pointer;
+            text-transform: capitalize;
+        }
+
+        .navbar a:hover,
+        .dropbtn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 110%;
+            left: 0;
+            background-color: #fffbfd;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 0.8rem 1rem;
+            display: block;
+            font-size: 1.5rem;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f3e8f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .navbar-toggle {
+            display: none;
+            font-size: 2.8rem;
+            color: #1a1a1a;
+            cursor: pointer;
+            margin-left: 2.5rem;
+        }
+
+        .shipping-policy .content {
+            max-width: 80rem;
+            margin: 0 auto;
+            background: #fff;
+            padding: 2rem;
+            border: .1rem solid rgba(0, 0, 0, .1);
+            border-radius: .5rem;
+        }
+
+        .shipping-policy .content h3 {
+            font-size: 2.5rem;
+            color: #1a3c34;
+            margin: 2rem 0 1rem;
+        }
+
+        .shipping-policy .content p {
+            font-size: 1.6rem;
+            color: #666;
+            line-height: 2;
+            margin-bottom: 1.5rem;
+        }
+
+        .shipping-policy .content ul {
+            list-style-type: disc;
+            padding-left: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .shipping-policy .content ul li {
+            font-size: 1.6rem;
+            color: #666;
+            line-height: 2;
+        }
+
+        .footer .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 1.5rem;
+        }
+
+        .footer .box-container .box h3 {
+            font-size: 2.2rem;
+            color: #1a3c34;
+            padding: 1rem 0;
+        }
+
+        .footer .box-container .box a {
+            display: block;
+            font-size: 1.4rem;
+            color: #666;
+            padding: 1rem 0;
+        }
+
+        .footer .box-container .box a i {
+            color: #ff69b4;
+            padding-right: .5rem;
+        }
+
+        .footer .box-container .box a:hover {
+            color: #ff69b4;
+        }
+
+        .footer .box-container .box .map {
+            width: 100%;
+        }
+
+        .footer .share {
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .footer .share a {
+            height: 5rem;
+            width: 5rem;
+            line-height: 5rem;
+            font-size: 2rem;
+            color: #fff;
+            background: #1a3c34;
+            margin: 0 .2rem;
+            border-radius: .5rem;
+        }
+
+        .footer .share a:hover {
+            background: #ff69b4;
+        }
+
+        .footer .credit {
+            padding: 1rem;
+            text-align: center;
+            font-size: 2rem;
+            color: #666;
+            border-top: .1rem solid rgba(0, 0, 0, .1);
+        }
+
+        .footer .credit span {
+            color: #ff69b4;
+        }
+
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10000;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+        }
+
+        .loader-container.fade-out {
+            top: -120%;
+        }
+
+        @media (max-width: 991px) {
+            html {
+                font-size: 55%;
+            }
+
+            section {
+                padding: 2rem;
+            }
+
+            .header-1 {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #search-btn {
+                display: none;
+            }
+
+            .header .search-form {
+                position: absolute;
+                top: 115%;
+                right: 2rem;
+                width: 90%;
+                box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+            }
+
+            .header .search-form.active {
+                top: 100%;
+            }
+        }
+
+        @media (max-width: 450px) {
+            html {
+                font-size: 50%;
+            }
+
+            .heading {
+                font-size: 3rem;
+            }
+
+            .shipping-policy .content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header section -->
+    <header class="header">
+        <div class="header-1">
+            <a href="index.html" class="logo">
+                <img src="https://i.ibb.co/YBN3svcb/LOGO-logo-dot.png" alt="dotcomtechnologies Logo" height="100">
+            </a>
+            <div class="icons">
+                <div id="search-btn" class="fas fa-search"></div>
+            </div>
+        </div>
+        <div class="head">
+            <nav class="navbar" id="navbar">
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Shop by Category</button>
+                    <div class="dropdown-content">
+                        <li><a class="dropdown-item" href="#" data-category="Electronics">Electronics</a></li>
+                        <!-- <li><a class="dropdown-item" href="#" data-category="Crocs">Crocs</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Women's Fashion">Women's Fashion</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Home Appliances">Home Appliances</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Copper Collection">Copper Collection</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Kids Styling">Kids Styling</a></li> -->
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">More</button>
+                    <div class="dropdown-content">
+                        <a href="aboutus.html">About Us</a>
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <a href="#" id="bulk-order-btn">Support</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- shipping policy section -->
+    <section class="shipping-policy">
+        <h1 class="heading">Shipping <span>Policy</span></h1>
+        <div class="content">
+            <h3>Shipping Policy</h3>
+            <p>At <strong>DotcomTechnologies</strong>, we strive to deliver your orders swiftly and securely. Partnered
+                with leading logistics providers, we ensure reliable delivery services across India.</p>
+
+            <h3>Order Processing</h3>
+            <p><strong>Processing Time:</strong> Orders are processed within 1-3 business days after payment
+                confirmation. Orders placed on weekends or holidays will be processed on the next business day.</p>
+
+            <h3>Shipping Services</h3>
+            <p><strong>Delivery Timeframe:</strong> Post-dispatch, orders are typically delivered within 4-8 business
+                days, depending on your location. Remote areas may take longer due to logistical constraints.</p>
+            <p><strong>Shipping Charges:</strong> Shipping costs are determined based on order weight and delivery
+                location. The final shipping fee will be shown at checkout before payment.</p>
+
+            <h3>Order Tracking</h3>
+            <p>Once your order is shipped, you will receive a tracking number via email or SMS. Track your shipment on
+                our logistics partner's website using this number.</p>
+
+            <h3>Delivery Attempts</h3>
+            <p>Our logistics partner will attempt delivery up to three times. If delivery fails after these attempts,
+                the package will be returned to our warehouse. Contact our support team to arrange re-delivery or
+                resolve any issues.</p>
+
+            <h3>Damaged or Lost Packages</h3>
+            <p>If your package arrives damaged or is lost in transit, please notify our customer support within 48 hours
+                of the expected delivery date. We will coordinate with our logistics partner to address the issue
+                promptly.</p>
+
+            <h3>International Shipping</h3>
+            <p>Currently, <strong>DotcomTechnologies</strong> ships only within India. For international inquiries,
+                please contact our support team.</p>
+
+            <h3>Contact Information</h3>
+            <p>For any shipping-related queries, reach out to us at:</p>
+            <p><strong>DotcomTechnologies</strong><br>
+
+                Plot No. 9, Block-D, Sector 3, Noida, Uttar Pradesh 201301<br>
+                <a href="mailto:support@dotcomtechnologies.com"> support@dotcomtechnology.co.in</a><br>
+                +91 9105118956
+            </p>
+
+            <p>By shopping with <strong>DotcomTechnologies</strong>, you agree to our shipping policy.</p>
+        </div>
+    </section>
+
+
+    <!-- Footer Section -->
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>Our Locations</h3>
+                <a href="#">
+                    <img src="https://i.ibb.co/YBN3svcb/LOGO-logo-dot.png" alt="Company Logo"
+                        style="width: 100px; height: auto;">
+                </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> India </a>
+            </div>
+            <div class="box">
+                <h3>Quick Links</h3>
+                <a href="index.html"> <i class="fas fa-arrow-right"></i> Home </a>
+                <a href="index.html#categories"> <i class="fas fa-arrow-right"></i> Categories </a>
+                <a href="bulkorder.html" id="bulk-order-footer-btn"> <i class="fas fa-arrow-right"></i> Support </a>
+                <a href="contact.html"> <i class="fas fa-arrow-right"></i> Contact </a>
+                <a href="aboutus.html"> <i class="fas fa-arrow-right"></i> About Us </a>
+            </div>
+            <div class="box">
+                <h3>Extra Links</h3>
+                <a href="privacy-policy.html"> <i class="fas fa-arrow-right"></i> Privacy Policy </a>
+                <a href="refund.html"> <i class="fas fa-arrow-right"></i> Refund & Returns </a>
+                <a href="shipping-policy.html"> <i class="fas fa-arrow-right"></i> Shipping Policy </a>
+                <a href="terms.html"> <i class="fas fa-arrow-right"></i> Terms & Conditions </a>
+                <a href="https://www.shiprocket.in/shipment-tracking/"> <i class="fas fa-arrow-right"></i> Track Order
+                </a>
+            </div>
+            <div class="box">
+                <h3>Contact Info</h3>
+                <a href="#"> <i class="fas fa-phone"></i> +91 9105118956 </a>
+                <a href="#"> <i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 6:00 PM </a>
+                <a href="#" class="d-flex align-items-center mb-2"><i class="fas fa-city me-2"></i> Plot No. 9, Block-D,
+                    Sector 3, Noida, Uttar Pradesh 201301</a>
+                <a href="#"> <i class="fas fa-envelope"></i> support@dotcomtechnology.co.in</a>
+                <img src="https://i.ibb.co/mFXb5R4G/Blue-Grey-Minimalist-Modern-Business-Card.png" class="map" alt="">
+            </div>
+        </div>
+        <div class="share">
+            <a href="#" class="fab fa-facebook-f" aria-label="Facebook"></a>
+            <a href="#" class="fab fa-whatsapp" aria-label="WhatsApp"></a>
+            <a href="#" class="fab fa-instagram" aria-label="Instagram"></a>
+            <a href="#" class="fab fa-linkedin" aria-label="LinkedIn"></a>
+        </div>
+        <div class="credit"> created by <span>dotcomtechnologies</span> | all rights reserved! </div>
+    </section>
+
+
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script>
+        // Prevent right-click and developer tools
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+        });
+
+        document.onkeydown = (e) => {
+            if (e.keyCode === 123) {
+                alert("F12 is disabled.");
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+                alert("Inspect shortcut is disabled.");
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+                alert("Console shortcut is disabled.");
+                return false;
+            }
+            if (e.ctrlKey && e.keyCode === 85) {
+                alert("View Source is disabled.");
+                return false;
+            }
+        };
+
+        // Loader
+        window.addEventListener('load', () => {
+            document.querySelector('.loader-container').classList.add('fade-out');
+        });
+
+        // Search Toggle
+        document.getElementById('search-btn').addEventListener('click', () => {
+            document.querySelector('.search-form').classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>

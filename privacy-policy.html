@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - dotcomtechnologies</title>
+    <link rel="icon" type="image/png" href="https://i.ibb.co/YBN3svcb/LOGO-logo-dot.pngg">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: all .3s ease;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f0fdf4;
+            color: #1f2937;
+        }
+
+        section {
+            padding: 3rem 9%;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 4rem;
+            color: #14532d;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            background: linear-gradient(135deg, rgba(74, 222, 128, 0.1), rgba(244, 114, 182, 0.1));
+            border-radius: 1rem;
+        }
+
+        .heading span {
+            color: #ec4899;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 1rem;
+            border-radius: 5rem;
+            background: linear-gradient(90deg, #22c55e, #ec4899);
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: 600;
+            padding: 1rem 3rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            background: linear-gradient(90deg, #ec4899, #22c55e);
+            transform: translateY(-2px);
+        }
+
+        .header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-1 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem 9%;
+        }
+
+        .header .logo {
+            height: 6rem;
+        }
+
+        .header .search-form {
+            width: 50rem;
+            height: 5rem;
+            background: #f9fafb;
+            border-radius: 5rem;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .search-form input {
+            width: 100%;
+            padding: 0 1.5rem;
+            font-size: 1.6rem;
+            color: #1f2937;
+            background: none;
+            text-transform: none;
+        }
+
+        .header .search-form label {
+            font-size: 2rem;
+            padding-right: 1.5rem;
+            color: #6b7280;
+            cursor: pointer;
+        }
+
+        .header .search-form label:hover {
+            color: #ec4899;
+        }
+
+        .header .icons div,
+        .header .icons a {
+            font-size: 2.5rem;
+            margin-left: 2rem;
+            color: #14532d;
+            cursor: pointer;
+        }
+
+        .header .icons div:hover,
+        .header .icons a:hover {
+            color: #ec4899;
+            transform: scale(1.1);
+        }
+
+        .head {
+            background: linear-gradient(135deg, #ec9c09, #ec9c09);
+            padding: 1rem 5%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .navbar a,
+        .dropbtn {
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.6rem;
+            padding: 0.8rem 1.2rem;
+            border-radius: 6px;
+            background: transparent;
+            cursor: pointer;
+            text-transform: capitalize;
+        }
+
+        .navbar a:hover,
+        .dropbtn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 110%;
+            left: 0;
+            background-color: #f8f4f6;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 0.8rem 1rem;
+            display: block;
+            font-size: 1.5rem;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f3e8f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .navbar-toggle {
+            display: none;
+            font-size: 2.8rem;
+            color: #1a1a1a;
+            cursor: pointer;
+            margin-left: 2.5rem;
+        }
+
+        .privacy-policy {
+            background: #fff;
+            padding: 4rem 9%;
+            margin: 3rem auto;
+            border-radius: 1.2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 90rem;
+        }
+
+        .privacy-policy .content {
+            padding: 2rem;
+        }
+
+        .privacy-policy .content h3 {
+            font-size: 2.8rem;
+            color: #14532d;
+            margin: 2.5rem 0 1.2rem;
+            font-weight: 700;
+            letter-spacing: 0.05rem;
+            border-bottom: 2px solid #ec4899;
+            padding-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .privacy-policy .content p {
+            font-size: 1.6rem;
+            color: #374151;
+            line-height: 2.6rem;
+            margin-bottom: 1.8rem;
+            font-weight: 400;
+            text-align: justify;
+            letter-spacing: 0.02rem;
+        }
+
+        .privacy-policy .content ul,
+        .privacy-policy .content ol {
+            margin: 2rem 0;
+            padding-left: 3.5rem;
+        }
+
+        .privacy-policy .content ul li,
+        .privacy-policy .content ol li {
+            font-size: 1.6rem;
+            color: #374151;
+            margin-bottom: 1.2rem;
+            line-height: 2.4rem;
+        }
+
+        .privacy-policy .content a {
+            color: #ec4899;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        .privacy-policy .content a:hover {
+            color: #22c55e;
+            text-decoration: none;
+        }
+
+        .privacy-policy .content blockquote {
+            border-left: 4px solid #22c55e;
+            padding: 1.2rem 1.8rem;
+            background: #f0fdf4;
+            margin: 2rem 0;
+            border-radius: 0.5rem;
+            font-style: italic;
+            font-size: 1.6rem;
+            color: #1f2937;
+        }
+
+        .footer .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 2rem;
+        }
+
+        .footer .box-container .box h3 {
+            font-size: 2.5rem;
+            color: #14532d;
+            padding: 1rem 0;
+        }
+
+        .footer .box-container .box a {
+            display: block;
+            font-size: 1.5rem;
+            color: #6b7280;
+            padding: 1rem 0;
+        }
+
+        .footer .box-container .box a i {
+            color: #ec4899;
+            padding-right: .5rem;
+        }
+
+        .footer .box-container .box a:hover {
+            color: #ec4899;
+            padding-left: .5rem;
+        }
+
+        .footer .box-container .box .map {
+            width: 100%;
+            border-radius: .5rem;
+        }
+
+        .footer .share {
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer .share a {
+            height: 5rem;
+            width: 5rem;
+            line-height: 5rem;
+            font-size: 2rem;
+            color: #fff;
+            background: #14532d;
+            margin: 0 .3rem;
+            border-radius: 50%;
+        }
+
+        .footer .share a:hover {
+            background: #ec4899;
+            transform: rotate(360deg);
+        }
+
+        .footer .credit {
+            padding: 2rem;
+            text-align: center;
+            font-size: 1.8rem;
+            color: #6b7280;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .footer .credit span {
+            color: #ec4899;
+        }
+
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10000;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+            transition: top .5s ease;
+        }
+
+        .loader-container.fade-out {
+            top: -100%;
+        }
+
+        @media (max-width: 991px) {
+            html {
+                font-size: 55%;
+            }
+
+            section {
+                padding: 2rem;
+            }
+
+            .header-1 {
+                padding: 2rem;
+            }
+
+            .privacy-policy {
+                padding: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #search-btn {
+                display: none;
+            }
+
+            .header .search-form {
+                position: absolute;
+                top: 110%;
+                right: 2rem;
+                width: 90%;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                border-radius: .5rem;
+            }
+
+            .header .search-form.active {
+                top: 100%;
+            }
+
+            .navbar-toggle {
+                display: block;
+            }
+
+            .navbar {
+                display: none;
+                flex-direction: column;
+                background: #fff;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                padding: 2rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .navbar.active {
+                display: flex;
+            }
+
+            .privacy-policy .content h3 {
+                font-size: 2.4rem;
+            }
+
+            .privacy-policy .content p,
+            .privacy-policy .content li {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 450px) {
+            html {
+                font-size: 50%;
+            }
+
+            .heading {
+                font-size: 3rem;
+            }
+
+            .privacy-policy {
+                padding: 2rem;
+            }
+
+            .privacy-policy .content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header section -->
+    <header class="header">
+        <div class="header-1">
+            <a href="./index.html">
+                <img src="https://i.ibb.co/YBN3svcb/LOGO-logo-dot.pngg" alt="dotcomtechnologies Logo" class="logo"
+                    height="100">
+            </a>
+            <div class="icons">
+                <div id="search-btn" class="fas fa-search"></div>
+            </div>
+        </div>
+        <div class="head">
+            <nav class="navbar" id="navbar">
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Shop by Category</button>
+                    <div class="dropdown-content">
+                       <li><a class="dropdown-item" href="#" data-category="Electronics">Electronics</a></li>
+                            <!-- <li><a class="dropdown-item" href="#" data-category="Crocs">Crocs</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Women's Fashion">Women's Fashion</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Home Appliances">Home Appliances</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Copper Collection">Copper Collection</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Kids Styling">Kids Styling</a></li> -->
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">More</button>
+                    <div class="dropdown-content">
+                        <a href="aboutus.html">About Us</a>
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <a href="bulkorder.html" id="bulk-order-btn">Support</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- privacy policy section -->
+    <section class="privacy-policy">
+  <h1 class="heading">Privacy <span>Policy</span></h1>
+  <div class="content" style="max-width: 80rem; margin: 0 auto;">
+    <h3>1. Introduction</h3>
+    <p>At dotcomtechnologies, we are dedicated to safeguarding your privacy. This Privacy Policy explains how we
+      collect, use, disclose, and protect your personal information when you visit our website, make
+      purchases, or interact with our services. By using our services, you consent to the practices described
+      in this policy.</p>
+
+    <h3>2. Information We Collect</h3>
+    <p>We collect information to enhance your shopping experience and provide tailored services. The types of
+      information we collect include:</p>
+    <ul>
+      <li><strong>Personal Information:</strong> Name, email address, phone number, billing and shipping
+        addresses provided during account creation, checkout, or inquiries.</li>
+      <li><strong>Payment Information:</strong> Credit/debit card details, UPI IDs, or other payment-related
+        information processed through secure payment gateways.</li>
+      <li><strong>Technical Data:</strong> IP address, browser type, device information, operating system, and
+        usage data collected via cookies and similar technologies.</li>
+      <li><strong>Order and Interaction Data:</strong> Purchase history, browsing behavior, and communications
+        with our customer support team.</li>
+    </ul>
+
+    <h3>3. How We Use Your Information</h3>
+    <p>We use your information to provide, improve, and personalize our services, including:</p>
+    <ul>
+      <li><strong>Order Fulfillment:</strong> Processing and delivering your orders, managing payments, and
+        providing order updates.</li>
+      <li><strong>Customer Support:</strong> Responding to your inquiries, resolving issues, and providing
+        assistance.</li>
+      <li><strong>Marketing and Promotions:</strong> Sending promotional offers, newsletters, or personalized
+        recommendations, provided you have opted in.</li>
+      <li><strong>Website Improvement:</strong> Analyzing usage patterns to enhance website functionality,
+        user experience, and product offerings.</li>
+      <li><strong>Legal Compliance:</strong> Meeting legal and regulatory requirements or protecting against
+        fraud.</li>
+    </ul>
+
+    <h3>4. Data Security</h3>
+    <p>We employ industry-standard security measures to protect your personal information from unauthorized
+      access, use, or disclosure. However, please note that no online transmission or storage method is
+      completely secure, and we cannot guarantee absolute security.</p>
+
+    <h3>5. Sharing Your Information</h3>
+    <p>We do not sell, trade, or rent your personal information. We may share your information with:</p>
+    <ul>
+      <li><strong>Service Providers:</strong> Trusted third parties who assist with payment processing,
+        shipping, analytics, or marketing, bound by confidentiality agreements.</li>
+      <li><strong>Legal Obligations:</strong> Authorities or regulators when required by law or to protect our
+        legal rights, safety, or property.</li>
+      <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or sale of assets, your
+        information may be transferred as part of the transaction, with prior notice.</li>
+    </ul>
+
+    <h3>6. Cookies and Tracking Technologies</h3>
+    <p>We use cookies, web beacons, and similar technologies to enhance your browsing experience, analyze site
+      traffic, and personalize content. You can manage cookie preferences through your browser settings or
+      opt-out mechanisms provided on our website.</p>
+
+    <h3>7. Your Rights</h3>
+    <p>Subject to applicable laws, you may have the following rights regarding your personal information:</p>
+    <ul>
+      <li><strong>Access:</strong> Request access to the personal data we hold about you.</li>
+      <li><strong>Correction:</strong> Request correction of inaccurate or incomplete information.</li>
+      <li><strong>Deletion:</strong> Request deletion of your data, subject to legal retention obligations.
+      </li>
+      <li><strong>Opt-Out:</strong> Opt out of marketing communications at any time via the unsubscribe link
+        in emails or by contacting us.</li>
+    </ul>
+    <p>To exercise these rights, please contact us using the details below.</p>
+
+    <h3>8. Changes to This Privacy Policy</h3>
+    <p>We may revise this Privacy Policy periodically to reflect changes in our practices or legal requirements.
+      Updates will be posted on this page with an updated revision date. We encourage you to review this
+      policy regularly.</p>
+
+    <!-- ✅ Live Date Section -->
+    <p><strong>Last Updated:</strong> <span id="lastUpdated"></span></p>
+
+    <h3>9. Contact Us</h3>
+    <p>For questions, concerns, or to exercise your rights under this Privacy Policy, please contact us at:</p>
+    <p>
+      dotcomtechnologies<br>
+      Plot No. 9, Block-D, Sector 3, Noida, Uttar Pradesh 201301<br>
+      <a href="mailto:support@dotcomtechnology.co.in">support@dotcomtechnology.co.in</a><br>
+      +91 9105118956
+    </p>
+  </div>
+</section>
+
+<!-- ✅ JavaScript for Live Date -->
+<script>
+  const today = new Date();
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  document.getElementById('lastUpdated').textContent = today.toLocaleDateString('en-IN', options);
+</script>
+
+
+    <!-- Footer Section -->
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>Our Locations</h3>
+                <a href="#">
+                    <img src="https://i.ibb.co/YBN3svcb/LOGO-logo-dot.pngg" alt="Company Logo"
+                        style="width: 100px; height: auto;">
+                </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> India </a>
+            </div>
+            <div class="box">
+                <h3>Quick Links</h3>
+                <a href="index.html"> <i class="fas fa-arrow-right"></i> Home </a>
+                <a href="index.html#categories"> <i class="fas fa-arrow-right"></i> Categories </a>
+                <a href="bulkorder.html" id="bulk-order-footer-btn"> <i class="fas fa-arrow-right"></i> Support </a>
+                <a href="contact.html"> <i class="fas fa-arrow-right"></i> Contact </a>
+                <a href="aboutus.html"> <i class="fas fa-arrow-right"></i> About Us </a>
+            </div>
+            <div class="box">
+                <h3>Extra Links</h3>
+                <a href="privacy-policy.html"> <i class="fas fa-arrow-right"></i> Privacy Policy </a>
+                <a href="refund.html"> <i class="fas fa-arrow-right"></i> Refund & Returns </a>
+                <a href="shipping-policy.html"> <i class="fas fa-arrow-right"></i> Shipping Policy </a>
+                <a href="terms.html"> <i class="fas fa-arrow-right"></i> Terms & Conditions </a>
+                <a href="https://www.shiprocket.in/shipment-tracking/"> <i class="fas fa-arrow-right"></i> Track Order
+                </a>
+            </div>
+            <div class="box">
+                <h3>Contact Info</h3>
+                <a href="#"> <i class="fas fa-phone"></i> +91 9105118956 </a>
+                <a href="#"> <i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 6:00 PM </a>
+                <a href="#" class="d-flex align-items-center mb-2"><i class="fas fa-city me-2"></i> Plot No. 9, Block-D,
+                    Sector 3, Noida, Uttar Pradesh 201301</a>
+                <a href="#"> <i class="fas fa-envelope"></i>  support@dotcomtechnology.co.in </a>
+                <img src="https://i.ibb.co/mFXb5R4G/Blue-Grey-Minimalist-Modern-Business-Card.png" class="map" alt="">
+            </div>
+        </div>
+        <div class="share">
+            <a href="#" class="fab fa-facebook-f" aria-label="Facebook"></a>
+            <a href="#" class="fab fa-whatsapp" aria-label="WhatsApp"></a>
+            <a href="#" class="fab fa-instagram" aria-label="Instagram"></a>
+            <a href="#" class="fab fa-linkedin" aria-label="LinkedIn"></a>
+        </div>
+        <div class="credit"> created by <span>dotcomtechnologies</span> | all rights reserved! </div>
+    </section>
+
+
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script>
+        // Prevent right-click and developer tools
+        document.addEventListener('contextmenu', (e) => {
+            alert("Right-click is disabled for security.");
+            e.preventDefault();
+        });
+
+        document.onkeydown = (e) => {
+            if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) || (e.ctrlKey && e.keyCode === 85)) {
+                alert("Developer tools and view source are disabled.");
+                return false;
+            }
+        };
+
+        // Loader
+        window.addEventListener('load', () => {
+            document.querySelector('.loader-container').classList.add('fade-out');
+        });
+
+        // Search Toggle
+        document.getElementById('search-btn').addEventListener('click', () => {
+            document.querySelector('.search-form').classList.toggle('active');
+        });
+
+        // WhatsApp Button
+        const toggleButton = document.createElement('div');
+        const whatsappIcon = document.createElement('img');
+        whatsappIcon.src = 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg';
+        whatsappIcon.alt = 'WhatsApp';
+        whatsappIcon.style.width = '35px';
+        whatsappIcon.style.height = '35px';
+        Object.assign(toggleButton.style, {
+            position: 'fixed',
+            left: '20px',
+            bottom: '20px',
+            width: '60px',
+            height: '60px',
+            backgroundColor: '#25D366',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer',
+            boxShadow: '0 4px 10px rgba(0,0,0,0.2)',
+            transition: 'transform 0.4s ease, background-color 0.4s ease',
+            zIndex: '9999'
+        });
+        toggleButton.appendChild(whatsappIcon);
+        document.body.appendChild(toggleButton);
+        toggleButton.addEventListener('click', () => {
+            toggleButton.style.transform = 'scale(1.2) rotate(45deg)';
+            toggleButton.style.backgroundColor = '#075e54';
+            setTimeout(() => {
+                window.location.href = 'https://wa.me/+919105118956';
+            }, 200);
+        });
+    </script>
+</body>
+
+</html>
